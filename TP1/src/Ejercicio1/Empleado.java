@@ -14,6 +14,7 @@ public class Empleado {
 		this.edad = 99;
 		
 		num_id++;
+
 	}
 	
 	public Empleado(String nombre, int edad) {
