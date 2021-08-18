@@ -2,7 +2,7 @@ package Ejercicio1;
 
 public class Empleado {
 	
-	private final int id;
+	private int id;
 	private String nombre;
 	private int edad;
 	private static int num_id = 1000;
