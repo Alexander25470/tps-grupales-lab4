@@ -43,8 +43,7 @@ public class Empleado {
 	}
 
 	public static String devuelveProximoID() {
-		int numeroDevolver = num_id+cont+1;
-		return "El próximo ID será el "+numeroDevolver;
+		return "El próximo ID será el "+ (num_id+cont+1);
 	}
 	
 	@Override
