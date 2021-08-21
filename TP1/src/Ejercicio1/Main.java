@@ -16,6 +16,7 @@ public class Main {
 		for (Empleado empleado : emp1) {
 			System.out.println(empleado.toString());
 		}
+		System.out.println(Empleado.devuelveProximoID());
 		
 	}
 
