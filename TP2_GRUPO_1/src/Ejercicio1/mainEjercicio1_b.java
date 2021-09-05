@@ -20,6 +20,12 @@ public class mainEjercicio1_b {
 			it.remove();
 			System.out.println(profesor.toString());
 		}
+		
+		Profesor prof1 = new Profesor();
+		Profesor prof2 = new Profesor();
+		
+		if(prof1.equals(prof2)) {
+			System.out.println("Es el mismo profesor.");
+		}
 	}
-
 }

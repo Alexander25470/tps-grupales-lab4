@@ -20,4 +20,7 @@ public class mainEjercicio1_a {
 			System.out.println(profesor.toString());
 		}
 	}
+	
+	
+	
 }
