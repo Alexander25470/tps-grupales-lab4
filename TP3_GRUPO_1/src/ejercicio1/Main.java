@@ -1,5 +1,9 @@
 package ejercicio1;
 
+import java.util.ArrayList;
+import java.util.ListIterator;
+
+
 public class Main {
 
 	public static void main(String[] args) {
@@ -13,7 +17,16 @@ public class Main {
 		
 		Archivo ar = new Archivo();
 		ar.setRuta("Personas.txt");
-		ar.lee_lineas();
+		
+		ArrayList<String> personasEnTexto = ar.lee_lineas();
+		
+		for (String persona : personasEnTexto) {
+			System.out.println(persona);
+			if(persona!="" && persona!="\n" && persona != null) {				
+				Persona per = new Persona(persona);
+			}
+			/*System.out.println(per.toString());*/
+		}
 	}
 	
 

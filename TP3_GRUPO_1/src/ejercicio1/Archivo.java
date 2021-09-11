@@ -5,6 +5,7 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.ArrayList;
 
 public class Archivo {
 	private String ruta;
@@ -40,22 +41,46 @@ public class Archivo {
 			
 	}
 	
-	public void lee_lineas() {
+	public String leerArchivo() {
 		FileReader entrada;
+		String texto = "";
+		try {
+			entrada = new FileReader(ruta);
+			int c = entrada.read(); //Lee el primer caracter
+			while (c != -1) 
+			{
+				char letra = (char) c;
+				texto+= letra;
+				c = entrada.read();
+			}
+			entrada.close();
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return texto;
+	}
+	
+	public ArrayList<String> lee_lineas() {
+		FileReader entrada;
+		ArrayList<String> lineas = new ArrayList();
 		try {
 			entrada = new FileReader(ruta);
 			BufferedReader miBuffer = new BufferedReader(entrada);
 			
 		   String linea = "";
 			while (linea != null) {
-				System.out.println(linea);
+				if(linea !="" && linea != null) {					
+					lineas.add(linea);
+				}
 				linea = miBuffer.readLine();
 			}
 			miBuffer.close();
 			entrada.close();
-
+			
 		} catch (IOException e) {
 			System.out.println("No se encontro el archivo");
 		}
+		return lineas;
 	}
 }
