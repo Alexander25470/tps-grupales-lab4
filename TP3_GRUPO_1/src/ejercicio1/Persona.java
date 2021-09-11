@@ -1,6 +1,6 @@
 package ejercicio1;
 
-public class ArchivoPersonas {
+public class Persona {
 	String dni;
 	
 	public static void verificarDniInvalido(String dni) throws DniInvalido {
