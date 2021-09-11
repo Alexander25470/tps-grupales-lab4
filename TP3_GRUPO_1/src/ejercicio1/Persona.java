@@ -11,12 +11,12 @@ public class Persona {
 		this.apellido = apellido;
 	}
 
-	public Persona(String personaTexto){
+	public Persona(String personaTexto) throws DniInvalido{
 		String partesPersona[] = personaTexto.split("-");
 		
-		
-		// verificarDniInvalido(partesPersona[0]);
-		
+		// if(partesPersona.length!=3) return;	
+		verificarDniInvalido(partesPersona[2]);
+
 		this.dni = partesPersona[0];
 		this.nombre = partesPersona[1];
 		this.apellido = partesPersona[2];

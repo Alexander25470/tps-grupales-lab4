@@ -21,11 +21,12 @@ public class Main {
 		ArrayList<String> personasEnTexto = ar.lee_lineas();
 		
 		for (String persona : personasEnTexto) {
-			System.out.println(persona);
-			if(persona!="" && persona!="\n" && persona != null) {				
+			try {				
 				Persona per = new Persona(persona);
+				System.out.println(per.toString());
+			} catch (Exception ex) {
+				// ex.printStackTrace();
 			}
-			/*System.out.println(per.toString());*/
 		}
 	}
 	
