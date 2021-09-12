@@ -1,6 +1,8 @@
 package ejercicio1;
 
-public class Persona {
+import java.io.IOException;
+
+public class Persona implements Comparable{
 	String dni;
 	String nombre;
 	String apellido;
@@ -11,20 +13,21 @@ public class Persona {
 		this.apellido = apellido;
 	}
 
-	public Persona(String personaTexto) throws DniInvalido{
+	public Persona(String personaTexto) throws DniInvalido, IOException{
 		String partesPersona[] = personaTexto.split("-");
-		
-		// if(partesPersona.length!=3) return;	
+		if(partesPersona.length!=3) {
+			throw new IOException("Texto incompleto");
+		};	
 		verificarDniInvalido(partesPersona[2]);
 
-		this.dni = partesPersona[0];
-		this.nombre = partesPersona[1];
-		this.apellido = partesPersona[2];
+		this.nombre = partesPersona[0];
+		this.apellido = partesPersona[1];
+		this.dni = partesPersona[2];
 	}
 	
 	@Override
 	public String toString() {
-		return "Persona [dni=" + dni + ", nombre=" + nombre + ", apellido=" + apellido + "]";
+		return nombre+"-"+apellido+"-"+dni;
 	}
 
 	public String getDni() {
@@ -58,4 +61,11 @@ public class Persona {
 		    throw new DniInvalido();
 		  }  
 	}
+
+	@Override
+	public int compareTo(Object o) {
+		Persona other = (Persona) o;
+		return this.apellido.compareTo(other.apellido);
+	}
+	
 }

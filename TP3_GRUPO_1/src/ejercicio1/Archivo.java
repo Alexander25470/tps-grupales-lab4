@@ -61,9 +61,22 @@ public class Archivo {
 		return texto;
 	}
 	
+	public void escribeLineas(String frase) {
+		try 
+		{	
+			FileWriter entrada = new FileWriter(ruta, true);
+			BufferedWriter miBuffer = new BufferedWriter(entrada);
+			miBuffer.write(frase+"\n");
+			miBuffer.close();
+			entrada.close();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+	
 	public ArrayList<String> lee_lineas() {
 		FileReader entrada;
-		ArrayList<String> lineas = new ArrayList();
+		ArrayList<String> lineas = new ArrayList<String>();
 		try {
 			entrada = new FileReader(ruta);
 			BufferedReader miBuffer = new BufferedReader(entrada);
