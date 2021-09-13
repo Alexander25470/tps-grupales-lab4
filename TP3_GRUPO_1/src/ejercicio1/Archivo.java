@@ -61,12 +61,12 @@ public class Archivo {
 		return texto;
 	}
 	
-	public void escribeLineas(String frase) {
+	public void escribeLineas(String linea) {
 		try 
 		{	
 			FileWriter entrada = new FileWriter(ruta, true);
 			BufferedWriter miBuffer = new BufferedWriter(entrada);
-			miBuffer.write(frase+"\n");
+			miBuffer.write(linea+"\n");
 			miBuffer.close();
 			entrada.close();
 		} catch (IOException e) {
