@@ -4,12 +4,12 @@ public class Peliculas {
 	int id;
 	String nombre;
 	Genero genero;
-	static int cont = 0;
+	static int cont = 1;
 	public Peliculas(String nombre, Genero genero) {
-		cont++;
 		this.id = cont;
 		this.nombre = nombre;
 		this.genero = genero;
+		cont++;
 	}
 
 	public int getId() {
@@ -34,7 +34,7 @@ public class Peliculas {
 
 	@Override
 	public String toString() {
-		return id + " - " + nombre + " - " + genero.toString();
+		return nombre + " - " + genero.toString();
 	}	
 	
 }

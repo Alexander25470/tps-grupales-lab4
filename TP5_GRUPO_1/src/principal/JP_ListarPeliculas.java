@@ -7,6 +7,9 @@ import javax.swing.JList;
 import java.awt.Color;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.TreeSet;
 import java.awt.event.ActionEvent;
 
 public class JP_ListarPeliculas extends JPanel {
@@ -15,30 +18,29 @@ public class JP_ListarPeliculas extends JPanel {
 	 * Create the panel.
 	 */
 	private static DefaultListModel<Peliculas> listModel;
+	private static TreeSet<Peliculas> peliculas;
 	
-	public JP_ListarPeliculas() {
+	public JP_ListarPeliculas(DefaultListModel<Peliculas> LM_Peliculas) {
 		setLayout(null);
-		listModel = new DefaultListModel<Peliculas>();
+		listModel = LM_Peliculas;
+		orderJlist();
 		
 		JLabel lblPeliculas = new JLabel("Peliculas");
 		lblPeliculas.setBounds(43, 131, 58, 14);
 		add(lblPeliculas);
 		
-		JList list = new JList();
+		JList<Peliculas> list = new JList<Peliculas>();
 		list.setModel(listModel);
 		list.setBounds(121, 11, 319, 278);
-		add(list);
-		
-		JButton btnNewButton = new JButton("New button");
-		btnNewButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				Genero gen= new Genero("genero 1");
-				Peliculas pel = new Peliculas("pelicula 1", gen);
-				listModel.addElement(pel);
-			}
-		});
-		btnNewButton.setBounds(12, 205, 89, 23);
-		add(btnNewButton);
-
+		add(list);	
 	}
+	private void orderJlist(){
+		ArrayList<Peliculas> list = Collections.list(listModel.elements());
+		Collections.sort(list, new ComparadorPeliculas());
+		listModel.clear();
+		for(Peliculas o:list){
+			listModel.addElement(o);
+		}
+	}
+	
 }

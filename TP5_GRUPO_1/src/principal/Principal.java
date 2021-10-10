@@ -5,7 +5,7 @@ import java.awt.EventQueue;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-
+import javax.swing.DefaultListModel;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
@@ -16,6 +16,7 @@ import javax.swing.JMenuItem;
 public class Principal extends JFrame {
 
 	private JPanel contentPane;
+	private static DefaultListModel<Peliculas> listModel;
 
 	/**
 	 * Launch the application.
@@ -37,6 +38,7 @@ public class Principal extends JFrame {
 	 * Create the frame.
 	 */
 	public Principal() {
+		listModel = new DefaultListModel<Peliculas>();
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		
@@ -51,7 +53,7 @@ public class Principal extends JFrame {
 		mntmAgregar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				contentPane.removeAll();
-				JP_AgregarPeliculas panel = new JP_AgregarPeliculas();
+				JP_AgregarPeliculas panel = new JP_AgregarPeliculas(listModel);
 				contentPane.add(panel);
 				contentPane.repaint();
 				contentPane.revalidate();
@@ -62,9 +64,8 @@ public class Principal extends JFrame {
 		JMenuItem mntmListar = new JMenuItem("Listar");
 		mntmListar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				System.out.println("Listar");
 				contentPane.removeAll();
-				JP_ListarPeliculas panel = new JP_ListarPeliculas();
+				JP_ListarPeliculas panel = new JP_ListarPeliculas(listModel);
 				contentPane.add(panel);
 				contentPane.repaint();
 				contentPane.revalidate();
