@@ -6,12 +6,13 @@ public class Persona
 	private String nombre;
 	private String apellido;
 	
-	public Persona(String dni, String nombre, String telefono) {
+
+	public Persona(String nombre, String apellido, String dni) {
 		this.dni = dni;
 		this.nombre = nombre;
-		this.apellido = telefono;
+		this.apellido = apellido;
 	}
-	
+
 	public String getDni() {
 		return dni;
 	}

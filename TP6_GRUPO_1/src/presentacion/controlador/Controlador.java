@@ -3,6 +3,7 @@ package presentacion.controlador;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
+import java.util.List;
 
 import javax.swing.JOptionPane;
 
@@ -76,6 +77,9 @@ public class Controlador implements ActionListener {
 		panelAgregarPersonas.getBtnAceptar()
 		.addActionListener(a->EventoClickBoton_AgregarPesona_PanelAgregarPersonas(a));
 		
+		panelEliminarPersonas.getBtnEliminar()
+		.addActionListener(a->EventoClickBoton_BorrarPesona_PanelEliminarPersonas(a));
+		
 	}
 	
 
@@ -114,6 +118,22 @@ public class Controlador implements ActionListener {
 		
 		panelAgregarPersonas.mostrarMensaje(mensaje);
 	
+	}
+	
+	public void EventoClickBoton_BorrarPesona_PanelEliminarPersonas(ActionEvent s)
+	{
+		boolean estado=false; 
+		List<Persona> filasSeleccionadas = panelEliminarPersonas.getList().getSelectedValuesList();
+		for (Persona fila : filasSeleccionadas)
+		{
+			estado = pNeg.delete(fila);
+			if(estado==true)
+			{
+				String mensaje="Persona eliminada con exito";
+				this.panelEliminarPersonas.mostrarMensaje(mensaje);
+			}
+		}
+		panelEliminarPersonas.cargarLista(pNeg.readAll());
 	}
 	
 }
