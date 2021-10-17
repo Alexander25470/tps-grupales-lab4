@@ -53,6 +53,7 @@ public class Controlador implements ActionListener {
 		ventanaPrincipal.getMntmListar()
 		.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				panelListarPersonas.cargarTabla(pNeg.readAll());
 				ventanaPrincipal.getContentPane().removeAll();
 				ventanaPrincipal.getContentPane().add(panelListarPersonas);
 				ventanaPrincipal.getContentPane().repaint();
@@ -72,8 +73,6 @@ public class Controlador implements ActionListener {
 	}
 	
 
-
-
 	
 	public void inicializar()
 	{
@@ -87,4 +86,5 @@ public class Controlador implements ActionListener {
 		// TODO Auto-generated method stub
 		
 	}
+	
 }

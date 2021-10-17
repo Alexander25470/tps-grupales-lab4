@@ -13,8 +13,8 @@ import entidad.Persona;
 
 public class PersonaDaoImpl implements PersonaDao
 {
-	private static final String insert = "INSERT INTO personas(idPersona, nombre, telefono) VALUES(?, ?, ?)";
-	private static final String delete = "DELETE FROM personas WHERE idPersona = ?";
+	private static final String insert = "INSERT INTO personas(Dni, Nombre, Apellido) VALUES(?, ?, ?)";
+	private static final String delete = "DELETE FROM personas WHERE Dni = ?";
 	private static final String readall = "SELECT * FROM personas";
 		
 	public boolean insert(Persona persona)
@@ -25,9 +25,9 @@ public class PersonaDaoImpl implements PersonaDao
 		try
 		{
 			statement = conexion.prepareStatement(insert);
-			statement.setInt(1, persona.getIdPersona());
+			statement.setString(1, persona.getDni());
 			statement.setString(2, persona.getNombre());
-			statement.setString(3, persona.getTelefono());
+			statement.setString(3, persona.getApellido());
 			if(statement.executeUpdate() > 0)
 			{
 				conexion.commit();
@@ -47,7 +47,7 @@ public class PersonaDaoImpl implements PersonaDao
 		return isInsertExitoso;
 	}
 	
-	public boolean delete(Persona persona_a_eliminar)
+	public boolean delete(Persona persona)
 	{
 		PreparedStatement statement;
 		Connection conexion = Conexion.getConexion().getSQLConexion();
@@ -55,7 +55,7 @@ public class PersonaDaoImpl implements PersonaDao
 		try 
 		{
 			statement = conexion.prepareStatement(delete);
-			statement.setString(1, Integer.toString(persona_a_eliminar.getIdPersona()));
+			statement.setString(1, persona.getDni());
 			if(statement.executeUpdate() > 0)
 			{
 				conexion.commit();
@@ -93,9 +93,15 @@ public class PersonaDaoImpl implements PersonaDao
 	
 	private Persona getPersona(ResultSet resultSet) throws SQLException
 	{
-		int id = resultSet.getInt("idPersona");
+		String dni = resultSet.getString("Dni");
 		String nombre = resultSet.getString("Nombre");
-		String tel = resultSet.getString("Telefono");
-		return new Persona(id, nombre, tel);
+		String apellido = resultSet.getString("Apellido");
+		return new Persona(dni, nombre, apellido);
+	}
+
+	@Override
+	public boolean update(Persona persona) {
+		// TODO Auto-generated method stub
+		return false;
 	}
 }

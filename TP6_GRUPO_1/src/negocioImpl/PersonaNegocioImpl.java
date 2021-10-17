@@ -1,5 +1,6 @@
 package negocioImpl;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import dao.PersonaDao;
@@ -15,7 +16,7 @@ public class PersonaNegocioImpl implements PersonaNegocio{
 	public boolean insert(Persona persona) {
 		
 		boolean estado=false;
-		if(persona.getNombre().trim().length()>0 && persona.getTelefono().trim().length()>0)
+		if(persona.getNombre().trim().length()>0 && persona.getApellido().trim().length()>0)
 		{
 			estado=pdao.insert(persona);
 		}
@@ -23,18 +24,18 @@ public class PersonaNegocioImpl implements PersonaNegocio{
 	}
 
 	@Override
-	public boolean delete(Persona persona_a_eliminar) {
+	public boolean delete(Persona persona) {
 		boolean estado=false;
-		if(persona_a_eliminar.getIdPersona()>0 )//También se puede preguntar si existe ese ID 
+		if(!persona.getDni().isEmpty() )//También se puede preguntar si existe ese ID 
 		{
-			estado=pdao.delete(persona_a_eliminar);
+			estado=pdao.delete(persona);
 		}
 		return estado;
 	}
 
 	@Override
-	public List<Persona> readAll() {
-		return pdao.readAll();
+	public ArrayList<Persona> readAll() {
+		return (ArrayList<Persona>)pdao.readAll();
 	}
 
 }
