@@ -16,7 +16,7 @@ public class PersonaNegocioImpl implements PersonaNegocio{
 	public boolean insert(Persona persona) {
 		
 		boolean estado=false;
-		if(persona.getNombre().trim().length()>0 && persona.getApellido().trim().length()>0)
+		if(persona.getNombre().trim().length()>0 && persona.getApellido().trim().length()>0 && persona.getDni().trim().length()>0)
 		{
 			estado=pdao.insert(persona);
 		}

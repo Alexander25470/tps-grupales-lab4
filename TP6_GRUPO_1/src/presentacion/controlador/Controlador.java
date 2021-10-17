@@ -29,6 +29,7 @@ public class Controlador implements ActionListener {
 	//Constructor
 	public Controlador(VentanaPrincipal vista, PersonaNegocio pNeg)
 	{
+		this.pNeg = pNeg;
 		ventanaPrincipal = vista;
 		
 		ventanaPrincipal.getMntmMenuAgregar()
@@ -70,6 +71,9 @@ public class Controlador implements ActionListener {
 			}
 		});
 		
+		panelAgregarPersonas.getBtnAceptar()
+		.addActionListener(a->EventoClickBoton_AgregarPesona_PanelAgregarPersonas(a));
+		
 	}
 	
 
@@ -85,6 +89,29 @@ public class Controlador implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
 		
+	}
+	
+	private void EventoClickBoton_AgregarPesona_PanelAgregarPersonas(ActionEvent a) {
+		
+		String nombre = panelAgregarPersonas.getTfNombre().getText();
+		String apellido = panelAgregarPersonas.getTfApellido().getText();
+		String dni = panelAgregarPersonas.getTfDni().getText();
+		Persona nuevaPersona = new Persona(nombre, apellido, dni);
+		
+		boolean estado = pNeg.insert(nuevaPersona);
+		String mensaje;
+		if(estado==true)
+		{
+			mensaje="Persona agregada con exito";
+			panelAgregarPersonas.getTfNombre().setText("");
+			panelAgregarPersonas.getTfApellido().setText("");
+			panelAgregarPersonas.getTfDni().setText("");
+		}
+		else
+			mensaje="Persona no agregada, complete todos los campos";
+		
+		panelAgregarPersonas.mostrarMensaje(mensaje);
+	
 	}
 	
 }

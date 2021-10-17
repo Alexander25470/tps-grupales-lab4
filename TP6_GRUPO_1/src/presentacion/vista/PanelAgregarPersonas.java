@@ -3,6 +3,7 @@ package presentacion.vista;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JButton;
 
 public class PanelAgregarPersonas extends JPanel {
@@ -82,5 +83,9 @@ public class PanelAgregarPersonas extends JPanel {
 		this.btnAceptar = btnAceptar;
 	}
 	
+	public void mostrarMensaje(String mensaje)
+	{
+		JOptionPane.showMessageDialog(null, mensaje);
+	}
 	
 }
