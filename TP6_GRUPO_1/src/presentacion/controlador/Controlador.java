@@ -31,6 +31,7 @@ public class Controlador implements ActionListener {
 	{
 		this.pNeg = pNeg;
 		ventanaPrincipal = vista;
+		panelEliminarPersonas = new PanelEliminarPersonas();
 		
 		ventanaPrincipal.getMntmMenuAgregar()
 		.addActionListener(new ActionListener() {
@@ -65,6 +66,7 @@ public class Controlador implements ActionListener {
 		.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				ventanaPrincipal.getContentPane().removeAll();
+				panelEliminarPersonas.cargarLista(pNeg.readAll());
 				ventanaPrincipal.getContentPane().add(panelEliminarPersonas);
 				ventanaPrincipal.getContentPane().repaint();
 				ventanaPrincipal.getContentPane().revalidate();
