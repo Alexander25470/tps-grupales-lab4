@@ -20,7 +20,6 @@ public class Controlador implements ActionListener {
 
 	private VentanaPrincipal ventanaPrincipal;
 	private PersonaNegocio pNeg;
-	private ArrayList<Persona> personasEnTabla;
 	private PanelAgregarPersonas panelAgregarPersonas = new PanelAgregarPersonas();
 	private PanelModificarPersonas panelModificarPersonas= new PanelModificarPersonas();
 	private PanelListarPersonas panelListarPersonas = new PanelListarPersonas();
