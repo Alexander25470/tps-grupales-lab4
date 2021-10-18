@@ -15,6 +15,7 @@ public class PersonaDaoImpl implements PersonaDao
 {
 	private static final String insert = "INSERT INTO personas(Dni, Nombre, Apellido) VALUES(?, ?, ?)";
 	private static final String delete = "DELETE FROM personas WHERE Dni = ?";
+	private static final String update = "UPDATE personas SET nombre = ? , apellido = ? WHERE Dni = ? ";
 	private static final String readall = "SELECT * FROM personas";
 		
 	public boolean insert(Persona persona)
@@ -54,6 +55,8 @@ public class PersonaDaoImpl implements PersonaDao
 		boolean isdeleteExitoso = false;
 		try 
 		{
+			System.out.println("Eliminando");
+			System.out.println(persona.getDni());
 			statement = conexion.prepareStatement(delete);
 			statement.setString(1, persona.getDni());
 			if(statement.executeUpdate() > 0)
@@ -93,15 +96,33 @@ public class PersonaDaoImpl implements PersonaDao
 	
 	private Persona getPersona(ResultSet resultSet) throws SQLException
 	{
-		String dni = resultSet.getString("Dni");
 		String nombre = resultSet.getString("Nombre");
 		String apellido = resultSet.getString("Apellido");
-		return new Persona(dni, nombre, apellido);
+		String dni = resultSet.getString("Dni");
+		return new Persona(nombre, apellido, dni);
 	}
 
 	@Override
 	public boolean update(Persona persona) {
-		// TODO Auto-generated method stub
-		return false;
+		PreparedStatement statement;
+		Connection conexion = Conexion.getConexion().getSQLConexion();
+		boolean isdeleteExitoso = false;
+		try 
+		{
+			statement = conexion.prepareStatement(update);
+			statement.setString(1, persona.getNombre());
+			statement.setString(2, persona.getApellido());
+			statement.setString(3, persona.getDni());
+			if(statement.executeUpdate() > 0)
+			{
+				conexion.commit();
+				isdeleteExitoso = true;
+			}
+		} 
+		catch (SQLException e) 
+		{
+			e.printStackTrace();
+		}
+		return isdeleteExitoso;
 	}
 }

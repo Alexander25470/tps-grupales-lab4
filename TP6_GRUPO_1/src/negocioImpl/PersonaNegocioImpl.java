@@ -37,5 +37,14 @@ public class PersonaNegocioImpl implements PersonaNegocio{
 	public ArrayList<Persona> readAll() {
 		return (ArrayList<Persona>)pdao.readAll();
 	}
+	@Override
+	public boolean update(Persona persona) {
+		boolean estado=false;
+		if(!persona.getDni().isEmpty() )
+		{
+			estado=pdao.update(persona);
+		}
+		return estado;
+	}
 
 }

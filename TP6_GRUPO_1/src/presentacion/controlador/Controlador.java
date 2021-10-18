@@ -47,6 +47,7 @@ public class Controlador implements ActionListener {
 		ventanaPrincipal.getMntmModificar()
 		.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				panelModificarPersonas.cargarLista(pNeg.readAll());
 				ventanaPrincipal.getContentPane().removeAll();
 				ventanaPrincipal.getContentPane().add(panelModificarPersonas);
 				ventanaPrincipal.getContentPane().repaint();
@@ -79,6 +80,9 @@ public class Controlador implements ActionListener {
 		
 		panelEliminarPersonas.getBtnEliminar()
 		.addActionListener(a->EventoClickBoton_BorrarPesona_PanelEliminarPersonas(a));
+		
+		panelModificarPersonas.getBtnModificar()
+		.addActionListener(a->EventoClickBoton_ModificarPesona_PanelModificarPersonas(a));
 		
 	}
 	
@@ -134,6 +138,22 @@ public class Controlador implements ActionListener {
 			}
 		}
 		panelEliminarPersonas.cargarLista(pNeg.readAll());
+	}
+	
+	public void EventoClickBoton_ModificarPesona_PanelModificarPersonas(ActionEvent s)
+	{
+		boolean estado=false; 
+		String nombre = panelModificarPersonas.getTxtNombre().getText();
+		String apellido = panelModificarPersonas.getTxtApellido().getText();
+		String dni = panelModificarPersonas.getTxtDni().getText();
+		Persona persona = new Persona(nombre, apellido, dni);
+		estado = pNeg.update(persona);
+		if(estado==true)
+		{
+			String mensaje="Persona modificada con exito";
+			this.panelEliminarPersonas.mostrarMensaje(mensaje);
+		}
+		panelModificarPersonas.cargarLista(pNeg.readAll());
 	}
 	
 }
