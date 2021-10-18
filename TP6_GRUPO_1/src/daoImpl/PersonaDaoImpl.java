@@ -17,23 +17,32 @@ public class PersonaDaoImpl implements PersonaDao
 	private static final String delete = "DELETE FROM personas WHERE Dni = ?";
 	private static final String update = "UPDATE personas SET nombre = ? , apellido = ? WHERE Dni = ? ";
 	private static final String readall = "SELECT * FROM personas";
+	private static final String getOne = "SELECT * FROM personas WHERE Dni = ?";
 		
 	public boolean insert(Persona persona)
 	{
 		PreparedStatement statement;
+		PreparedStatement statementPersonExists;
 		Connection conexion = Conexion.getConexion().getSQLConexion();
 		boolean isInsertExitoso = false;
 		try
 		{
-			statement = conexion.prepareStatement(insert);
-			statement.setString(1, persona.getDni());
-			statement.setString(2, persona.getNombre());
-			statement.setString(3, persona.getApellido());
-			if(statement.executeUpdate() > 0)
+			statementPersonExists = conexion.prepareStatement(getOne);
+			statementPersonExists.setString(1,persona.getDni());
+			ResultSet rs = statementPersonExists.executeQuery();
+			if(!rs.next())
 			{
-				conexion.commit();
-				isInsertExitoso = true;
+				statement = conexion.prepareStatement(insert);
+				statement.setString(1, persona.getDni());
+				statement.setString(2, persona.getNombre());
+				statement.setString(3, persona.getApellido());
+				if(statement.executeUpdate() > 0)
+				{
+					conexion.commit();
+					isInsertExitoso = true;
+				}
 			}
+			
 		} 
 		catch (SQLException e) 
 		{

@@ -5,6 +5,8 @@ import javax.swing.JTextField;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JButton;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 
 public class PanelAgregarPersonas extends JPanel {
 	private JTextField tfNombre;
@@ -19,6 +21,15 @@ public class PanelAgregarPersonas extends JPanel {
 		setLayout(null);
 		
 		tfNombre = new JTextField();
+		tfNombre.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyTyped(KeyEvent evt) {
+				if( !  (Character.isLetter(evt.getKeyChar()) || evt.getKeyChar() == KeyEvent.VK_SPACE || evt.getKeyChar() == KeyEvent.VK_BACK_SPACE )  ) {
+						evt.consume();
+				        javax.swing.JOptionPane.showMessageDialog(null, "Ingrese solo letras.");
+				}
+			}
+		});
 		tfNombre.setBounds(191, 74, 161, 20);
 		add(tfNombre);
 		tfNombre.setColumns(10);
@@ -40,11 +51,29 @@ public class PanelAgregarPersonas extends JPanel {
 		add(btnAceptar);
 		
 		tfDni = new JTextField();
+		tfDni.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyTyped(KeyEvent evt) {
+				if( !  (Character.isDigit(evt.getKeyChar()) || evt.getKeyChar() == KeyEvent.VK_SPACE || evt.getKeyChar() == KeyEvent.VK_BACK_SPACE )  ) {
+					evt.consume();
+			        javax.swing.JOptionPane.showMessageDialog(null, "Ingrese solo letras.");
+				}
+			}
+		});
 		tfDni.setBounds(191, 182, 161, 20);
 		add(tfDni);
 		tfDni.setColumns(10);
 		
 		tfApellido = new JTextField();
+		tfApellido.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyTyped(KeyEvent evt) {
+				if( !  (Character.isLetter(evt.getKeyChar()) || evt.getKeyChar() == KeyEvent.VK_SPACE || evt.getKeyChar() == KeyEvent.VK_BACK_SPACE )  ) {
+					evt.consume();
+			        javax.swing.JOptionPane.showMessageDialog(null, "Ingrese solo numeros.");
+				}
+			}
+		});
 		tfApellido.setBounds(191, 127, 161, 20);
 		add(tfApellido);
 		tfApellido.setColumns(10);

@@ -118,7 +118,7 @@ public class Controlador implements ActionListener {
 			panelAgregarPersonas.getTfDni().setText("");
 		}
 		else
-			mensaje="Persona no agregada, complete todos los campos";
+			mensaje="Persona no agregada. Complete todos los campos, o verifique el dni no esté cargado.";
 		
 		panelAgregarPersonas.mostrarMensaje(mensaje);
 	
@@ -142,6 +142,11 @@ public class Controlador implements ActionListener {
 	
 	public void EventoClickBoton_ModificarPesona_PanelModificarPersonas(ActionEvent s)
 	{
+		if( panelModificarPersonas.getList().getSelectedValue() == null) {
+			panelEliminarPersonas.mostrarMensaje("Seleccione una persona.");
+			return;
+		}
+		
 		boolean estado=false; 
 		String nombre = panelModificarPersonas.getTxtNombre().getText();
 		String apellido = panelModificarPersonas.getTxtApellido().getText();

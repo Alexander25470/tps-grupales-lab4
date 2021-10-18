@@ -16,6 +16,8 @@ import java.util.ArrayList;
 import java.awt.event.ActionEvent;
 import javax.swing.event.ListSelectionListener;
 import javax.swing.event.ListSelectionEvent;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 
 public class PanelModificarPersonas extends JPanel {
 	private JTextField txtNombre;
@@ -38,11 +40,29 @@ public class PanelModificarPersonas extends JPanel {
 		add(lblSeleccioneLaPersona);
 		
 		txtNombre = new JTextField();
+		txtNombre.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyTyped(KeyEvent evt) {
+				if( !  (Character.isLetter(evt.getKeyChar()) || evt.getKeyChar() == KeyEvent.VK_SPACE || evt.getKeyChar() == KeyEvent.VK_BACK_SPACE )  ) {
+					evt.consume();
+			        javax.swing.JOptionPane.showMessageDialog(null, "Ingrese solo letras.");
+				}
+			}
+		});
 		txtNombre.setBounds(38, 221, 86, 20);
 		add(txtNombre);
 		txtNombre.setColumns(10);
 		
 		txtApellido = new JTextField();
+		txtApellido.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyTyped(KeyEvent evt) {
+				if( !  (Character.isLetter(evt.getKeyChar()) || evt.getKeyChar() == KeyEvent.VK_SPACE || evt.getKeyChar() == KeyEvent.VK_BACK_SPACE )  ) {
+					evt.consume();
+			        javax.swing.JOptionPane.showMessageDialog(null, "Ingrese solo letras.");
+				}
+			}
+		});
 		txtApellido.setBounds(134, 221, 86, 20);
 		add(txtApellido);
 		txtApellido.setColumns(10);
@@ -114,6 +134,14 @@ public class PanelModificarPersonas extends JPanel {
 
 	public JButton getBtnModificar() {
 		return btnModificar;
+	}
+
+	public JList<Persona> getList() {
+		return list;
+	}
+
+	public void setList(JList<Persona> list) {
+		this.list = list;
 	}
 
 	public void setBtnModificar(JButton btnModificar) {
