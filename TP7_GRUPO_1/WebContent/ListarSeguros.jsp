@@ -1,4 +1,7 @@
 <%@page import="dominio.Seguro"%>
+<%@page import="dominio.SeguroDao"%>
+<%@page import="dominio.TipoSeguroDao"%>
+<%@page import="dominio.TipoSeguro"%>
 <%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
@@ -9,8 +12,28 @@
 <title>Insert title here</title>
 </head>
 <body>
+<% 
+	TipoSeguroDao tsDao = new TipoSeguroDao();
+	ArrayList<TipoSeguro> listaTiposSeguro = (ArrayList<TipoSeguro>) tsDao.obtenerTiposSeguro();
 
-<a href="serverletSeguro?Listar=true"> Listar Seguros</a>
+ %>
+<a href="Inicio.jsp">Inicio</a> 
+<a href="AgregarSeguro.jsp">Agregar seguro</a>
+<a href="serverletSeguro?Listar=true">Listar seguro</a>
+<h1>"Tipo de seguros de la base de datos"</h1>
+<form action="serverletSeguro" method="get">
+Busqueda por tipo de Seguros: 
+<select name="idTipoSeguro" id="idTipoSeguro">
+<%  
+if(listaTiposSeguro!=null)
+for(TipoSeguro tipoSeguro : listaTiposSeguro) 
+{
+%>
+   <option value="<%=tipoSeguro.getIdTipo() %>"><%=tipoSeguro.getDescripcion() %></option> 
+<%  } %>
+</select>
+<button type="submit">Filtrar</button>
+</form>
 
 <% 
 	ArrayList<Seguro> listaSeguros = null;
@@ -20,7 +43,6 @@
 	}
 
  %>
- 
  <table id="table_id" class="display">
     <thead>
         <tr>
@@ -32,10 +54,11 @@
         </tr>
     </thead>
     <tbody>
-       <%  if(listaSeguros!=null)
+       <%  
+     	if(listaSeguros!=null)
 		for(Seguro seguro : listaSeguros) 
 		{
-	%>
+		%>
 		<tr>  
 		    <form name="formulario" action="servletSeguro?idSeguro=<%=seguro.getIdSeguro()%>" method="get">
 				<td><%=seguro.getIdSeguro() %> <input type="hidden" name="idUsuario" value="<%=seguro.getIdSeguro()%>"> </td> 

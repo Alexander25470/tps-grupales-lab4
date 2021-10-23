@@ -109,7 +109,43 @@ public class SeguroDao {
 		return lista;
 	}
 
-	
+	public ArrayList<Seguro> obtenerSegurosPorTipo(int tipo) {
+
+		try {
+			Class.forName("com.mysql.jdbc.Driver");
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		ArrayList<Seguro> lista = new ArrayList<Seguro>();
+		Connection conn = null;
+		try{
+			conn = DriverManager.getConnection(host + dbName, user, pass);
+			Statement st = conn.createStatement();
+			
+			ResultSet rs = st.executeQuery("Select idSeguro, descripcion, idTipo, costoContratacion, costoAsegurado FROM seguros where idTipo = "+tipo);
+			
+			while(rs.next()){
+				
+				Seguro seguroRs = new Seguro();
+				seguroRs.setIdSeguro(rs.getInt("idSeguro"));
+				seguroRs.setDescripcion(rs.getString("descripcion"));
+				seguroRs.setIdTipo(rs.getInt("idTipo"));
+				seguroRs.setCostoContratacion(rs.getFloat("costoContratacion"));
+				seguroRs.setCostoAsegurado(rs.getFloat("costoAsegurado"));
+				
+				lista.add(seguroRs);
+			}
+			conn.close();
+		}catch(Exception e){
+			e.printStackTrace();
+		}finally{
+		
+		}
+		
+		return lista;
+	}
 	
 	public Seguro obtenerUnSeguro(int id)
 	{
@@ -146,28 +182,5 @@ public class SeguroDao {
 		}
 		return seguro;
 	}
-	
-	
-	 /*public void procedimientoInsertarSeguro(Seguro seguro)
-	   {
-		 try {
-				Class.forName("com.mysql.jdbc.Driver");
-			} catch (ClassNotFoundException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-			
-		   Connection conn = null;
-	       try {
-	    	    conn = DriverManager.getConnection(host + dbName, user, pass);
-	            CallableStatement proc = conn.prepareCall(" CALL crearUsuario(?,?) ");
-	            proc.setString("Unombre", seguro.getNombre());//Tipo String
-	            proc.setString("Uapellido", seguro.getApellido());
-	            proc.execute();            
-	        } 
-	       catch (Exception e) {                  
-	            System.out.println(e);
-	       }
-	   }*/
 	
 }

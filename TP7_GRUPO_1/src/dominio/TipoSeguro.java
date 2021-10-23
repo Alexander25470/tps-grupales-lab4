@@ -15,6 +15,7 @@ public class TipoSeguro {
 		public void setDescripcion(String descripcion) {
 			this.descripcion = descripcion;
 		}
+		public TipoSeguro() {}
 		public TipoSeguro(int idTipo, String descripcion) {
 			this.idTipo = idTipo;
 			this.descripcion = descripcion;

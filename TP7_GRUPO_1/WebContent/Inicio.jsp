@@ -7,6 +7,9 @@
 <title>Insert title here</title>
 </head>
 <body>
-
+<a href="Inicio.jsp">Inicio</a> 
+<a href="AgregarSeguro.jsp">Agregar seguros</a>
+<a href="serverletSeguro?Listar=true">Listar seguros</a>
+<h1>Soy la página inicio</h1>
 </body>
 </html>
