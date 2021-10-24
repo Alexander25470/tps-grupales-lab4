@@ -21,6 +21,7 @@
 <a href="AgregarSeguro.jsp">Agregar seguro</a>
 <a href="serverletSeguro?Listar=true">Listar seguro</a>
 <h1>"Tipo de seguros de la base de datos"</h1>
+
 <form action="serverletSeguro" method="get">
 Busqueda por tipo de Seguros: 
 <select name="idTipoSeguro" id="idTipoSeguro">
@@ -60,13 +61,11 @@ for(TipoSeguro tipoSeguro : listaTiposSeguro)
 		{
 		%>
 		<tr>  
-		    <form name="formulario" action="servletSeguro?idSeguro=<%=seguro.getIdSeguro()%>" method="get">
-				<td><%=seguro.getIdSeguro() %> <input type="hidden" name="idUsuario" value="<%=seguro.getIdSeguro()%>"> </td> 
-				<td><%=seguro.getDescripcion() %></td>   
-				<td><%=seguro.getIdTipo() %></td>
-				<td><%=seguro.getCostoContratacion() %></td>
-				<td><%=seguro.getCostoAsegurado() %></td>
-			</form> 
+			<td><%=seguro.getIdSeguro() %></td> 
+			<td><%=seguro.getDescripcion() %></td>   
+			<td><%=seguro.getTipoSeguro().getDescripcion() %></td>
+			<td><%=seguro.getCostoContratacion() %></td>
+			<td><%=seguro.getCostoAsegurado() %></td>
 		</tr>
 	<%  } %>
     </tbody>

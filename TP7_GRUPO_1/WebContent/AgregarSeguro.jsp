@@ -1,5 +1,6 @@
 <%@page import="dominio.TipoSeguro"%>
 <%@page import="dominio.TipoSeguroDao"%>
+<%@page import="dominio.SeguroDao"%>
 <%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
@@ -17,34 +18,55 @@
 <% 
 	TipoSeguroDao tsDao = new TipoSeguroDao();
 	ArrayList<TipoSeguro> listaTiposSeguro = (ArrayList<TipoSeguro>) tsDao.obtenerTiposSeguro();
+	int maxId = SeguroDao.obtenerMaxId();
 
  %>
 
 <form action="serverletSeguro" method="post">
-    Descripcion <input type="text" name="descripcion" id="descripcion"><br/>
-    Tipo de seguro <select name="idTipo" id="idTipo">
-            <%  
-              if(listaTiposSeguro!=null)
-             for(TipoSeguro tipoSeguro : listaTiposSeguro) 
-             {
-             %>
-             <option value="<%=tipoSeguro.getIdTipo() %>"><%=tipoSeguro.getDescripcion() %></option> 
-         <%  } %>
-    </select><br/>
-    Costo contratacion <input type="text" name="costoContratacion" id="costoContratacion"><br/>
-    Costo maximo asegurado <input type="text" name="costoAsegurado" id="costoAsegurado"><br/>
+    <table>
+        <tbody>
+            <tr>
+                <td>Id Seguro</td>
+                <td><%=maxId%> </td>
+            </tr>
+            <tr>
+                <td>Descripcion</td>
+                <td><input type="text" name="descripcion" id="descripcion"></td>
+            </tr>
+            <tr>
+                <td>Tipo de seguro</td>
+                <td>
+                    <select name="idTipo" id="idTipo">
+                        <%  
+                          if(listaTiposSeguro!=null)
+                         for(TipoSeguro tipoSeguro : listaTiposSeguro) 
+                         {
+                         %>
+                         <option value="<%=tipoSeguro.getIdTipo() %>"><%=tipoSeguro.getDescripcion() %></option> 
+                     <%  } %>
+                </select>
+                </td>
+            </tr>
+            <tr>
+                <td>Costo contratacion</td>
+                <td><input type="text" name="costoContratacion" id="costoContratacion"></td>
+            </tr>
+            <tr>
+                <td>Costo maximo asegurado</td>
+                <td><input type="text" name="costoAsegurado" id="costoAsegurado"></td>
+            </tr>
+        </tbody>
+    </table>
     <button type="submit">Aceptar</button>
-
+</form>
 <% boolean agregado=Boolean.TRUE == request.getAttribute("agregado"); %>
 
 <% 
-	
-	if(agregado) 
-	{
+    
+    if(agregado) 
+    {
 %>
-		Usuario agregado con exito
+        Usuario agregado con exito
 <%} %>
-
-</form>
 </body>
 </html>

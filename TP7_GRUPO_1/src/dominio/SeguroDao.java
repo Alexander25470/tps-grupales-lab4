@@ -10,10 +10,10 @@ import java.util.ArrayList;
 
 public class SeguroDao {
 
-	private String host = "jdbc:mysql://localhost:3306/";
-	private String user = "root";
-	private String pass = "root";
-	private String dbName = "segurosgroup?useSSL=false";
+	private static String host = "jdbc:mysql://localhost:3306/";
+	private static String user = "root";
+	private static String pass = "root";
+	private static String dbName = "segurosgroup?useSSL=false";
 
 
 	
@@ -61,7 +61,7 @@ public class SeguroDao {
 		{
 			cn = DriverManager.getConnection(host+dbName, user,pass);
 			Statement st = cn.createStatement();
-			String query = "INSERT INTO seguros (descripcion,idTipo,costoContratacion,costoAsegurado) VALUES ('"+seguro.getDescripcion()+"',"+seguro.getIdTipo()+","+seguro.getCostoContratacion()+", "+seguro.getCostoAsegurado()+");";
+			String query = "INSERT INTO seguros (descripcion,idTipo,costoContratacion,costoAsegurado) VALUES ('"+seguro.getDescripcion()+"',"+seguro.getTipoSeguro().getIdTipo()+","+seguro.getCostoContratacion()+", "+seguro.getCostoAsegurado()+");";
 			filas=st.executeUpdate(query);
 		}
 		catch(Exception e)
@@ -86,14 +86,14 @@ public class SeguroDao {
 			conn = DriverManager.getConnection(host + dbName, user, pass);
 			Statement st = conn.createStatement();
 			
-			ResultSet rs = st.executeQuery("Select idSeguro, descripcion, idTipo, costoContratacion, costoAsegurado FROM seguros");
+			ResultSet rs = st.executeQuery("SELECT s.idSeguro, s.descripcion, s.idTipo, s.costoContratacion, s.costoAsegurado, ts.descripcion as descripcionTipo FROM segurosgroup.seguros s inner join segurosgroup.tiposeguros ts on s.idTipo = ts.idTipo");
 			
 			while(rs.next()){
 				
 				Seguro seguroRs = new Seguro();
 				seguroRs.setIdSeguro(rs.getInt("idSeguro"));
 				seguroRs.setDescripcion(rs.getString("descripcion"));
-				seguroRs.setIdTipo(rs.getInt("idTipo"));
+				seguroRs.setTipoSeguro(new TipoSeguro(rs.getInt("idTipo"),rs.getString("descripcionTipo")));
 				seguroRs.setCostoContratacion(rs.getFloat("costoContratacion"));
 				seguroRs.setCostoAsegurado(rs.getFloat("costoAsegurado"));
 				
@@ -124,14 +124,14 @@ public class SeguroDao {
 			conn = DriverManager.getConnection(host + dbName, user, pass);
 			Statement st = conn.createStatement();
 			
-			ResultSet rs = st.executeQuery("Select idSeguro, descripcion, idTipo, costoContratacion, costoAsegurado FROM seguros where idTipo = "+tipo);
+			ResultSet rs = st.executeQuery("SELECT s.idSeguro, s.descripcion, s.idTipo, s.costoContratacion, s.costoAsegurado, ts.descripcion as descripcionTipo FROM segurosgroup.seguros s inner join segurosgroup.tiposeguros ts on s.idTipo = ts.idTipo where s.idTipo = "+tipo);
 			
 			while(rs.next()){
 				
 				Seguro seguroRs = new Seguro();
 				seguroRs.setIdSeguro(rs.getInt("idSeguro"));
 				seguroRs.setDescripcion(rs.getString("descripcion"));
-				seguroRs.setIdTipo(rs.getInt("idTipo"));
+				seguroRs.setTipoSeguro(new TipoSeguro(rs.getInt("idTipo"),rs.getString("descripcionTipo")));
 				seguroRs.setCostoContratacion(rs.getFloat("costoContratacion"));
 				seguroRs.setCostoAsegurado(rs.getFloat("costoAsegurado"));
 				
@@ -160,14 +160,14 @@ public class SeguroDao {
 		Connection con = null;
 		try{
 			con = DriverManager.getConnection(host + dbName, user, pass);
-			PreparedStatement miSentencia = con.prepareStatement("Select idSeguro, descripcion, idTipo, costoContratacion, costoAsegurado from seguros where idSeguro = ?");
+			PreparedStatement miSentencia = con.prepareStatement("SELECT s.idSeguro, s.descripcion, s.idTipo, s.costoContratacion, s.costoAsegurado, ts.descripcion as descripcionTipo FROM segurosgroup.seguros s inner join segurosgroup.tiposeguros ts on s.idTipo = ts.idTipo where idSeguro = ?");
 			miSentencia.setInt(1, id); //Cargo el ID recibido
 			ResultSet resultado = miSentencia.executeQuery();
 			resultado.next();
 			
 			seguro.setIdSeguro(resultado.getInt("idSeguro"));
 			seguro.setDescripcion(resultado.getString("descripcion"));
-			seguro.setIdTipo(resultado.getInt("idTipo"));
+			seguro.setTipoSeguro(new TipoSeguro(resultado.getInt("idTipo"),resultado.getString("descripcionTipo")));
 			seguro.setCostoContratacion(resultado.getFloat("costoContratacion"));
 			seguro.setCostoAsegurado(resultado.getFloat("costoAsegurado"));
 		    
@@ -181,6 +181,35 @@ public class SeguroDao {
 		{
 		}
 		return seguro;
+	}
+	
+	
+	public static int obtenerMaxId() {
+
+		try {
+			Class.forName("com.mysql.jdbc.Driver");
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		int id = 0;
+		Connection conn = null;
+		try{
+			conn = DriverManager.getConnection(host + dbName, user, pass);
+			Statement st = conn.createStatement();
+			
+			ResultSet rs = st.executeQuery("SELECT max(s.idTipo)+1 as proxid FROM segurosgroup.seguros s");
+			rs.next();
+			id = rs.getInt("proxid");
+			conn.close();
+		}catch(Exception e){
+			e.printStackTrace();
+		}finally{
+		
+		}
+		
+		return id;
 	}
 	
 }

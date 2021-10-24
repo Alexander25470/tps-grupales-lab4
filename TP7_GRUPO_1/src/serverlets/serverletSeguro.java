@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import dominio.Seguro;
 import dominio.SeguroDao;
+import dominio.TipoSeguro;
 
 /**
  * Servlet implementation class serverletSeguro
@@ -58,7 +59,7 @@ public class serverletSeguro extends HttpServlet {
 		Seguro seguro = new Seguro();
 
 		seguro.setDescripcion(request.getParameter("descripcion"));
-		seguro.setIdTipo( Integer.parseInt(request.getParameter("idTipo")));
+		seguro.setTipoSeguro( new TipoSeguro(Integer.parseInt(request.getParameter("idTipo")), ""));
 		seguro.setCostoContratacion(Float.parseFloat(request.getParameter("costoContratacion")));
 		seguro.setCostoAsegurado(Float.parseFloat(request.getParameter("costoAsegurado")));
 		

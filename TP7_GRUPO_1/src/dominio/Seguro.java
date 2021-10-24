@@ -3,7 +3,7 @@ package dominio;
 public class Seguro {
 	private int idSeguro;
 	private String descripcion;
-	private int idTipo;
+	private TipoSeguro tipoSeguro;
 	private float  costoContratacion;
 	private float costoAsegurado;
 	
@@ -19,11 +19,12 @@ public class Seguro {
 	public void setDescripcion(String descripcion) {
 		this.descripcion = descripcion;
 	}
-	public int getIdTipo() {
-		return idTipo;
+
+	public TipoSeguro getTipoSeguro() {
+		return tipoSeguro;
 	}
-	public void setIdTipo(int idTipo) {
-		this.idTipo = idTipo;
+	public void setTipoSeguro(TipoSeguro tipoSeguro) {
+		this.tipoSeguro = tipoSeguro;
 	}
 	public float getCostoContratacion() {
 		return costoContratacion;
@@ -39,11 +40,5 @@ public class Seguro {
 	}
 	
 	public Seguro() {}
-	public Seguro(int idSeguro, String descripcion, int idTipo, float costoContratacion, float costoAsegurado) {
-		this.idSeguro = idSeguro;
-		this.descripcion = descripcion;
-		this.idTipo = idTipo;
-		this.costoContratacion = costoContratacion;
-		this.costoAsegurado = costoAsegurado;
-	}
+
 }
