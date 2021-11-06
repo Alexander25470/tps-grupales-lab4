@@ -16,14 +16,15 @@
 <title>Insert title here</title>
 </head>
 <body>
-    <h1>Listar almunos</h1>
+	<button>Inicio</button> 
+    <h1>Listar docentes</h1>
 
     <form action="" method="get">
         Buscar por legajo
         <input type="text">
         <button type="submit">Buscar</button>
     </form>
-
+	<button>Agregar nuevo docente</button> 
     <table>
         <thead>
             <tr>
@@ -35,6 +36,7 @@
                 <th>Nacionalidad</th>
                 <th>Email</th>
                 <th>Telefono</th>
+                <th>Accion</th>
             </tr>
         </thead>
         <tbody>
@@ -47,6 +49,7 @@
                 <td>texto</td>
                 <td>texto</td>
                 <td>texto</td>
+                <td> <button>Modificar</button> <button>Eliminar</button> </td>
             </tr>
             <tr>
                 <td>texto</td>
@@ -57,6 +60,7 @@
                 <td>texto</td>
                 <td>texto</td>
                 <td>texto</td>
+                <td> <button>Modificar</button> <button>Eliminar</button> </td>
             </tr>
             <tr>
                 <td>texto</td>
@@ -67,6 +71,7 @@
                 <td>texto</td>
                 <td>texto</td>
                 <td>texto</td>
+                <td> <button>Modificar</button> <button>Eliminar</button> </td>
             </tr>
         </tbody>
     </table>

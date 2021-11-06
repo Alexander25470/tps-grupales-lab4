@@ -16,6 +16,7 @@
 <title>Insert title here</title>
 </head>
 <body>
+	<button>Inicio</button>
     <h1>Listar almunos</h1>
 
     <form action="" method="get">

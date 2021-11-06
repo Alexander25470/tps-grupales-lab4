@@ -7,6 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
+	<button>Inicio</button>
     <h1>Modificar alumno</h1>
     <form action="" method="post">
         <table>
@@ -43,7 +44,7 @@
                 <td><input type="text"></td>
             </tr>
         </table>
-        <button type="submit">Aceptar</button>
+        <button>Volver</button><button type="submit">Aceptar</button>
     </form> 
 
 </body>

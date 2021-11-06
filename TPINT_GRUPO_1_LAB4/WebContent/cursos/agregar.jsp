@@ -7,6 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
+	<button>Inicio</button>
     <h1>Agregar curso</h1>
     <form action="" method="post">
         <table>
@@ -18,7 +19,16 @@
                 <td>Materia</td>
                 <td>
                     <select name="" id="">
-                        <option value="1">Texto</option>
+                        <option value="1">LAB 4</option>
+                    </select>
+                </td>
+            </tr>
+             <tr>
+                <td>Semestre</td>
+                <td>
+                    <select name="" id="">
+                        <option value="1">Primer semestre</option>
+                        <option value="1">Segundo semestre</option>
                     </select>
                 </td>
             </tr>
@@ -31,24 +41,11 @@
                 </td>
             </tr>
             <tr>
-                <td>Semestre</td>
-                <td><input type="text"></td>
-            </tr>
-            <tr>
-                <td>Localidad</td>
-                <td>
-                    <select name="" id="">
-                        <option value="1">Primer semestre</option>
-                        <option value="1">Segundo semestre</option>
-                    </select>
-                </td>
-            </tr>
-            <tr>
-                <td>AÃ±o</td>
+                <td>Año</td>
                 <td><input type="number"></td>
             </tr>
         </table>
-        <button type="submit">Aceptar</button>
+        <button>Volver</button><button type="submit">Aceptar</button>
     </form> 
 </body>
 </html>

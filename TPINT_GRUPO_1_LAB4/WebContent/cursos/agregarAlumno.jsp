@@ -7,7 +7,8 @@
 <title>Insert title here</title>
 </head>
 <body>
-<h1>Agregar almunos al curso 11</h1>
+	<button>Inicio</button>
+	<h1>Agregar almunos al curso PROG 4 2020 SEMESTRE 2</h1>
 
     <form action="" method="get">
         Buscar por legajo
@@ -65,5 +66,6 @@
             </tr>
         </tbody>
     </table>
+    <button>Volver</button>
 </body>
 </html>
