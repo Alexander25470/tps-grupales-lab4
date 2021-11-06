@@ -4,38 +4,24 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<style>
-    table{
-        border-collapse: collapse;
-    }
-    td, th{
-        padding: .25rem;
-        border: 1px solid black;
-    }
-</style>
 <title>Insert title here</title>
 </head>
 <body>
-    <h1>Listar almunos</h1>
-
     <form action="" method="get">
-        Buscar por legajo
+        buscar por año
         <input type="text">
         <button type="submit">Buscar</button>
     </form>
-<button>Agregar nuevo alumno</button>
+<button>Agregar nuevo curso</button>
     <table>
         <thead>
             <tr>
-                <th>Legajo</th>
-                <th>Dni</th>
-                <th>Nombre y apellido</th>
-                <th>Direccion</th>
-                <th>Nacionalidad</th>
-                <th>Provincia</th>
-                <th>Email</th>
-                <th>Telefono</th>
-                <th>Acciones</th>
+                <th>ID</th>
+                <th>Materia</th>
+                <th>Nombre profesor</th>
+                <th>Semestre</th>
+                <th>Año</th>
+                <th>Accion</th>
             </tr>
         </thead>
         <tbody>
@@ -45,10 +31,7 @@
                 <td>texto</td>
                 <td>texto</td>
                 <td>texto</td>
-                <td>texto</td>
-                <td>texto</td>
-                <td>texto</td>
-                <td><button>Modificar</button><button>Eliminar</button></td>
+                <td><button>Ver alumnos</button> <button>Agregar alumnos</button></td>
             </tr>
             <tr>
                 <td>texto</td>
@@ -56,10 +39,7 @@
                 <td>texto</td>
                 <td>texto</td>
                 <td>texto</td>
-                <td>texto</td>
-                <td>texto</td>
-                <td>texto</td>
-                <td><button>Modificar</button><button>Eliminar</button></td>
+                <td><button>Ver alumnos</button> <button>Agregar alumnos</button></td>
             </tr>
             <tr>
                 <td>texto</td>
@@ -67,10 +47,7 @@
                 <td>texto</td>
                 <td>texto</td>
                 <td>texto</td>
-                <td>texto</td>
-                <td>texto</td>
-                <td>texto</td>
-                <td><button>Modificar</button><button>Eliminar</button></td>
+                <td><button>Ver alumnos</button> <button>Agregar alumnos</button></td>
             </tr>
         </tbody>
     </table>

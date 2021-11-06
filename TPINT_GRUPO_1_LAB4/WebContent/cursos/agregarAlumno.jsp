@@ -4,26 +4,17 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<style>
-    table{
-        border-collapse: collapse;
-    }
-    td, th{
-        padding: .25rem;
-        border: 1px solid black;
-    }
-</style>
 <title>Insert title here</title>
 </head>
 <body>
-    <h1>Listar almunos</h1>
+<h1>Agregar almunos al curso 11</h1>
 
     <form action="" method="get">
         Buscar por legajo
         <input type="text">
         <button type="submit">Buscar</button>
     </form>
-<button>Agregar nuevo alumno</button>
+
     <table>
         <thead>
             <tr>
@@ -35,7 +26,7 @@
                 <th>Provincia</th>
                 <th>Email</th>
                 <th>Telefono</th>
-                <th>Acciones</th>
+                <th>Acción</th>
             </tr>
         </thead>
         <tbody>
@@ -48,7 +39,7 @@
                 <td>texto</td>
                 <td>texto</td>
                 <td>texto</td>
-                <td><button>Modificar</button><button>Eliminar</button></td>
+                <td><button type="submit">Agregar</button></td>
             </tr>
             <tr>
                 <td>texto</td>
@@ -59,7 +50,7 @@
                 <td>texto</td>
                 <td>texto</td>
                 <td>texto</td>
-                <td><button>Modificar</button><button>Eliminar</button></td>
+                <td><button type="submit">Agregar</button></td>
             </tr>
             <tr>
                 <td>texto</td>
@@ -70,7 +61,7 @@
                 <td>texto</td>
                 <td>texto</td>
                 <td>texto</td>
-                <td><button>Modificar</button><button>Eliminar</button></td>
+                <td><button type="submit">Agregar</button></td>
             </tr>
         </tbody>
     </table>
