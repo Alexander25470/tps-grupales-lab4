@@ -29,11 +29,11 @@
             </tr>
             <tr>
                 <td>Nacionalidad</td>
-                <td><input type="text"></td>
+                <td><select><option>Uruguay</select></td>
             </tr>
             <tr>
                 <td>Provincia</td>
-                <td><input type="text"></td>
+                <td><select><option>Buenos aires</select></td>
             </tr>
             <tr>
                 <td>Email</td>

@@ -37,6 +37,7 @@ table{
 	                <th>Recuperatorio 2</th>
 	                <th>Estado</th>
 	                <th>Modificar nota</th>
+	                <th>Modificar estado</th>
 	            </tr>
 	        </thead>
 	        <tbody>
@@ -49,6 +50,7 @@ table{
 	                <td>texto</td>
 	                <td>texto</td>
 	                <td><input type="checkbox"/></td>
+	                <td>  <form> <select> <option>Regular</option> </select> <button>Guardar estado</button> </form> </td>
 	            </tr>
 	            <tr>
 	                <td>texto</td>
@@ -59,6 +61,7 @@ table{
 	                <td>texto</td>
 	                <td>texto</td>
 	                <td><input type="checkbox"/></td>
+	                <td>  <form> <select> <option>Libre</option> </select> <button>Guardar estado</button> </form> </td>
 	            </tr>
 	            <tr>
 	                <td>texto</td>
@@ -69,6 +72,7 @@ table{
 	                <td>texto</td>
 	                <td>texto</td>
 	                <td><input type="checkbox"/></td>
+	                <td>  <form> <select> <option>Regular</option> </select> <button>Guardar estado</button> </form> </td>
 	            </tr>
 	        </tbody>
 	    </table>

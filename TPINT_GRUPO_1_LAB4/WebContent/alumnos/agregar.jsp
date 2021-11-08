@@ -27,13 +27,13 @@
                 <td>Direccion</td>
                 <td><input type="text"></td>
             </tr>
-            <tr>
-                <td>Provincia</td>
-                <td><input type="text"></td>
+             <tr>
+                <td>Nacionalidad</td>
+                <td> <select><option>Uruguay</select> </td>
             </tr>
             <tr>
-                <td>Nacionalidad</td>
-                <td><input type="text"></td>
+                <td>Provincia</td>
+                <td> <select><option>Buenos aires</select> </td>
             </tr>
             <tr>
                 <td>Email</td>
