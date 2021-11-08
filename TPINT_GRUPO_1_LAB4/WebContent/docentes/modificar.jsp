@@ -30,11 +30,11 @@
             </tr>
             <tr>
                 <td>Localidad</td>
-                <td><input type="text"></td>
+                <td><select><option>San Fernando</select></td>
             </tr>
             <tr>
                 <td>Nacionalidad</td>
-                <td><input type="text"></td>
+                <td><select><option>Argentina</select></td>
             </tr>
             <tr>
                 <td>Email</td>
