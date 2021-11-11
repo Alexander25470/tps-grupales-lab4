@@ -34,6 +34,7 @@ CREATE TABLE DOCENTES(
     direccion varchar(200) not null,
     email varchar(200) not null,
     telefono varchar(200) not null,
+    estado BIT default 1,
     foreign key (ID_Nacionalidad) references NACIONALIDADES(id),
     foreign key (ID_Localidad) references LOCALIDADES(id)
 );
@@ -48,6 +49,7 @@ CREATE TABLE ALUMNOS(
     direccion varchar(200) not null,
     email varchar(200) not null,
     telefono varchar(200) not null,
+    estado BIT default 1,
     foreign key (ID_Nacionalidad) references NACIONALIDADES(id),
     foreign key (ID_Provincia) references PROVINCIAS(id)
 );
