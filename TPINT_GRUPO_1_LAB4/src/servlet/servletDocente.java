@@ -49,7 +49,7 @@ public class servletDocente extends HttpServlet {
 			}
 			//REQUESTDISPATCHER
 			request.setAttribute("FilasAfectadas", filas);
-			RequestDispatcher rd = request.getRequestDispatcher("/agregarDocente.jsp");   
+			RequestDispatcher rd = request.getRequestDispatcher("/docentes/agregarDocente.jsp");   
 	        rd.forward(request, response);    
 			
 		}

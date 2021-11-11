@@ -11,7 +11,7 @@
 <body>
 	<button>Inicio</button> 
     <h1>Agregar docente</h1>
-    <form action="servletDocente" method="get">
+    <form action="/TPINT_GRUPO_1_LAB4/servletDocente" method="get">
         <table>
             <tr>
                 <td>Legajo</td>

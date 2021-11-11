@@ -9,10 +9,10 @@ import java.util.Date;
 
 public class DocenteDao {
 	
-	private String host = "jdbc:mysql://localhost:3306/tpintegradorlab4?autoReconnect=true&useSSL=false";
-	private String user = "root";
-	private String pass = "root";
-	private String dbName = "tpintegradorlab4";
+	private static String host = "jdbc:mysql://localhost:3306/";
+	private static String user = "root";
+	private static String pass = "root";
+	private static String dbName = "tpintegradorlab4?useSSL=false";
 	
 	public DocenteDao(){
 		
@@ -35,7 +35,7 @@ public class DocenteDao {
 		Connection cn = null;
 		int filas = 0;
 		try {
-			cn = DriverManager.getConnection(host,user,pass);
+			cn = DriverManager.getConnection(host+dbName, user,pass);
 			Statement st =	cn.createStatement();
 			
 			//Date fechaNac = new SimpleDateFormat("yyyy/MM/dd").parse(docente.getFechaNac());  
