@@ -11,7 +11,7 @@
 <body>
 	<button>Inicio</button> 
     <h1>Agregar docente</h1>
-    <form action="/TPINT_GRUPO_1_LAB4/servletDocente" method="get">
+    <form action="/TPINT_GRUPO_1_LAB4/servletDocente" method="post">
         <table>
             <tr>
                 <td>Legajo</td>
@@ -19,31 +19,35 @@
             </tr>
             <tr>
                 <td>Dni</td>
-                <td><input type="text" name= "tbxDNI"></td>
+                <td><input type="number" name="dni"></td>
             </tr>
             <tr>
                 <td>Nombre y apellido</td>
-                <td><input type="text" name= "tbxNombreApellido"></td>
+                <td><input type="text" name= "nombreApellido"></td>
+            </tr>
+            <tr>
+                <td>Fecha de nacimiento</td>
+                <td><input type="date" name="fechaNac"></td>
             </tr>
             <tr>
                 <td>Direccion</td>
-                <td><input type="text" name= "tbxDireccion"></td>
+                <td><input type="text" name="direccion"></td>
             </tr>
             <tr>
                 <td>Localidad</td>
-                <td><select name = "ddlLocalidad"><option value= "1">San Fernando</select></td>
+                <td><select name="idLocalidad"><option value= "1">San Fernando</select></td>
             </tr>
             <tr>
                 <td>Nacionalidad</td>
-                <td><select name = "ddlNacionalidad"><option value= "1">Argentina</select></td>
+                <td><select name="idNacionalidad"><option value= "1">Argentina</select></td>
             </tr>
             <tr>
                 <td>Email</td>
-                <td><input type="text" name= "tbxEmail"></td>
+                <td><input type="text" name="email"></td>
             </tr>
             <tr>
                 <td>Telefono</td>
-                <td><input type="text" name= "tbxTelefono"></td>
+                <td><input type="text" name="telefono"></td>
             </tr>
         </table>
         <button>Cancelar</button><button type="submit" name = "btnAgregar">Aceptar</button>
@@ -59,7 +63,7 @@
     <% if(filas==1) 
 	{
 %>
-		Usuario agregado con éxito
+		Usuario agregado con ï¿½xito
 <%} %>
 </body>
 </html>

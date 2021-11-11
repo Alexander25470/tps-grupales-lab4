@@ -26,19 +26,26 @@ public class servletDocente extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+
+	}
+
+
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		int filas=0;
 		if(request.getParameter("btnAgregar")!=null)
 		{
 			Docente doc  =  new Docente();
 			
-			doc.setDni(request.getParameter("tbxDNI"));
-			doc.setNombreApellido(request.getParameter("tbxNombreApellido"));
-			doc.setFechaNac("1992/09/19");
-			doc.setId_nacionalidad(1);
-			doc.setId_Localidad(1);
-			doc.setDireccion(request.getParameter("tbxDireccion"));
-			doc.setEmail(request.getParameter("tbxEmail"));
-			doc.setTelefono(request.getParameter("tbxTelefono"));
+			doc.setDni(request.getParameter("dni"));
+			doc.setNombreApellido(request.getParameter("nombreApellido"));
+			doc.setFechaNac(request.getParameter("fechaNac"));
+			doc.setId_Localidad(Integer.parseInt(request.getParameter("idLocalidad")));
+			doc.setId_nacionalidad(Integer.parseInt(request.getParameter("idNacionalidad")));
+			doc.setDireccion(request.getParameter("direccion"));
+			doc.setEmail(request.getParameter("email"));
+			doc.setTelefono(request.getParameter("telefono"));
+			
+			System.out.println(doc.getFechaNac());
 			
 			DocenteDao Docdao = new DocenteDao();
 			try {
@@ -49,15 +56,10 @@ public class servletDocente extends HttpServlet {
 			}
 			//REQUESTDISPATCHER
 			request.setAttribute("FilasAfectadas", filas);
-			RequestDispatcher rd = request.getRequestDispatcher("/docentes/agregarDocente.jsp");   
+			RequestDispatcher rd = request.getRequestDispatcher("/docentes/agregar.jsp");   
 	        rd.forward(request, response);    
 			
 		}
-	}
-
-
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
 		
 	}
 

@@ -9,7 +9,7 @@
 <body>
 	<button>Inicio</button>
     <h1>Agregar alumno</h1>
-    <form action="" method="post">
+    <form action="/TPINT_GRUPO_1_LAB4/servletAlumnos" method="post">
         <table>
             <tr>
                 <td>Legajo</td>
@@ -17,34 +17,38 @@
             </tr>
             <tr>
                 <td>Dni</td>
-                <td><input type="text"></td>
+                <td><input type="number" name="dni"></td>
             </tr>
             <tr>
                 <td>Nombre y apellido</td>
-                <td><input type="text"></td>
+                <td><input type="text" name="nombreApellido"></td>
+            </tr>
+             <tr>
+                <td>Fecha de nacimiento</td>
+                <td><input type="date" name="fechaNac"></td>
             </tr>
             <tr>
                 <td>Direccion</td>
-                <td><input type="text"></td>
+                <td><input type="text" name="direccion"></td>
             </tr>
              <tr>
                 <td>Nacionalidad</td>
-                <td> <select><option>Uruguay</select> </td>
+                <td> <select  name="idNacionalidad"><option value="1">Uruguay</select> </td>
             </tr>
             <tr>
                 <td>Provincia</td>
-                <td> <select><option>Buenos aires</select> </td>
+                <td> <select name="idProvincia"><option  value="1">Buenos aires</select> </td>
             </tr>
             <tr>
                 <td>Email</td>
-                <td><input type="text"></td>
+                <td><input type="text" name="email"></td>
             </tr>
             <tr>
                 <td>Telefono</td>
-                <td><input type="text"></td>
+                <td><input type="number" name="telefono"></td>
             </tr>
         </table>
-        <button>Volver</button><button type="submit">Aceptar</button>
+        <button>Volver</button><button type="submit" name="btnAgregar">Aceptar</button>
     </form> 
 </body>
 </html>
