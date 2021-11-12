@@ -1,7 +1,7 @@
 package presentacion.controller;
 
 import java.io.IOException;
-import java.text.ParseException;
+
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import dao.DocenteDao;
+import daolmpl.DocenteDaolmpl;
 import entidad.Docente;
 
 
@@ -47,13 +47,8 @@ public class servletDocente extends HttpServlet {
 			
 			System.out.println(doc.getFechaNac());
 			
-			DocenteDao Docdao = new DocenteDao();
-			try {
-				filas=Docdao.agregarDocente(doc);
-			} catch (ParseException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
+			DocenteDaolmpl Docdao = new DocenteDaolmpl();
+			filas=Docdao.agregar(doc);
 			//REQUESTDISPATCHER
 			request.setAttribute("FilasAfectadas", filas);
 			RequestDispatcher rd = request.getRequestDispatcher("/docentes/agregarDocente.jsp");   
