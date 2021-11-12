@@ -1,12 +1,13 @@
 package daolmpl;
 
+
+import dao.DocenteDao;
 import entidad.Docente;
 
-public class DocenteDaolmpl {
-	
-public int agregar(Docente docente) {
+public class DocenteDaolmpl implements DocenteDao {	
 		
-		
+	@Override
+	public int agregar(Docente docente) {
 		Conexion cn = new Conexion();
 		int filas = 0;
 		try {
@@ -24,6 +25,7 @@ public int agregar(Docente docente) {
 		}
 		
 		return filas;
+
 	}
 
 

@@ -9,7 +9,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import daolmpl.CursoDaolmpl;
+import negocio.CursoNeg;
+import negociolmpl.CursoNeglmpl;
 import entidad.Curso;
 
 /**
@@ -18,6 +19,7 @@ import entidad.Curso;
 @WebServlet("/servletCurso")
 public class servletCurso extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	CursoNeg CurNeg = new CursoNeglmpl();
        
     /**
      * @see HttpServlet#HttpServlet()
@@ -50,8 +52,7 @@ public class servletCurso extends HttpServlet {
 			cur.setLegajo(1);
 			cur.setAnio((Integer.parseInt(request.getParameter("año"))));
 			
-			CursoDaolmpl cursoDao = new CursoDaolmpl();
-			filas=cursoDao.agregar(cur);
+			filas=CurNeg.agregar(cur);
 			//REQUESTDISPATCHER
 			request.setAttribute("FilasAfectadas", filas);
 			RequestDispatcher rd = request.getRequestDispatcher("/cursos/agregar.jsp");   

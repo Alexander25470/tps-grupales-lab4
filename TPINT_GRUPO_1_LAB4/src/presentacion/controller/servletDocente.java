@@ -10,14 +10,16 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import daolmpl.DocenteDaolmpl;
+import negocio.DocenteNeg;
+import negociolmpl.DocenteNeglmpl;
 import entidad.Docente;
 
 
 @WebServlet("/servletDocente")
 public class servletDocente extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
+    DocenteNeg DocNeg = new DocenteNeglmpl();  
+	
     public servletDocente() {
         super();
         // TODO Auto-generated constructor stub
@@ -47,8 +49,7 @@ public class servletDocente extends HttpServlet {
 			
 			System.out.println(doc.getFechaNac());
 			
-			DocenteDaolmpl Docdao = new DocenteDaolmpl();
-			filas=Docdao.agregar(doc);
+			filas=DocNeg.agregar(doc);
 			//REQUESTDISPATCHER
 			request.setAttribute("FilasAfectadas", filas);
 			RequestDispatcher rd = request.getRequestDispatcher("/docentes/agregarDocente.jsp");   

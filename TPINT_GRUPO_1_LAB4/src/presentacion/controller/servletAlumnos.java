@@ -9,7 +9,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import daolmpl.AlumnoDaolmpl;
+import negocio.AlumnoNeg;
+import negociolmpl.AlumnoNeglmpl;
 
 import entidad.Alumno;
 
@@ -20,6 +21,8 @@ import entidad.Alumno;
 @WebServlet("/servletAlumnos")
 public class servletAlumnos extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	
+	AlumnoNeg aluNeg = new AlumnoNeglmpl();
        
     /**
      * @see HttpServlet#HttpServlet()
@@ -58,8 +61,7 @@ public class servletAlumnos extends HttpServlet {
 			
 			System.out.println(al.getFechaNac());
 			
-			AlumnoDaolmpl daoAl = new AlumnoDaolmpl();
-			filas=daoAl.agregar(al);
+			filas=aluNeg.agregar(al);
 			//REQUESTDISPATCHER
 			request.setAttribute("FilasAfectadas", filas);
 			RequestDispatcher rd = request.getRequestDispatcher("/alumnos/agregar.jsp");   
