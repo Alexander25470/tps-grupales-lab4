@@ -2,8 +2,11 @@ package daolmpl;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+
+
 
 
 public class Conexion {
@@ -27,6 +30,22 @@ public class Conexion {
 			e.printStackTrace();
 		}
 		return this.connection;
+	}
+	
+	public ResultSet query(String query)
+	{
+		Statement st;
+		ResultSet rs=null;
+		try
+		{
+			st= connection.createStatement();
+			rs= st.executeQuery(query);
+		}
+		catch(SQLException e)
+		{
+			e.printStackTrace();
+		}
+		return rs;
 	}
 	
 	public int ejecutarConsulta(String query) {

@@ -9,7 +9,9 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<button>Inicio</button> 
+	<a href="../inicio.jsp">
+		<button>Inicio</button> 
+	</a>
     <h1>Agregar docente</h1>
     <form action="/TPINT_GRUPO_1_LAB4/servletDocente" method="post">
         <table>
@@ -50,7 +52,7 @@
                 <td><input type="text" name="telefono"></td>
             </tr>
         </table>
-        <button>Cancelar</button><button type="submit" name = "btnAgregar">Aceptar</button>
+        <a href="listar.jsp"><button type="button">Cancelar</button></a><button type="submit" name = "btnAgregar">Aceptar</button>
     </form>
     
     <%

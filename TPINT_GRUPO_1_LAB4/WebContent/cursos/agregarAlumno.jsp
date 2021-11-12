@@ -7,7 +7,9 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<button>Inicio</button>
+	<a href="./inicio.jsp">
+		<button>Inicio</button> 
+	</a> 
 	<h1>Agregar almunos al curso PROG 4 2020 SEMESTRE 2</h1>
 
     <form action="" method="get">

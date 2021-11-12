@@ -1,6 +1,9 @@
 package daolmpl;
 
 
+import java.sql.ResultSet;
+import java.util.ArrayList;
+
 import dao.DocenteDao;
 import entidad.Docente;
 
@@ -26,6 +29,41 @@ public class DocenteDaolmpl implements DocenteDao {
 		
 		return filas;
 
+	}
+	
+	public ArrayList<Docente> obtenerTodos(){
+		Conexion cn = new Conexion();
+		ArrayList<Docente> docentes = new ArrayList<Docente>();
+		try
+		 {
+			cn.AbrirConexion();
+			 ResultSet rs= cn.query("SELECT * FROM docentes");
+			 while(rs.next())
+			 {
+				 Docente doc = new Docente();
+				 doc.setLegajo(rs.getInt("legajo"));
+				 doc.setDni(rs.getString("dni"));
+				 doc.setNombreApellido(rs.getString("nombreApellido"));
+				 doc.setFechaNac(rs.getString("fechaNac"));
+				 doc.setId_nacionalidad(Integer.parseInt(rs.getString("ID_Nacionalidad")));
+				 doc.setId_Localidad(Integer.parseInt(rs.getString("ID_Localidad")));
+				 doc.setDireccion(rs.getString("direccion"));
+				 doc.setEmail(rs.getString("email"));
+				 doc.setTelefono(rs.getString("telefono"));
+				 
+				 docentes.add(doc);
+			 }
+			 
+		 }
+		 catch(Exception e)
+		 {
+			 e.printStackTrace();
+		 }
+		 finally
+		 {
+			 cn.close();
+		 }
+		return docentes;
 	}
 
 

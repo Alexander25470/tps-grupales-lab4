@@ -1,7 +1,7 @@
 package presentacion.controller;
 
 import java.io.IOException;
-
+import java.util.ArrayList;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -18,7 +18,7 @@ import entidad.Docente;
 @WebServlet("/servletDocente")
 public class servletDocente extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-    DocenteNeg DocNeg = new DocenteNeglmpl();  
+    static DocenteNeg docNeg = new DocenteNeglmpl();  
 	
     public servletDocente() {
         super();
@@ -49,14 +49,18 @@ public class servletDocente extends HttpServlet {
 			
 			System.out.println(doc.getFechaNac());
 			
-			filas=DocNeg.agregar(doc);
+			filas=docNeg.agregar(doc);
 			//REQUESTDISPATCHER
 			request.setAttribute("FilasAfectadas", filas);
-			RequestDispatcher rd = request.getRequestDispatcher("/docentes/agregarDocente.jsp");   
+			RequestDispatcher rd = request.getRequestDispatcher("/docentes/agregar.jsp");   
 	        rd.forward(request, response);    
 			
 		}
 		
+	}
+	
+	public static ArrayList<Docente> obtenerDocentes() {
+		return docNeg.obtenerTodos();
 	}
 
 }

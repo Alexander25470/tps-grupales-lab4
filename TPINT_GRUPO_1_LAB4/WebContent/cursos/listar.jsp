@@ -7,14 +7,18 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<button>Inicio</button>
+	<a href="../inicio.jsp">
+		<button>Inicio</button> 
+	</a> 
 	<h1>Cursos</h1>
     <form action="" method="get">
         buscar por año
         <input type="text">
         <button type="submit">Buscar</button>
     </form>
-	<button>Agregar nuevo curso</button>
+    <a href="agregar.jsp">
+		<button>Agregar nuevo curso</button>
+    </a>
     <table>
         <thead>
             <tr>

@@ -7,7 +7,9 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<button>Inicio</button>
+	<a href="../inicio.jsp">
+		<button>Inicio</button> 
+	</a> 
     <h1>Modificar alumno</h1>
     <form action="" method="post">
         <table>
@@ -44,7 +46,7 @@
                 <td><input type="text"></td>
             </tr>
         </table>
-        <button>Volver</button><button type="submit">Aceptar</button>
+        <a href="listar.jsp"><button type="button">Cancelar</button><button type="submit">Aceptar</button>
     </form> 
 
 </body>

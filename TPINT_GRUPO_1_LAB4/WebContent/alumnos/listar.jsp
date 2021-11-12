@@ -16,7 +16,9 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<button>Inicio</button>
+	<a href="../inicio.jsp">
+		<button>Inicio</button> 
+	</a> 
     <h1>Listar almunos</h1>
 
     <form action="" method="get">
@@ -24,7 +26,9 @@
         <input type="text">
         <button type="submit">Buscar</button>
     </form>
-<button>Agregar nuevo alumno</button>
+    <a href="agregar.jsp">
+		<button>Agregar nuevo alumno</button>
+    </a>
     <table>
         <thead>
             <tr>

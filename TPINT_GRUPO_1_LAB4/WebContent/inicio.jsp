@@ -7,15 +7,15 @@
 <title>Insert title here</title>
 </head>
 <body>
-<h1>Seleccione que desea ver</h1>
-
-
-<button>Alumnos</button>
-<button>Cursos</button>
-<button>Docentes</button>
-
-
-
-
+	<h1>Seleccione que desea ver</h1>
+	<a href="alumnos/listar.jsp">
+		<button>Alumnos</button>
+	</a>
+	<a href="cursos/listar.jsp">
+		<button>Cursos</button>
+	</a>
+	<a href="docentes/listar.jsp">
+		<button>Docentes</button><a href="./inicio.jsp">
+	</a>
 </body>
 </html>

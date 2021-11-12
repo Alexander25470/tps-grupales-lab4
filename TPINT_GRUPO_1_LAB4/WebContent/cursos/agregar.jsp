@@ -7,7 +7,9 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<button>Inicio</button>
+	<a href="../inicio.jsp">
+		<button>Inicio</button> 
+	</a> 
     <h1>Agregar curso</h1>
     <form action="/TPINT_GRUPO_1_LAB4/servletCurso" method="post">
         <table>
@@ -45,7 +47,7 @@
                 <td><input type="number" name="año"></td>
             </tr>
         </table>
-        <button>Volver</button><button type="submit" name="btnAgregar">Aceptar</button>
+        <a href="listar.jsp"><button type="button">Cancelar</button></a><button type="submit" name="btnAgregar">Aceptar</button>
     </form>
     
 	 <%

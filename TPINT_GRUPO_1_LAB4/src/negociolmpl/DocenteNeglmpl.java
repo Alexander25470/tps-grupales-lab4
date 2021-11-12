@@ -1,5 +1,7 @@
 package negociolmpl;
 
+import java.util.ArrayList;
+
 import dao.DocenteDao;
 import daolmpl.DocenteDaolmpl;
 import entidad.Docente;
@@ -11,6 +13,10 @@ public class DocenteNeglmpl implements DocenteNeg {
 	public int agregar(Docente docente) {
 		
 		return DocDao.agregar(docente);
+	}
+	
+	public ArrayList<Docente> obtenerTodos(){
+		return DocDao.obtenerTodos();
 	}
 
 }

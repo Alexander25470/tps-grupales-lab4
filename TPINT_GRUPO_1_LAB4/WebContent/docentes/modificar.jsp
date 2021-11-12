@@ -7,14 +7,17 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<button>Inicio</button> 
+	<a href="../inicio.jsp">
+		<button>Inicio</button> 
+	</a>
     <h1>Modificar docente</h1>
     
     <form action="" method="post">
         <table>
             <tr>
                 <td>Legajo</td>
-                <td>0001</td>
+                <td><%= request.getParameter("legajo") %></td>
+                <input type="text" name="legajo" value="<%= request.getParameter("legajo") %>" hidden="true"/>
             </tr>
             <tr>
                 <td>Dni</td>
@@ -45,7 +48,7 @@
                 <td><input type="text"></td>
             </tr>
         </table>
-        <button>Cancelar</button><button type="submit">Aceptar</button>
+        <a href="listar.jsp"><button type="button">Cancelar</button></a><button type="submit">Aceptar</button>
     </form> 
 
 </body>

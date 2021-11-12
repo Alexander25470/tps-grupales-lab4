@@ -16,7 +16,9 @@ table{
 </style>
 </head>
 <body style="height: 335px; ">
-	<button>Inicio</button>
+	<a href="../inicio.jsp">
+		<button>Inicio</button> 
+	</a> 
 	<h1>Alumnos en el curso PROG 4 2020 SEMESTRE 2</h1>
 
     <form action="" method="get">
