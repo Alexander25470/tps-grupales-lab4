@@ -1,6 +1,7 @@
-package servlet;
+package presentacion.controller;
 
 import java.io.IOException;
+import java.text.ParseException;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -9,20 +10,22 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import dao.CursoDao;
-import entidad.Curso;
+import daolmpl.AlumnoDaolmpl;
+import dao.DocenteDao;
+import entidad.Alumno;
+import entidad.Docente;
 
 /**
- * Servlet implementation class servletCurso
+ * Servlet implementation class servletAlumnos
  */
-@WebServlet("/servletCurso")
-public class servletCurso extends HttpServlet {
+@WebServlet("/servletAlumnos")
+public class servletAlumnos extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public servletCurso() {
+    public servletAlumnos() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -43,21 +46,27 @@ public class servletCurso extends HttpServlet {
 		int filas=0;
 		if(request.getParameter("btnAgregar")!=null)
 		{
-			Curso cur=  new Curso();
+			Alumno al=  new Alumno();
 			
-			cur.setId_materia((Integer.parseInt(request.getParameter("idmateria"))));
-			cur.setSemestre(Integer.parseInt(request.getParameter("semestre")));
-			cur.setLegajo(1);
-			cur.setAnio((Integer.parseInt(request.getParameter("año"))));
+			al.setDni(request.getParameter("dni"));
+			al.setNombreApellido(request.getParameter("nombreApellido"));
+			al.setFechaNac(request.getParameter("fechaNac"));
+			al.setIdProvincia(Integer.parseInt(request.getParameter("idProvincia")));
+			al.setIdNacionalidad(Integer.parseInt(request.getParameter("idNacionalidad")));
+			al.setDireccion(request.getParameter("direccion"));
+			al.setEmail(request.getParameter("email"));
+			al.setTelefono(request.getParameter("telefono"));
 			
-			CursoDao cursoDao = new CursoDao();
-			filas=cursoDao.agregar(cur);
+			System.out.println(al.getFechaNac());
+			
+			AlumnoDaolmpl daoAl = new AlumnoDaolmpl();
+			filas=daoAl.agregar(al);
 			//REQUESTDISPATCHER
 			request.setAttribute("FilasAfectadas", filas);
-			RequestDispatcher rd = request.getRequestDispatcher("/cursos/agregar.jsp");   
+			RequestDispatcher rd = request.getRequestDispatcher("/alumnos/agregar.jsp");   
 	        rd.forward(request, response);    
 			
 		}
 	}
-}
 
+}
