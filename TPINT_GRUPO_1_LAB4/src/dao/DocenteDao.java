@@ -1,11 +1,13 @@
-package dominio;
+package dao;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.Statement;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;  
-import java.util.Date; 
+import java.util.Date;
+
+import entidad.Docente; 
 
 public class DocenteDao {
 	

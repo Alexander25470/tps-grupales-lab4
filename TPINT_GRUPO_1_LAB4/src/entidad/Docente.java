@@ -1,13 +1,13 @@
-package dominio;
+package entidad;
 
-public class Alumno {
+public class Docente {
 	
 	private int legajo;
 	private String dni;
 	private String nombreApellido;
 	private String fechaNac;
-	private int idProvincia;
-	private int idNacionalidad;
+	private int id_nacionalidad;
+	private int id_Localidad;
 	private String direccion;
 	private String email;
 	private String telefono;
@@ -36,6 +36,18 @@ public class Alumno {
 	public void setFechaNac(String fechaNac) {
 		this.fechaNac = fechaNac;
 	}
+	public int getId_nacionalidad() {
+		return id_nacionalidad;
+	}
+	public void setId_nacionalidad(int id_nacionalidad) {
+		this.id_nacionalidad = id_nacionalidad;
+	}
+	public int getId_Localidad() {
+		return id_Localidad;
+	}
+	public void setId_Localidad(int id_Localidad) {
+		this.id_Localidad = id_Localidad;
+	}
 	public String getDireccion() {
 		return direccion;
 	}
@@ -54,25 +66,14 @@ public class Alumno {
 	public void setTelefono(String telefono) {
 		this.telefono = telefono;
 	}
-	public int getIdProvincia() {
-		return idProvincia;
-	}
-	public void setIdProvincia(int idProvincia) {
-		this.idProvincia = idProvincia;
-	}
-	public int getIdNacionalidad() {
-		return idNacionalidad;
-	}
-	public void setIdNacionalidad(int idNacionalidad) {
-		this.idNacionalidad = idNacionalidad;
-	}
 	@Override
 	public String toString() {
-		return "Alumno [legajo=" + legajo + ", dni=" + dni + ", nombreApellido=" + nombreApellido + ", fechaNac="
-				+ fechaNac + ", idProvincia=" + idProvincia + ", idNacionalidad=" + idNacionalidad + ", direccion="
+		return "Docente [legajo=" + legajo + ", dni=" + dni + ", nombreApellido=" + nombreApellido + ", fechaNac="
+				+ fechaNac + ", id_nacionalidad=" + id_nacionalidad + ", id_Localidad=" + id_Localidad + ", direccion="
 				+ direccion + ", email=" + email + ", telefono=" + telefono + "]";
 	}
+	
+	
+	
 
-	
-	
 }

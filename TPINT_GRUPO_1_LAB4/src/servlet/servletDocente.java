@@ -10,8 +10,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import dominio.Docente;
-import dominio.DocenteDao;
+import dao.DocenteDao;
+import entidad.Docente;
 
 
 @WebServlet("/servletDocente")
@@ -56,7 +56,7 @@ public class servletDocente extends HttpServlet {
 			}
 			//REQUESTDISPATCHER
 			request.setAttribute("FilasAfectadas", filas);
-			RequestDispatcher rd = request.getRequestDispatcher("/docentes/agregar.jsp");   
+			RequestDispatcher rd = request.getRequestDispatcher("/docentes/agregarDocente.jsp");   
 	        rd.forward(request, response);    
 			
 		}

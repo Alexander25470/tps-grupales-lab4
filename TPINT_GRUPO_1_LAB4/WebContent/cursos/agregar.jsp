@@ -9,7 +9,7 @@
 <body>
 	<button>Inicio</button>
     <h1>Agregar curso</h1>
-    <form action="" method="post">
+    <form action="/TPINT_GRUPO_1_LAB4/servletCurso" method="post">
         <table>
             <tr>
                 <td>ID</td>
@@ -18,7 +18,7 @@
             <tr>
                 <td>Materia</td>
                 <td>
-                    <select name="" id="">
+                    <select name="idmateria">
                         <option value="1">LAB 4</option>
                     </select>
                 </td>
@@ -26,26 +26,40 @@
              <tr>
                 <td>Semestre</td>
                 <td>
-                    <select name="" id="">
+                    <select name="semestre">
                         <option value="1">Primer semestre</option>
-                        <option value="1">Segundo semestre</option>
+                        <option value="2">Segundo semestre</option>
                     </select>
                 </td>
             </tr>
             <tr>
                 <td>Docente</td>
                 <td>
-                    <select name="" id="">
+                    <select name="docente">
                         <option value="1">nombre apellido legajo</option>
                     </select>
                 </td>
             </tr>
             <tr>
                 <td>Año</td>
-                <td><input type="number"></td>
+                <td><input type="number" name="año"></td>
             </tr>
         </table>
-        <button>Volver</button><button type="submit">Aceptar</button>
-    </form> 
+        <button>Volver</button><button type="submit" name="btnAgregar">Aceptar</button>
+    </form>
+    
+	 <%
+    int filas = 0;
+    if(request.getAttribute("FilasAfectadas") != null){
+    filas = (int)request.getAttribute("FilasAfectadas");
+    }
+    %>
+    
+    <% if(filas==1) 
+	{
+%>
+		Usuario agregado con exito
+<%} %>
+     
 </body>
 </html>

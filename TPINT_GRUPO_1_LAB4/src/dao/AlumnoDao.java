@@ -1,11 +1,11 @@
-package dominio;
+package dao;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.Statement;
 import java.text.ParseException;
-import java.text.SimpleDateFormat;  
-import java.util.Date; 
+
+import entidad.Alumno; 
 
 public class AlumnoDao {
 	
@@ -21,7 +21,7 @@ public class AlumnoDao {
 		
 	}
 	
-	public int agregar(Alumno alumno) throws ParseException {
+	public int agregar(Alumno alumno) {
 		
 		
 		
