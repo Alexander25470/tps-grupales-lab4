@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import dao.CursoDao;
+import daolmpl.CursoDaolmpl;
 import entidad.Curso;
 
 /**
@@ -50,7 +51,7 @@ public class servletCurso extends HttpServlet {
 			cur.setLegajo(1);
 			cur.setAnio((Integer.parseInt(request.getParameter("año"))));
 			
-			CursoDao cursoDao = new CursoDao();
+			CursoDaolmpl cursoDao = new CursoDaolmpl();
 			filas=cursoDao.agregar(cur);
 			//REQUESTDISPATCHER
 			request.setAttribute("FilasAfectadas", filas);
