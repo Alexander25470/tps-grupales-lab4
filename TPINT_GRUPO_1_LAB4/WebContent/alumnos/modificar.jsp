@@ -15,7 +15,8 @@
         <table>
             <tr>
                 <td>Legajo</td>
-                <td>0001</td>
+                <td><%= request.getParameter("legajo") %></td>
+                <input type="text" name="legajo" value="<%= request.getParameter("legajo") %>" hidden="true"/>
             </tr>
             <tr>
                 <td>Dni</td>

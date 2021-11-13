@@ -61,8 +61,8 @@
 	                <td><%=doc.getDni() %></td>
 	                <td><%=doc.getNombreApellido() %></td>
 	                <td><%=doc.getDireccion() %></td>
-	                <td><%=doc.getId_Localidad()%></td>
-	                <td><%=doc.getId_nacionalidad() %></td>
+	                <td><%=doc.getLocalidad().getNombre()%></td>
+	                <td><%=doc.getNacionalidad().getNombre()%></td>
 	                <td><%=doc.getEmail() %></td>
 	                <td><%=doc.getTelefono() %></td>
 	                <td> <a href="modificar.jsp?legajo=<%=doc.getLegajo() %>"><button>Modificar</button></a> <button>Eliminar</button> </td>

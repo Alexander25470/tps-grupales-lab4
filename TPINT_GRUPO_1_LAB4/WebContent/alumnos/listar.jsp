@@ -1,5 +1,8 @@
+<%@page import="presentacion.controller.servletAlumnos"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="entidad.Alumno"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -15,11 +18,15 @@
 </style>
 <title>Insert title here</title>
 </head>
+
+<% 
+	ArrayList<Alumno> listaAlumnos = (ArrayList<Alumno>) servletAlumnos.obtenerAlumnos();
+ %>
 <body>
 	<a href="../inicio.jsp">
 		<button>Inicio</button> 
 	</a> 
-    <h1>Listar almunos</h1>
+    <h1>Listar alumnos</h1>
 
     <form action="" method="get">
         Buscar por legajo
@@ -44,39 +51,23 @@
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <td>texto</td>
-                <td>texto</td>
-                <td>texto</td>
-                <td>texto</td>
-                <td>texto</td>
-                <td>texto</td>
-                <td>texto</td>
-                <td>texto</td>
-                <td><button>Modificar</button><button>Eliminar</button></td>
-            </tr>
-            <tr>
-                <td>texto</td>
-                <td>texto</td>
-                <td>texto</td>
-                <td>texto</td>
-                <td>texto</td>
-                <td>texto</td>
-                <td>texto</td>
-                <td>texto</td>
-                <td><button>Modificar</button><button>Eliminar</button></td>
-            </tr>
-            <tr>
-                <td>texto</td>
-                <td>texto</td>
-                <td>texto</td>
-                <td>texto</td>
-                <td>texto</td>
-                <td>texto</td>
-                <td>texto</td>
-                <td>texto</td>
-                <td><button>Modificar</button><button>Eliminar</button></td>
-            </tr>
+			<%  
+				if(listaAlumnos!=null)
+				for(Alumno al : listaAlumnos) 
+			{
+			%>
+				<tr>
+					<td><%=al.getLegajo() %></td>
+	                <td><%=al.getDni() %></td>
+	                <td><%=al.getNombreApellido() %></td>
+	                <td><%=al.getDireccion() %></td>
+	                <td><%=al.getNacionalidad().getNombre()%></td>
+	                <td><%=al.getProvincia().getNombre() %></td>
+	                <td><%=al.getEmail() %></td>
+	                <td><%=al.getTelefono() %></td>
+	                <td> <a href="modificar.jsp?legajo=<%=al.getLegajo() %>"><button>Modificar</button></a> <button>Eliminar</button> </td>
+				</tr>
+			<%  } %>
         </tbody>
     </table>
 </body>

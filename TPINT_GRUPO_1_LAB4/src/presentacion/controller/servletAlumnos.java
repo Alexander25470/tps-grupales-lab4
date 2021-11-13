@@ -1,6 +1,7 @@
 package presentacion.controller;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -13,6 +14,10 @@ import negocio.AlumnoNeg;
 import negociolmpl.AlumnoNeglmpl;
 
 import entidad.Alumno;
+import entidad.Docente;
+import entidad.Localidad;
+import entidad.Nacionalidad;
+import entidad.Provincia;
 
 
 /**
@@ -22,7 +27,7 @@ import entidad.Alumno;
 public class servletAlumnos extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
-	AlumnoNeg aluNeg = new AlumnoNeglmpl();
+	static AlumnoNeg aluNeg = new AlumnoNeglmpl();
        
     /**
      * @see HttpServlet#HttpServlet()
@@ -53,8 +58,10 @@ public class servletAlumnos extends HttpServlet {
 			al.setDni(request.getParameter("dni"));
 			al.setNombreApellido(request.getParameter("nombreApellido"));
 			al.setFechaNac(request.getParameter("fechaNac"));
-			al.setIdProvincia(Integer.parseInt(request.getParameter("idProvincia")));
-			al.setIdNacionalidad(Integer.parseInt(request.getParameter("idNacionalidad")));
+
+			al.setProvincia(new Provincia(Integer.parseInt(request.getParameter("idProvincia"))));
+			al.setNacionalidad(new Nacionalidad(Integer.parseInt(request.getParameter("idNacionalidad"))));
+			
 			al.setDireccion(request.getParameter("direccion"));
 			al.setEmail(request.getParameter("email"));
 			al.setTelefono(request.getParameter("telefono"));
@@ -69,5 +76,10 @@ public class servletAlumnos extends HttpServlet {
 			
 		}
 	}
+	
+	public static ArrayList<Alumno> obtenerAlumnos() {
+		return aluNeg.obtenerTodos();
+	}
+
 
 }

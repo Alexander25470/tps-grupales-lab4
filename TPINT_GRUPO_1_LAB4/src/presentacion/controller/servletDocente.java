@@ -13,6 +13,8 @@ import javax.servlet.http.HttpServletResponse;
 import negocio.DocenteNeg;
 import negociolmpl.DocenteNeglmpl;
 import entidad.Docente;
+import entidad.Localidad;
+import entidad.Nacionalidad;
 
 
 @WebServlet("/servletDocente")
@@ -41,8 +43,8 @@ public class servletDocente extends HttpServlet {
 			doc.setDni(request.getParameter("dni"));
 			doc.setNombreApellido(request.getParameter("nombreApellido"));
 			doc.setFechaNac(request.getParameter("fechaNac"));
-			doc.setId_Localidad(Integer.parseInt(request.getParameter("idLocalidad")));
-			doc.setId_nacionalidad(Integer.parseInt(request.getParameter("idNacionalidad")));
+			doc.setLocalidad(new Localidad(Integer.parseInt(request.getParameter("idLocalidad"))));
+			doc.setNacionalidad(new Nacionalidad(Integer.parseInt(request.getParameter("idNacionalidad"))));
 			doc.setDireccion(request.getParameter("direccion"));
 			doc.setEmail(request.getParameter("email"));
 			doc.setTelefono(request.getParameter("telefono"));

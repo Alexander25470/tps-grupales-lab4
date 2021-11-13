@@ -6,8 +6,8 @@ public class Docente {
 	private String dni;
 	private String nombreApellido;
 	private String fechaNac;
-	private int id_nacionalidad;
-	private int id_Localidad;
+	private Nacionalidad nacionalidad;
+	private Localidad localidad;
 	private String direccion;
 	private String email;
 	private String telefono;
@@ -36,17 +36,17 @@ public class Docente {
 	public void setFechaNac(String fechaNac) {
 		this.fechaNac = fechaNac;
 	}
-	public int getId_nacionalidad() {
-		return id_nacionalidad;
+	public Nacionalidad getNacionalidad() {
+		return nacionalidad;
 	}
-	public void setId_nacionalidad(int id_nacionalidad) {
-		this.id_nacionalidad = id_nacionalidad;
+	public void setNacionalidad(Nacionalidad nacionalidad) {
+		this.nacionalidad = nacionalidad;
 	}
-	public int getId_Localidad() {
-		return id_Localidad;
+	public Localidad getLocalidad() {
+		return localidad;
 	}
-	public void setId_Localidad(int id_Localidad) {
-		this.id_Localidad = id_Localidad;
+	public void setLocalidad(Localidad localidad) {
+		this.localidad = localidad;
 	}
 	public String getDireccion() {
 		return direccion;
@@ -65,15 +65,6 @@ public class Docente {
 	}
 	public void setTelefono(String telefono) {
 		this.telefono = telefono;
-	}
-	@Override
-	public String toString() {
-		return "Docente [legajo=" + legajo + ", dni=" + dni + ", nombreApellido=" + nombreApellido + ", fechaNac="
-				+ fechaNac + ", id_nacionalidad=" + id_nacionalidad + ", id_Localidad=" + id_Localidad + ", direccion="
-				+ direccion + ", email=" + email + ", telefono=" + telefono + "]";
-	}
-	
-	
-	
+	}	
 
 }

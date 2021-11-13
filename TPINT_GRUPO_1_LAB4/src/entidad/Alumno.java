@@ -6,8 +6,8 @@ public class Alumno {
 	private String dni;
 	private String nombreApellido;
 	private String fechaNac;
-	private int idProvincia;
-	private int idNacionalidad;
+	private Provincia provincia;
+	private Nacionalidad nacionalidad;
 	private String direccion;
 	private String email;
 	private String telefono;
@@ -54,24 +54,19 @@ public class Alumno {
 	public void setTelefono(String telefono) {
 		this.telefono = telefono;
 	}
-	public int getIdProvincia() {
-		return idProvincia;
+	public Provincia getProvincia() {
+		return provincia;
 	}
-	public void setIdProvincia(int idProvincia) {
-		this.idProvincia = idProvincia;
+	public void setProvincia(Provincia provincia) {
+		this.provincia = provincia;
 	}
-	public int getIdNacionalidad() {
-		return idNacionalidad;
+	public Nacionalidad getNacionalidad() {
+		return nacionalidad;
 	}
-	public void setIdNacionalidad(int idNacionalidad) {
-		this.idNacionalidad = idNacionalidad;
+	public void setNacionalidad(Nacionalidad nacionalidad) {
+		this.nacionalidad = nacionalidad;
 	}
-	@Override
-	public String toString() {
-		return "Alumno [legajo=" + legajo + ", dni=" + dni + ", nombreApellido=" + nombreApellido + ", fechaNac="
-				+ fechaNac + ", idProvincia=" + idProvincia + ", idNacionalidad=" + idNacionalidad + ", direccion="
-				+ direccion + ", email=" + email + ", telefono=" + telefono + "]";
-	}
+
 
 	
 	
