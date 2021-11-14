@@ -12,6 +12,19 @@ public class Docente {
 	private String email;
 	private String telefono;
 	
+	public Docente() {
+	
+	}
+	
+	public Docente(int legajo, String nombreApellido) {
+		this.legajo = legajo;
+		this.nombreApellido = nombreApellido;
+	}
+	
+	public Docente(int legajo) {
+		this.legajo = legajo;
+	}
+	
 	public int getLegajo() {
 		return legajo;
 	}

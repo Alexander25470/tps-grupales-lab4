@@ -1,5 +1,7 @@
 package negociolmpl;
 
+import java.util.ArrayList;
+
 import dao.CursoDao;
 import daolmpl.CursoDaolmpl;
 import entidad.Curso;
@@ -11,6 +13,11 @@ public class CursoNeglmpl implements CursoNeg {
 	public int agregar(Curso curso) {
 		
 		return CurDao.agregar(curso);
+	}
+	@Override
+	public ArrayList<Curso> obtenerTodos() {
+		
+		return CurDao.obtenerTodos();
 	}
 
 }

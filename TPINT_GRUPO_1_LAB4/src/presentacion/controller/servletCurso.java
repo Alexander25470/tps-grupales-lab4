@@ -1,6 +1,7 @@
 package presentacion.controller;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -12,6 +13,10 @@ import javax.servlet.http.HttpServletResponse;
 import negocio.CursoNeg;
 import negociolmpl.CursoNeglmpl;
 import entidad.Curso;
+import entidad.Docente;
+import entidad.Materia;
+import entidad.Nacionalidad;
+import entidad.Provincia;
 
 /**
  * Servlet implementation class servletCurso
@@ -19,7 +24,7 @@ import entidad.Curso;
 @WebServlet("/servletCurso")
 public class servletCurso extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	CursoNeg CurNeg = new CursoNeglmpl();
+	static CursoNeg CurNeg = new CursoNeglmpl();
        
     /**
      * @see HttpServlet#HttpServlet()
@@ -47,10 +52,12 @@ public class servletCurso extends HttpServlet {
 		{
 			Curso cur=  new Curso();
 			
-			cur.setId_materia((Integer.parseInt(request.getParameter("idmateria"))));
 			cur.setSemestre(Integer.parseInt(request.getParameter("semestre")));
-			cur.setLegajo(1);
+			
 			cur.setAnio((Integer.parseInt(request.getParameter("año"))));
+			
+			cur.setMateria(new Materia(Integer.parseInt(request.getParameter("idmateria"))));
+			cur.setDocente(new Docente(Integer.parseInt(request.getParameter("legajo"))));
 			
 			filas=CurNeg.agregar(cur);
 			//REQUESTDISPATCHER
@@ -59,6 +66,12 @@ public class servletCurso extends HttpServlet {
 	        rd.forward(request, response);    
 			
 		}
+		
+		
+	}
+	
+	public static ArrayList<Curso> obtenerCursos() {
+		return CurNeg.obtenerTodos();
 	}
 }
 
