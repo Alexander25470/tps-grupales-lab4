@@ -9,6 +9,6 @@ public interface CursoNeg {
 	
 	public int agregar(Curso curso);
 	public ArrayList<Curso> obtenerTodos();
-	public ArrayList<Alumno> obtenerAlumnosQueNoEstanEnCurso(Curso curso);
+	public ArrayList<Alumno> obtenerAlumnosQueNoEstanEnCurso(int idCurso);
 
 }

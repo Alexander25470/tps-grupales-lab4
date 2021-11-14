@@ -79,7 +79,7 @@ public class CursoDaolmpl implements CursoDao {
 	}
 
 	@Override
-	public ArrayList<Alumno> obtenerAlumnosQueNoEstanEnCurso(Curso curso) {
+	public ArrayList<Alumno> obtenerAlumnosQueNoEstanEnCurso(int idCurso) {
 		Conexion cn = new Conexion();
 		ArrayList<Alumno> alumnos = new ArrayList<Alumno>();
 		try
@@ -87,7 +87,7 @@ public class CursoDaolmpl implements CursoDao {
 			cn.AbrirConexion();
 			 ResultSet rs= cn.query("select alu.*, nac.Nombre as nombreNac, prov.Nombre as nombreProv from alumnos alu inner join\r\n" + 
 			 		"nacionalidades nac on alu.ID_Nacionalidad = nac.id inner join provincias prov on alu.ID_Provincia = prov.id\r\n" + 
-			 		"where alu.legajo not in( select legajo from notas where id_curso=2 );");
+			 		"where alu.legajo not in( select legajo from notas where id_curso= "+idCurso+" );");
 			 while(rs.next())
 			 {
 				 Alumno al = new Alumno();

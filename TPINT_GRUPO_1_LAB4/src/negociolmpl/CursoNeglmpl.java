@@ -21,8 +21,8 @@ public class CursoNeglmpl implements CursoNeg {
 		return CurDao.obtenerTodos();
 	}
 	@Override
-	public ArrayList<Alumno> obtenerAlumnosQueNoEstanEnCurso(Curso curso) {
-		return CurDao.obtenerAlumnosQueNoEstanEnCurso(curso);
+	public ArrayList<Alumno> obtenerAlumnosQueNoEstanEnCurso(int idCurso) {
+		return CurDao.obtenerAlumnosQueNoEstanEnCurso(idCurso);
 	}
 
 }
