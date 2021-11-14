@@ -11,7 +11,7 @@ public class Alumno {
 	private String direccion;
 	private String email;
 	private String telefono;
-	
+
 	public int getLegajo() {
 		return legajo;
 	}

@@ -51,7 +51,13 @@ public class servletAlumnos extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		int filas=0;
-		if(request.getParameter("btnAgregar")!=null)
+		if(request.getParameter("btnEliminar")!=null) 
+		{   Alumno al = new Alumno();
+			
+			al.setLegajo(Integer.parseInt(request.getParameter("legajo")));
+			
+			
+		}else if(request.getParameter("btnAgregar")!=null)
 		{
 			Alumno al=  new Alumno();
 			
@@ -75,6 +81,7 @@ public class servletAlumnos extends HttpServlet {
 	        rd.forward(request, response);    
 			
 		}
+		
 	}
 	
 	public static ArrayList<Alumno> obtenerAlumnos() {
