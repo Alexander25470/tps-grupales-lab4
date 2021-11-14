@@ -8,5 +8,6 @@ public interface AlumnoDao {
 	
 	public int agregar(Alumno alumno);
 	public ArrayList<Alumno> obtenerTodos();
+	public int eliminar(int legajo);
 
 }

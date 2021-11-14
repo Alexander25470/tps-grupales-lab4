@@ -87,4 +87,24 @@ public class AlumnoDaolmpl implements AlumnoDao {
 		return alumnos;
 	}
 
+	@Override
+	public int eliminar(int legajo) {
+		Conexion cn = new Conexion();
+		int filas = 0;
+		try {
+			
+			cn.AbrirConexion();
+
+			String query = "update alumnos set estado = 0 where legajo = "+legajo;
+			filas = cn.ejecutarConsulta(query);
+		}
+		catch(Exception e){
+			
+			e.printStackTrace();
+		}
+		
+		return filas;
+		
+	}
+
 }
