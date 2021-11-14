@@ -65,7 +65,7 @@
                 <td><%=cur.getDocente().getNombreApellido() %></td>
                 <td><%=semestre %></td>
                 <td><%=cur.getAnio() %></td>
-                <td><button>Ver alumnos</button> <button>Agregar alumnos</button></td>
+                <td> <a href="lsitarAlumnos.jsp?idCurso=<%=cur.getId()%>"> <button>Ver alumnos</button></a> <a href="agregarAlumnos.jsp?idCurso=<%=cur.getId()%>"><button>Agregar alumnos</button></a> </td>
             </tr>
           <%  } %>
         </tbody>
