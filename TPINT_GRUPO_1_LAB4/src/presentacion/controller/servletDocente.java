@@ -36,7 +36,15 @@ public class servletDocente extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		int filas=0;
-		if(request.getParameter("btnAgregar")!=null)
+		System.out.println(request.getParameter("btnEliminar"));
+		if(request.getParameter("btnEliminar")!=null) 
+		{
+			docNeg.eliminar(Integer.parseInt(request.getParameter("legajo")));
+			request.setAttribute("eliminado", true);
+			RequestDispatcher rd = request.getRequestDispatcher("/docentes/listar.jsp");   
+	        rd.forward(request, response);    
+			
+		}else if(request.getParameter("btnAgregar")!=null)
 		{
 			Docente doc  =  new Docente();
 			

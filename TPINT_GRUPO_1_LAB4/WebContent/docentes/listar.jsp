@@ -65,7 +65,12 @@
 	                <td><%=doc.getNacionalidad().getNombre()%></td>
 	                <td><%=doc.getEmail() %></td>
 	                <td><%=doc.getTelefono() %></td>
-	                <td> <a href="modificar.jsp?legajo=<%=doc.getLegajo() %>"><button>Modificar</button></a> <button>Eliminar</button> </td>
+	                <td> <a href="modificar.jsp?legajo=<%=doc.getLegajo() %>"><button>Modificar</button></a>
+				    <form action="/TPINT_GRUPO_1_LAB4/servletDocente" method="post">
+				        <input name="legajo" type ="text" hidden="true" value="<%=doc.getLegajo()%>">
+				        <button name="btnEliminar" type="submit" value="eliminar">Eliminar</button>
+				    </form>
+				    </td>
 				</tr>
 			<%  } %>
         </tbody>

@@ -77,5 +77,25 @@ public class DocenteDaolmpl implements DocenteDao {
 		return docentes;
 	}
 
+	@Override
+	public int eliminar(int legajo) {
+		Conexion cn = new Conexion();
+		int filas = 0;
+		try {
+			
+			cn.AbrirConexion();
+
+			String query = "update docentes set estado = 0 where legajo = "+legajo;
+			filas = cn.ejecutarConsulta(query);
+		}
+		catch(Exception e){
+			
+			e.printStackTrace();
+		}
+		
+		return filas;
+		
+	}
+
 
 }
