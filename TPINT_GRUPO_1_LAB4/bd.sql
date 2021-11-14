@@ -88,12 +88,12 @@ CREATE TABLE USUARIOS(
 
 insert into NACIONALIDADES 
 (id,nombre)
-VALUES('1','Argentina'),('2','Uruguar'),('3','Brasil'),
+VALUES('1','Argentina'),('2','Uruguay'),('3','Brasil'),
 ('4','Chile'),('5','Bolivia'),('6','Colombia'),('7','España');
 
 insert into PROVINCIAS
 (id,nombre)
-VALUES('1','Provincia'),('2','Santa Fe'),('3','Cordoba'),
+VALUES('1','Jujuy'),('2','Santa Fe'),('3','Cordoba'),
 ('4','Chaco'),('5','Misiones'),('6','Santa Cruz'),('7','Entre Rios');
 
 insert into LOCALIDADES 
