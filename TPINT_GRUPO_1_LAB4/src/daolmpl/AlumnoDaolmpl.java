@@ -49,7 +49,7 @@ public class AlumnoDaolmpl implements AlumnoDao {
 		try
 		 {
 			cn.AbrirConexion();
-			 ResultSet rs= cn.query("SELECT alu.*, nac.Nombre as nombreNac, prov.Nombre as nombreProv FROM alumnos alu inner join nacionalidades nac on alu.ID_Nacionalidad = nac.id inner join provincias prov on alu.ID_Provincia = prov.id;");
+			 ResultSet rs= cn.query("SELECT alu.*, nac.Nombre as nombreNac, prov.Nombre as nombreProv FROM alumnos alu inner join nacionalidades nac on alu.ID_Nacionalidad = nac.id inner join provincias prov on alu.ID_Provincia = prov.id where alu.estado != 0;");
 			 while(rs.next())
 			 {
 				 Alumno al = new Alumno();
