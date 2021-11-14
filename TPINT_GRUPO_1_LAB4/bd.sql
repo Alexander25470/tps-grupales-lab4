@@ -77,3 +77,11 @@ CREATE TABLE NOTAS(
     foreign key (ID_Curso) references CURSOS(id)
 );
 
+CREATE TABLE USUARIOS(
+    id int primary key AUTO_INCREMENT,
+	legajo_docente int,
+    nombre varchar(50),
+    contrasenia varchar(50),
+    administrador bool  
+);
+
