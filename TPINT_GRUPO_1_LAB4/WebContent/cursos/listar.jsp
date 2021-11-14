@@ -25,7 +25,7 @@
 	ArrayList<Curso> listaCursos = (ArrayList<Curso>) servletCurso.obtenerCursos();
 	String semestre;
  %>
-	<a href="../inicio.jsp">
+	<a href="/TPINT_GRUPO_1_LAB4/inicio.jsp">
 		<button>Inicio</button> 
 	</a> 
 	<h1>Cursos</h1>
@@ -65,7 +65,7 @@
                 <td><%=cur.getDocente().getNombreApellido() %></td>
                 <td><%=semestre %></td>
                 <td><%=cur.getAnio() %></td>
-                <td> <a href="lsitarAlumnos.jsp?idCurso=<%=cur.getId()%>"> <button>Ver alumnos</button></a> <a href="agregarAlumnos.jsp?idCurso=<%=cur.getId()%>"><button>Agregar alumnos</button></a> </td>
+                <td> <a href="/TPINT_GRUPO_1_LAB4/cursos/listarAlumnos.jsp?idCurso=<%=cur.getId()%>"> <button>Ver alumnos</button></a> <a href="/TPINT_GRUPO_1_LAB4/cursos/agregarAlumnos.jsp?idCurso=<%=cur.getId()%>"><button>Agregar alumnos</button></a> </td>
             </tr>
           <%  } %>
         </tbody>
