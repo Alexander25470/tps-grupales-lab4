@@ -85,3 +85,25 @@ CREATE TABLE USUARIOS(
     administrador bool  
 );
 
+
+insert into NACIONALIDADES 
+(id,nombre)
+VALUES('1','Argentina'),('2','Uruguar'),('3','Brasil'),
+('4','Chile'),('5','Bolivia'),('6','Colombia'),('7','España');
+
+insert into PROVINCIAS
+(id,nombre)
+VALUES('1','Provincia'),('2','Santa Fe'),('3','Cordoba'),
+('4','Chaco'),('5','Misiones'),('6','Santa Cruz'),('7','Entre Rios');
+
+insert into LOCALIDADES 
+(id,nombre)
+VALUES('1','Tigre'),('2','San Isidro'),('3','Malvinas Argentinas'),
+('4','Moron'),('5','La Matanza'),('6','Garin'),('7','La Plata');
+
+
+
+
+
+
+
