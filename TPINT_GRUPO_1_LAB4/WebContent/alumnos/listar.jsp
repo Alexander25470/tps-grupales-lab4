@@ -69,7 +69,7 @@
 	                <td><%=al.getTelefono() %></td>
 	                <td><a href="modificar.jsp?legajo=<%=al.getLegajo()%>"><button>Modificar</button></a>
 	                <form action="/TPINT_GRUPO_1_LAB4/servletAlumnos" method="post">
-				        <input name="legajo" type ="text" hidden="true" value=<%="al.getLegajo()"%>>
+				        <input name="legajo" type ="text" hidden="true" value="<%=al.getLegajo()%>">
 				        <button name="btnEliminar" type="submit" value="eliminar">Eliminar</button>
 				    </form>
 				    </td>

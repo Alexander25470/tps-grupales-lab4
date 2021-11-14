@@ -21,9 +21,9 @@ public class AlumnoNeglmpl implements AlumnoNeg {
 	}
 
 	@Override
-	public int eliminar(Alumno alumno) {
+	public int eliminar(int legajo) {
 		// TODO Auto-generated method stub
-		return alumDao.eliminar(alumno);
+		return alumDao.eliminar(legajo);
 	}
 
 }

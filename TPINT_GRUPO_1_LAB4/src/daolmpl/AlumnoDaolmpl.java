@@ -88,15 +88,14 @@ public class AlumnoDaolmpl implements AlumnoDao {
 	}
 
 	@Override
-	public int eliminar(Alumno alumno) {
+	public int eliminar(int legajo) {
 		Conexion cn = new Conexion();
 		int filas = 0;
 		try {
 			
 			cn.AbrirConexion();
 
-			//Date fechaNac = new SimpleDateFormat("yyyy/MM/dd").parse(docente.getFechaNac());  
-			String query = "update alumnos set estado = 0 where legajo =  '"+alumno.getLegajo()+"'";
+			String query = "update alumnos set estado = 0 where legajo = "+legajo;
 			filas = cn.ejecutarConsulta(query);
 		}
 		catch(Exception e){
