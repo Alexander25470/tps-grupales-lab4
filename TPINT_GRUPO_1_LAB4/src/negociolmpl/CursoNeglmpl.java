@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import dao.CursoDao;
 import daolmpl.CursoDaolmpl;
+import entidad.Alumno;
 import entidad.Curso;
 import negocio.CursoNeg;
 
@@ -18,6 +19,10 @@ public class CursoNeglmpl implements CursoNeg {
 	public ArrayList<Curso> obtenerTodos() {
 		
 		return CurDao.obtenerTodos();
+	}
+	@Override
+	public ArrayList<Alumno> obtenerAlumnosQueNoEstanEnCurso(int idCurso) {
+		return CurDao.obtenerAlumnosQueNoEstanEnCurso(idCurso);
 	}
 
 }

@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import negocio.CursoNeg;
 import negociolmpl.CursoNeglmpl;
+import entidad.Alumno;
 import entidad.Curso;
 import entidad.Docente;
 import entidad.Materia;
@@ -72,6 +73,10 @@ public class servletCurso extends HttpServlet {
 	
 	public static ArrayList<Curso> obtenerCursos() {
 		return CurNeg.obtenerTodos();
+	}
+	
+	public static ArrayList<Alumno> obtenerAlumnosQueNoEstanEnCurso(int idCurso) {
+		return CurNeg.obtenerAlumnosQueNoEstanEnCurso(idCurso);
 	}
 }
 

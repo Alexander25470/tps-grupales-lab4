@@ -4,11 +4,13 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 
 import dao.CursoDao;
+import entidad.Alumno;
 import entidad.Curso;
 import entidad.Docente;
 import entidad.Localidad;
 import entidad.Materia;
 import entidad.Nacionalidad;
+import entidad.Provincia;
 
 public class CursoDaolmpl implements CursoDao {
 
@@ -36,7 +38,6 @@ public class CursoDaolmpl implements CursoDao {
 
 	@Override
 	public ArrayList<Curso> obtenerTodos() {
-		
 		Conexion cn = new Conexion();
 		ArrayList<Curso> curso = new ArrayList<Curso>();
 		try
@@ -75,5 +76,52 @@ public class CursoDaolmpl implements CursoDao {
 			 cn.close();
 		 }
 		return curso;
-}
+	}
+
+	@Override
+	public ArrayList<Alumno> obtenerAlumnosQueNoEstanEnCurso(int idCurso) {
+		Conexion cn = new Conexion();
+		ArrayList<Alumno> alumnos = new ArrayList<Alumno>();
+		try
+		 {
+			cn.AbrirConexion();
+			 ResultSet rs= cn.query("select alu.*, nac.Nombre as nombreNac, prov.Nombre as nombreProv from alumnos alu inner join\r\n" + 
+			 		"nacionalidades nac on alu.ID_Nacionalidad = nac.id inner join provincias prov on alu.ID_Provincia = prov.id\r\n" + 
+			 		"where alu.legajo not in( select legajo from notas where id_curso= "+idCurso+" );");
+			 while(rs.next())
+			 {
+				 Alumno al = new Alumno();
+				 Nacionalidad nac = new Nacionalidad();
+				 Provincia prov = new Provincia();
+				 al.setLegajo(rs.getInt("legajo"));
+				 al.setDni(rs.getString("dni"));
+				 al.setNombreApellido(rs.getString("nombreApellido"));
+				 al.setFechaNac(rs.getString("fechaNac"));
+				 
+				 nac.setId(Integer.parseInt(rs.getString("ID_Nacionalidad")));
+				 nac.setNombre(rs.getString("nombreNac"));
+				 al.setNacionalidad(nac);
+				 
+				 prov.setId(Integer.parseInt(rs.getString("ID_Provincia")));
+				 prov.setNombre(rs.getString("nombreProv"));
+				 al.setProvincia(prov);
+				 
+				 al.setDireccion(rs.getString("direccion"));
+				 al.setEmail(rs.getString("email"));
+				 al.setTelefono(rs.getString("telefono"));
+				 
+				 alumnos.add(al);
+			 }
+			 
+		 }
+		 catch(Exception e)
+		 {
+			 e.printStackTrace();
+		 }
+		 finally
+		 {
+			 cn.close();
+		 }
+		return alumnos;
+	}
 }
