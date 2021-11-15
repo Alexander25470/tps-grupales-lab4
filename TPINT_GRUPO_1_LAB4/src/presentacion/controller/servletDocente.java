@@ -11,7 +11,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import negocio.DocenteNeg;
+import negocio.LocalidadNeg;
 import negociolmpl.DocenteNeglmpl;
+import negociolmpl.LocalidadNegImpl;
 import entidad.Docente;
 import entidad.Localidad;
 import entidad.Nacionalidad;
@@ -21,6 +23,7 @@ import entidad.Nacionalidad;
 public class servletDocente extends HttpServlet {
 	private static final long serialVersionUID = 1L;
     static DocenteNeg docNeg = new DocenteNeglmpl();  
+    static LocalidadNeg LocNeg = new LocalidadNegImpl();
 	
     public servletDocente() {
         super();
@@ -51,8 +54,8 @@ public class servletDocente extends HttpServlet {
 			doc.setDni(request.getParameter("dni"));
 			doc.setNombreApellido(request.getParameter("nombreApellido"));
 			doc.setFechaNac(request.getParameter("fechaNac"));
-			doc.setLocalidad(new Localidad(Integer.parseInt(request.getParameter("idLocalidad"))));
-			doc.setNacionalidad(new Nacionalidad(Integer.parseInt(request.getParameter("idNacionalidad"))));
+			doc.setLocalidad(new Localidad(Integer.parseInt(request.getParameter("seleccionarLocalidad"))));
+			doc.setNacionalidad(new Nacionalidad(Integer.parseInt(request.getParameter("seleccionarNacionalidad"))));
 			doc.setDireccion(request.getParameter("direccion"));
 			doc.setEmail(request.getParameter("email"));
 			doc.setTelefono(request.getParameter("telefono"));
@@ -73,4 +76,8 @@ public class servletDocente extends HttpServlet {
 		return docNeg.obtenerTodos();
 	}
 
+	public static ArrayList<Localidad> obtenerLocalidades() {
+		return LocNeg.obtenerTodos();
+	}
+	
 }

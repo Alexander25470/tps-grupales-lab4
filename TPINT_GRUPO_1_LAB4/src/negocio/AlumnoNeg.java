@@ -9,5 +9,6 @@ public interface AlumnoNeg {
 	public int agregar(Alumno alumno);
 	public ArrayList<Alumno> obtenerTodos();
 	public int eliminar(int legajo);
+	public Alumno obtenerUno(int legajo);
 
 }

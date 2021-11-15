@@ -11,8 +11,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import negocio.AlumnoNeg;
+import negocio.ProvinciaNeg;
 import negociolmpl.AlumnoNeglmpl;
-
+import negociolmpl.ProvinciaNegImpl;
 import entidad.Alumno;
 import entidad.Docente;
 import entidad.Localidad;
@@ -28,6 +29,7 @@ public class servletAlumnos extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
 	static AlumnoNeg aluNeg = new AlumnoNeglmpl();
+	static ProvinciaNeg ProvNeg = new ProvinciaNegImpl();
        
     /**
      * @see HttpServlet#HttpServlet()
@@ -67,8 +69,8 @@ public class servletAlumnos extends HttpServlet {
 			al.setNombreApellido(request.getParameter("nombreApellido"));
 			al.setFechaNac(request.getParameter("fechaNac"));
 
-			al.setProvincia(new Provincia(Integer.parseInt(request.getParameter("idProvincia"))));
-			al.setNacionalidad(new Nacionalidad(Integer.parseInt(request.getParameter("idNacionalidad"))));
+			al.setProvincia(new Provincia(Integer.parseInt(request.getParameter("seleccionarProvincia"))));
+			al.setNacionalidad(new Nacionalidad(Integer.parseInt(request.getParameter("seleccionarNacionalidad"))));
 			
 			al.setDireccion(request.getParameter("direccion"));
 			al.setEmail(request.getParameter("email"));
@@ -89,6 +91,9 @@ public class servletAlumnos extends HttpServlet {
 	public static ArrayList<Alumno> obtenerAlumnos() {
 		return aluNeg.obtenerTodos();
 	}
-
+	
+	public static ArrayList<Provincia> obtenerProvincias() {
+		return ProvNeg.obtenerTodos();
+	}
 
 }

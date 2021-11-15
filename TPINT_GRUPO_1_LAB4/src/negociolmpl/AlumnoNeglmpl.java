@@ -26,4 +26,10 @@ public class AlumnoNeglmpl implements AlumnoNeg {
 		return alumDao.eliminar(legajo);
 	}
 
+	@Override
+	public Alumno obtenerUno(int legajo) {
+		// TODO Auto-generated method stub
+		return alumDao.obtenerUno(legajo);
+	}
+
 }
