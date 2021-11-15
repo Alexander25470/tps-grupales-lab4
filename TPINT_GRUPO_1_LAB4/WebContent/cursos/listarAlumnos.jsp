@@ -36,7 +36,7 @@ table{
         <button type="submit">Buscar</button>
     </form>
 
-    <form action="" method="get">
+    <form action="/TPINT_GRUPO_1_LAB4/servletAlumnosCursos" method="post">
 	    <table>
 	        <thead>
 	            <tr>
@@ -76,7 +76,7 @@ table{
 	                <td><%=nota.getRecuperatorio1()%></td>
 	                <td><%=nota.getRecuperatorio2()%></td>
 	                <td><%=nota.getEstado().getDescripcion()%></td>
-	                <td><input type="checkbox"/></td>
+	                <td><input type="checkbox" name="chbkNotas" value="<%=nota.getAlumno().getLegajo() %>"/></td>
 	                <td>  <form> <select> <option>Regular</option> </select> <button>Guardar estado</button> </form> </td>
 				</tr>
 			<%  } %>
@@ -91,7 +91,7 @@ table{
     	</select>
     	<p>Ingrese la nota</p>
     	<input type="text"/> <br/> <br/>
-        <button type="submit">Modificar</button>
+        <button type="submit" name="btnModificar">Modificar</button>
     </form>
     
     <button>Volver</button>
