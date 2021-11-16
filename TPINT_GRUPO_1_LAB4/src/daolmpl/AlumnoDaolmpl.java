@@ -82,6 +82,51 @@ public class AlumnoDaolmpl implements AlumnoDao {
 		return alumnos;
 	}
 
+	public ArrayList<Alumno> obtenerTodos(int legajo){
+		Conexion cn = new Conexion();
+		ArrayList<Alumno> alumnos = new ArrayList<Alumno>();
+		try
+		 {
+			cn.AbrirConexion();
+			 ResultSet rs= cn.query("SELECT alu.*, nac.Nombre as nombreNac, prov.Nombre as nombreProv FROM alumnos alu inner join nacionalidades nac on alu.ID_Nacionalidad = nac.id inner join provincias prov on alu.ID_Provincia = prov.id where alu.estado != 0 and alu.legajo like \"%"+legajo+"%\";");
+			 while(rs.next())
+			 {
+				 Alumno al = new Alumno();
+				 Nacionalidad nac = new Nacionalidad();
+				 Provincia prov = new Provincia();
+				 al.setLegajo(rs.getInt("legajo"));
+				 al.setDni(rs.getString("dni"));
+				 al.setNombreApellido(rs.getString("nombreApellido"));
+				 al.setFechaNac(rs.getString("fechaNac"));
+				 
+				 nac.setId(Integer.parseInt(rs.getString("ID_Nacionalidad")));
+				 nac.setNombre(rs.getString("nombreNac"));
+				 al.setNacionalidad(nac);
+				 
+				 prov.setId(Integer.parseInt(rs.getString("ID_Provincia")));
+				 prov.setNombre(rs.getString("nombreProv"));
+				 al.setProvincia(prov);
+				 
+				 al.setDireccion(rs.getString("direccion"));
+				 al.setEmail(rs.getString("email"));
+				 al.setTelefono(rs.getString("telefono"));
+				 
+				 alumnos.add(al);
+			 }
+			 
+		 }
+		 catch(Exception e)
+		 {
+			 e.printStackTrace();
+		 }
+		 finally
+		 {
+			 cn.close();
+		 }
+		return alumnos;
+	}
+
+	
 	@Override
 	public int eliminar(int legajo) {
 		Conexion cn = new Conexion();
@@ -111,8 +156,8 @@ public class AlumnoDaolmpl implements AlumnoDao {
 		Provincia prov = new Provincia();
 		try
 		 {
-			 ResultSet rs= cn.query("SELECT alu.*, nac.Nombre as nombreNac, prov.Nombre as nombreProv FROM alumnos alu inner join nacionalidades nac on alu.ID_Nacionalidad = nac.id inner join provincias prov on alu.ID_Provincia = prov.id where alu.estado != 0 && alu.legajo like \"%"+legajo+"%\";");
-			 rs.next();
+			 ResultSet rs= cn.query("SELECT alu.*, nac.Nombre as nombreNac, prov.Nombre as nombreProv FROM alumnos alu inner join nacionalidades nac on alu.ID_Nacionalidad = nac.id inner join provincias prov on alu.ID_Provincia = prov.id where alu.estado != 0 and alu.legajo like \"%"+legajo+"%\";");
+			 if(rs.next()) {
 			 
 			 al.setLegajo(rs.getInt("legajo"));
 			 al.setDni(rs.getString("dni"));
@@ -131,7 +176,7 @@ public class AlumnoDaolmpl implements AlumnoDao {
 			 al.setEmail(rs.getString("email"));
 			 al.setTelefono(rs.getString("telefono"));
 			 
-			 
+			 }
 		 }
 		 catch(Exception e)
 		 {

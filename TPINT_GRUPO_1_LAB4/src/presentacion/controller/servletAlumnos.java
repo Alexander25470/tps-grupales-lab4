@@ -92,6 +92,10 @@ public class servletAlumnos extends HttpServlet {
 		return aluNeg.obtenerTodos();
 	}
 	
+	public static ArrayList<Alumno> obtenerAlumnos(String legajo) {
+		return aluNeg.obtenerTodos(Integer.parseInt(legajo));
+	}
+	
 	public static ArrayList<Provincia> obtenerProvincias() {
 		return ProvNeg.obtenerTodos();
 	}

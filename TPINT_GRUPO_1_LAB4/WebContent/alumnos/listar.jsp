@@ -21,17 +21,24 @@
 </head>
 
 <% 
-	ArrayList<Alumno> listaAlumnos = (ArrayList<Alumno>) servletAlumnos.obtenerAlumnos();
- %>
+	ArrayList<Alumno> listaAlumnos;
+	if(request.getParameter("buscarLegajo") != null){
+		listaAlumnos = (ArrayList<Alumno>) servletAlumnos.obtenerAlumnos(request.getParameter("buscarLegajo"));
+	}else{
+		listaAlumnos = (ArrayList<Alumno>) servletAlumnos.obtenerAlumnos();
+	}
+	
+	
+%>
 <body>
 	<a href="../inicio.jsp">
 		<button>Inicio</button> 
 	</a> 
     <h1>Listar alumnos</h1>
 
-    <form action="" method="get">
+    <form action="listar.jsp" method="get">
         Buscar por legajo
-        <input type="text">
+        <input type="text" name="buscarLegajo">
         <button type="submit">Buscar</button>
     </form>
     <a href="agregar.jsp">
