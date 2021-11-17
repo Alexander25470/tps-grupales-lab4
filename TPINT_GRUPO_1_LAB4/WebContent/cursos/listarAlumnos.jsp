@@ -52,17 +52,6 @@ table{
 	            </tr>
 	        </thead>
 	        <tbody>
-	            <tr>
-	                <td>texto</td>
-	                <td>texto</td>
-	                <td>10</td>
-	                <td>texto</td>
-	                <td>texto</td>
-	                <td>texto</td>
-	                <td>texto</td>
-	                <td><input type="checkbox"/></td>
-	                <td>  <form> <select> <option>Regular</option> </select> <button>Guardar estado</button> </form> </td>
-	            </tr>
 	            <%  
 				if(listaNotas!=null)
 				for(Nota nota : listaNotas) 
