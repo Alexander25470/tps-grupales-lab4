@@ -23,7 +23,7 @@
     <form action="" method="get">
         Buscar por legajo
         <input type="text">
-        <button type="submit">Buscar</button>
+        <button type="submit" name="">Buscar</button>
     </form>
 
     <table>
@@ -56,9 +56,10 @@
 	                <td><%=al.getEmail() %></td>
 	                <td><%=al.getTelefono() %></td>
 	                <td>
-	                <form action="/TPINT_GRUPO_1_LAB4/servletAlumnos" method="post">
+	                <form action="/TPINT_GRUPO_1_LAB4/servletNota" method="post">
 				        <input name="legajo" type ="text" hidden="true" value="<%=al.getLegajo()%>">
-				        <button name="btnAgregar" type="submit" value="eliminar">Agregar</button>
+				        <input name="idCurso" type ="text" hidden="true" value="<%=request.getParameter("idCurso")%>">
+				        <button name="btnAgregar" type="submit">Agregar</button>
 				    </form>
 				    </td>
 				</tr>

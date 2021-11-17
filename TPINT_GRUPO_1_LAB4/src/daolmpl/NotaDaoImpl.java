@@ -31,7 +31,7 @@ public class NotaDaoImpl implements NotaDao{
 				 
 				 ResultSet rsAlumno = cn.query("SELECT alu.*, nac.Nombre as nombreNac, prov.Nombre as nombreProv FROM"+
 				 " alumnos alu inner join nacionalidades nac on alu.ID_Nacionalidad = nac.id inner join provincias prov on"+
-						 " alu.ID_Provincia = prov.id where alu.estado != 0 and alu.legajo = "+rs.getInt("legajo"));
+						 " alu.ID_Provincia = prov.id where alu.legajo = "+rs.getInt("legajo"));
 				 if(rsAlumno.next()) {
 					 Alumno al = new Alumno();
 					 Nacionalidad nac = new Nacionalidad();
@@ -80,5 +80,24 @@ public class NotaDaoImpl implements NotaDao{
 		 }
 		return notas;
 	}
+	@Override
+	public int agregar(int legajoAlumno, int idCurso) {
+		Conexion cn = new Conexion();
+		int filas = 0;
+		try {
+			cn.AbrirConexion();
+			
+			//Date fechaNac = new SimpleDateFormat("yyyy/MM/dd").parse(docente.getFechaNac());  
+			String query = "insert into NOTAS (legajo,ID_Curso) VALUES("+legajoAlumno+","+idCurso+")";
+			filas = cn.ejecutarConsulta(query);
+		}
+		catch(Exception e){
+			
+			e.printStackTrace();
+		}
+		
+		return filas;
 
+	}
+	
 }
