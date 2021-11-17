@@ -1,5 +1,5 @@
 alumnos:
-	al apretar buscar sin poner legajo, muestre todos
+	al apretar buscar sin poner legajo, muestre todos -- Done
 	modificar.jsp cargue los datos del legajo seleccionado
 	modificar.jsp guarde los datos modificados
 cursos:
