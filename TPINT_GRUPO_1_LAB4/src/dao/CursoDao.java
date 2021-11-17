@@ -10,5 +10,6 @@ public interface CursoDao {
 	public int agregar(Curso curso);
 	public ArrayList<Curso> obtenerTodos();
 	public ArrayList<Alumno> obtenerAlumnosQueNoEstanEnCurso(int idCurso);
+	ArrayList<Curso> obtenerTodos(int anio);
 
 }

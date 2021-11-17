@@ -28,8 +28,7 @@
 	}else{
 		listaAlumnos = (ArrayList<Alumno>) servletAlumnos.obtenerAlumnos();
 	}
-	
-	
+
 %>
 <body>
 	<a href="../inicio.jsp">
@@ -39,7 +38,7 @@
 
     <form action="listar.jsp" method="get">
         Buscar por legajo
-        <input type="text" name="buscarLegajo">
+        <input type="number" name="buscarLegajo" value="<%=legajoaBuscar%>" >
         <button type="submit">Buscar</button>
     </form>
     <a href="agregar.jsp">

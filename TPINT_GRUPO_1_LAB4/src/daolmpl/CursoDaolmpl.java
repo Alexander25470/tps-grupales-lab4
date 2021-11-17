@@ -77,6 +77,49 @@ public class CursoDaolmpl implements CursoDao {
 		 }
 		return curso;
 	}
+	
+	@Override
+	public ArrayList<Curso> obtenerTodos(int anio) {
+		Conexion cn = new Conexion();
+		ArrayList<Curso> curso = new ArrayList<Curso>();
+		try
+		 {
+			 cn.AbrirConexion();
+			 ResultSet rs= cn.query("SELECT cur.*, mat.Nombre as nombreMat, doc.nombreApellido as nombreApellidoProfesor FROM cursos cur inner "
+			 		+ "join materias as mat on mat.id = cur.ID_Materia inner join docentes as doc on doc.legajo = cur.legajo where anio like '%"+anio+"%'");
+			 while(rs.next())
+			 {
+				 Curso cur = new Curso();
+				 Materia mat = new Materia();
+				 Docente doc = new Docente();
+				 
+				 cur.setId(rs.getInt("id"));
+				 cur.setSemestre(rs.getInt("semestre"));
+				 
+				 doc.setLegajo(Integer.parseInt(rs.getString("legajo")));
+				 doc.setNombreApellido(rs.getString("nombreApellidoProfesor"));
+				 cur.setDocente(doc);
+				 
+				 mat.setId(Integer.parseInt(rs.getString("ID_Materia")));
+				 mat.setNombre(rs.getString("nombreMat"));
+				 cur.setMateria(mat);
+				 
+				 cur.setAnio(Integer.parseInt(rs.getString("anio")));
+				 
+				 curso.add(cur);
+			 }
+			 
+		 }
+		 catch(Exception e)
+		 {
+			 e.printStackTrace();
+		 }
+		 finally
+		 {
+			 cn.close();
+		 }
+		return curso;
+	}
 
 	@Override
 	public ArrayList<Alumno> obtenerAlumnosQueNoEstanEnCurso(int idCurso) {

@@ -22,16 +22,23 @@
 </head>
 <body>
 <% 
-	ArrayList<Curso> listaCursos = (ArrayList<Curso>) servletCurso.obtenerCursos();
 	String semestre;
+	ArrayList<Curso> listaCursos;
+	String anioABuscar = request.getParameter("anio"); 
+	if(anioABuscar != null && anioABuscar !=""){
+		listaCursos = (ArrayList<Curso>) servletCurso.obtenerCursos(anioABuscar);
+	}else{
+		listaCursos = (ArrayList<Curso>) servletCurso.obtenerCursos();
+	}
+
  %>
 	<a href="/TPINT_GRUPO_1_LAB4/inicio.jsp">
 		<button>Inicio</button> 
 	</a> 
 	<h1>Cursos</h1>
-    <form action="" method="get">
+    <form action="/TPINT_GRUPO_1_LAB4/cursos/listar.jsp" method="get">
         buscar por año
-        <input type="text">
+        <input type="number" name="anio" value="<%=request.getParameter("anio")%>">
         <button type="submit">Buscar</button>
     </form>
     <a href="agregar.jsp">

@@ -78,6 +78,10 @@ public class servletCurso extends HttpServlet {
 		return CurNeg.obtenerTodos();
 	}
 	
+	public static ArrayList<Curso> obtenerCursos(String anio) {
+		return CurNeg.obtenerTodos(Integer.parseInt(anio));
+	}
+	
 	public static ArrayList<Materia> obtenerMaterias() {
 		return matNeg.obtenerTodos();
 	}
