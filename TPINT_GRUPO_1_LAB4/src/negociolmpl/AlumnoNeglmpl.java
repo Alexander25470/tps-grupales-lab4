@@ -19,11 +19,21 @@ public class AlumnoNeglmpl implements AlumnoNeg {
 	public ArrayList<Alumno> obtenerTodos(){
 		return alumDao.obtenerTodos();
 	}
+	
+	public ArrayList<Alumno> obtenerTodos(int legajo){
+		return alumDao.obtenerTodos(legajo);
+	}
 
 	@Override
 	public int eliminar(int legajo) {
 		// TODO Auto-generated method stub
 		return alumDao.eliminar(legajo);
+	}
+
+	@Override
+	public Alumno obtenerUno(int legajo) {
+		// TODO Auto-generated method stub
+		return alumDao.obtenerUno(legajo);
 	}
 
 }

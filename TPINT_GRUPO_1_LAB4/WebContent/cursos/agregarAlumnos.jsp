@@ -15,7 +15,7 @@
 	int idCurso = Integer.parseInt(request.getParameter("idCurso"));
 	ArrayList<Alumno> listaAlumnos = (ArrayList<Alumno>) servletCurso.obtenerAlumnosQueNoEstanEnCurso(idCurso);
  %>
-	<a href="../inicio.jsp">
+	<a href="/TPINT_GRUPO_1_LAB4/inicio.jsp">
 		<button>Inicio</button> 
 	</a> 
 	<h1>Agregar almunos al curso PROG 4 2020 SEMESTRE 2</h1>
@@ -41,7 +41,7 @@
             </tr>
         </thead>
         <tbody>
-           			<%  
+           	<%  
 				if(listaAlumnos!=null)
 				for(Alumno al : listaAlumnos) 
 			{
@@ -65,6 +65,6 @@
 			<%  } %>
         </tbody>
     </table>
-     <a href="listar.jsp"><button type="button">Volver</button>
+     <a href="/TPINT_GRUPO_1_LAB4/cursos/listar.jsp"><button type="button">Volver</button>
 </body>
 </html>

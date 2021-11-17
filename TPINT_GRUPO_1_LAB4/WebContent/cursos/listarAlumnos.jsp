@@ -1,5 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="entidad.Nota"%>
+<%@page import="entidad.Alumno"%>
+<%@page import="entidad.Nacionalidad"%>
+<%@page import="presentacion.controller.servletNota"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -16,7 +21,11 @@ table{
 </style>
 </head>
 <body style="height: 335px; ">
-	<a href="../inicio.jsp">
+<% 
+	int idCurso = Integer.parseInt(request.getParameter("idCurso"));
+	ArrayList<Nota> listaNotas = (ArrayList<Nota>) servletNota.obtenerNotasCurso(idCurso);
+ %>
+	<a href="/TPINT_GRUPO_1_LAB4/inicio.jsp">
 		<button>Inicio</button> 
 	</a> 
 	<h1>Alumnos en el curso PROG 4 2020 SEMESTRE 2</h1>
@@ -27,7 +36,7 @@ table{
         <button type="submit">Buscar</button>
     </form>
 
-    <form action="" method="get">
+    <form action="/TPINT_GRUPO_1_LAB4/servletAlumnosCursos" method="post">
 	    <table>
 	        <thead>
 	            <tr>
@@ -54,28 +63,23 @@ table{
 	                <td><input type="checkbox"/></td>
 	                <td>  <form> <select> <option>Regular</option> </select> <button>Guardar estado</button> </form> </td>
 	            </tr>
-	            <tr>
-	                <td>texto</td>
-	                <td>texto</td>
-	                <td>texto</td>
-	                <td>texto</td>
-	                <td>texto</td>
-	                <td>texto</td>
-	                <td>texto</td>
-	                <td><input type="checkbox"/></td>
-	                <td>  <form> <select> <option>Libre</option> </select> <button>Guardar estado</button> </form> </td>
-	            </tr>
-	            <tr>
-	                <td>texto</td>
-	                <td>texto</td>
-	                <td>10</td>
-	                <td>texto</td>
-	                <td>texto</td>
-	                <td>texto</td>
-	                <td>texto</td>
-	                <td><input type="checkbox"/></td>
+	            <%  
+				if(listaNotas!=null)
+				for(Nota nota : listaNotas) 
+			{
+			%>
+				<tr>
+					<td><%=nota.getAlumno().getLegajo() %></td>
+	                <td><%=nota.getAlumno().getNombreApellido()%></td>
+	                <td><%=nota.getParcial1()%></td>
+	                <td><%=nota.getParcial2()%></td>
+	                <td><%=nota.getRecuperatorio1()%></td>
+	                <td><%=nota.getRecuperatorio2()%></td>
+	                <td><%=nota.getEstado().getDescripcion()%></td>
+	                <td><input type="checkbox" name="chbkNotas" value="<%=nota.getAlumno().getLegajo() %>"/></td>
 	                <td>  <form> <select> <option>Regular</option> </select> <button>Guardar estado</button> </form> </td>
-	            </tr>
+				</tr>
+			<%  } %>
 	        </tbody>
 	    </table>
    		<p>Seleccione la nota a modificar/cargar</p>
@@ -87,7 +91,7 @@ table{
     	</select>
     	<p>Ingrese la nota</p>
     	<input type="text"/> <br/> <br/>
-        <button type="submit">Modificar</button>
+        <button type="submit" name="btnModificar">Modificar</button>
     </form>
     
     <button>Volver</button>

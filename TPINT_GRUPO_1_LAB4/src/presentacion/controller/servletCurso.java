@@ -11,7 +11,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import negocio.CursoNeg;
+import negocio.MateriaNeg;
 import negociolmpl.CursoNeglmpl;
+import negociolmpl.MateriaNegImpl;
 import entidad.Alumno;
 import entidad.Curso;
 import entidad.Docente;
@@ -26,6 +28,7 @@ import entidad.Provincia;
 public class servletCurso extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	static CursoNeg CurNeg = new CursoNeglmpl();
+	static MateriaNeg matNeg = new MateriaNegImpl();
        
     /**
      * @see HttpServlet#HttpServlet()
@@ -57,8 +60,8 @@ public class servletCurso extends HttpServlet {
 			
 			cur.setAnio((Integer.parseInt(request.getParameter("año"))));
 			
-			cur.setMateria(new Materia(Integer.parseInt(request.getParameter("idmateria"))));
-			cur.setDocente(new Docente(Integer.parseInt(request.getParameter("legajo"))));
+			cur.setMateria(new Materia(Integer.parseInt(request.getParameter("seleccionarMateria"))));
+			cur.setDocente(new Docente(Integer.parseInt(request.getParameter("seleccionarProfesor"))));
 			
 			filas=CurNeg.agregar(cur);
 			//REQUESTDISPATCHER
@@ -73,6 +76,10 @@ public class servletCurso extends HttpServlet {
 	
 	public static ArrayList<Curso> obtenerCursos() {
 		return CurNeg.obtenerTodos();
+	}
+	
+	public static ArrayList<Materia> obtenerMaterias() {
+		return matNeg.obtenerTodos();
 	}
 	
 	public static ArrayList<Alumno> obtenerAlumnosQueNoEstanEnCurso(int idCurso) {

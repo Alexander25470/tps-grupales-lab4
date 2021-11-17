@@ -1,0 +1,30 @@
+alumnos:
+	al apretar buscar sin poner legajo, muestre todos -- Done
+	modificar.jsp cargue los datos del legajo seleccionado
+	modificar.jsp guarde los datos modificados
+cursos:
+	que se pueda buscar por año
+	/agregar alumnos:
+		que se pueda agregar algumnos a curso
+		que se pueda buscarlos por legajo
+
+	/listar alumnos:
+		que se pueda modificar la nota de almenos un legajo hardcodeado, para luego realizarlo masivamente
+			que se pueda modificar masivamente
+		que funcione guardar estado
+	/Agregar curso:
+		validar que se ingrese algo en año
+docentes:
+	buscar por legajo (se puede copiar el funcionamiento de alumnos)
+	modificar.jsp cargue los datos del legajo seleccionado
+	modificar.jsp guarde los datos modificados
+login:
+	que se pueda iniciar sesión y se guarde (en algun lado) el tipo de usuario y legajo docente si es docente
+
+general:
+	en los agregar no mostrar id/legajo que se está por agregar
+	validacion de que se completen los campos
+
+
+------ luego de tener lo anterior
+	validar que puede hacer cada tipo de usuario
