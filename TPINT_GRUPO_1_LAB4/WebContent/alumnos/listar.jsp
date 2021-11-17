@@ -22,8 +22,9 @@
 
 <% 
 	ArrayList<Alumno> listaAlumnos;
-	if(request.getParameter("buscarLegajo") != null){
-		listaAlumnos = (ArrayList<Alumno>) servletAlumnos.obtenerAlumnos(request.getParameter("buscarLegajo"));
+	String legajoaBuscar = request.getParameter("buscarLegajo"); 
+	if(legajoaBuscar != null && legajoaBuscar !=""){
+		listaAlumnos = (ArrayList<Alumno>) servletAlumnos.obtenerAlumnos(legajoaBuscar);
 	}else{
 		listaAlumnos = (ArrayList<Alumno>) servletAlumnos.obtenerAlumnos();
 	}
