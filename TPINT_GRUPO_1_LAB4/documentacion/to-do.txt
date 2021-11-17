@@ -20,10 +20,11 @@ docentes:
 	modificar.jsp cargue los datos del legajo seleccionado
 	modificar.jsp guarde los datos modificados
 login:
-	que se pueda iniciar sesión y se guarde (en algun lado) el tipo de usuario y legajo docente si es docente
+	que se pueda iniciar sesión y se guarde (en algun lado) el tipo de
+	usuario y legajo docente si es docente
 
 general:
-	en los agregar no mostrar id/legajo que se está por agregar
+	en los agregar no mostrar id/legajo que se está por agregar				-- Done
 	validacion de que se completen los campos
 
 

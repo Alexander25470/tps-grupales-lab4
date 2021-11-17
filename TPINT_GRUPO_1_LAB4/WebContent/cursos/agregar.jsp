@@ -23,10 +23,6 @@
     <form action="/TPINT_GRUPO_1_LAB4/servletCurso" method="post">
         <table>
             <tr>
-                <td>ID</td>
-                <td>0001</td>
-            </tr>
-            <tr>
                 <td>Materia</td>
                 <td>
                     <select name="seleccionarMateria">

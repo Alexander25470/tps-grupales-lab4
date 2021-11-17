@@ -23,10 +23,6 @@
     <form action="/TPINT_GRUPO_1_LAB4/servletAlumnos" method="post">
         <table>
             <tr>
-                <td>Legajo</td>
-                <td>0001</td>
-            </tr>
-            <tr>
                 <td>Dni</td>
                 <td><input type="number" name="dni"></td>
             </tr>
