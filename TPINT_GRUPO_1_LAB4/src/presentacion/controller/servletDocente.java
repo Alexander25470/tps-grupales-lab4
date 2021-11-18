@@ -14,6 +14,7 @@ import negocio.DocenteNeg;
 import negocio.LocalidadNeg;
 import negociolmpl.DocenteNeglmpl;
 import negociolmpl.LocalidadNegImpl;
+import entidad.Alumno;
 import entidad.Docente;
 import entidad.Localidad;
 import entidad.Nacionalidad;
@@ -76,6 +77,10 @@ public class servletDocente extends HttpServlet {
 		return docNeg.obtenerTodos();
 	}
 
+	public static ArrayList<Docente> obtenerDocentes(String legajo) {
+		return docNeg.obtenerTodos(Integer.parseInt(legajo));
+	}
+	
 	public static ArrayList<Localidad> obtenerLocalidades() {
 		return LocNeg.obtenerTodos();
 	}

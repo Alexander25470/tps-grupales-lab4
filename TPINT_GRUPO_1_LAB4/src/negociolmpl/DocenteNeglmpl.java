@@ -24,5 +24,9 @@ public class DocenteNeglmpl implements DocenteNeg {
 		// TODO Auto-generated method stub
 		return DocDao.eliminar(legajo);
 	}
+	
+	public ArrayList<Docente> obtenerTodos(int legajo){
+		return DocDao.obtenerTodos(legajo);
+	}
 
 }
