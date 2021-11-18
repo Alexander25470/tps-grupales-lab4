@@ -72,14 +72,15 @@ table{
 	        </tbody>
 	    </table>
    		<p>Seleccione la nota a modificar/cargar</p>
-    	<select>
-    		<option>Nota parcial 1</option>
-    		<option>Nota parcial 2</option>
-    		<option>Recuperatorio 1</option>
-    		<option>Recuperatorio 2</option>
+    	<select name="examen">
+    		<option value="parcial1">Nota parcial 1</option>
+    		<option value="parcial2">Nota parcial 2</option>
+    		<option value="recuperatorio1">Recuperatorio 1</option>
+    		<option value="recuperatorio2">Recuperatorio 2</option>
     	</select>
+    	<input name="idCurso" type ="text" hidden="true" value="<%=idCurso%>">
     	<p>Ingrese la nota</p>
-    	<input type="text"/> <br/> <br/>
+    	<input type="text" name="nota"/> <br/> <br/>
         <button type="submit" name="btnModificar">Modificar</button>
     </form>
     

@@ -9,12 +9,16 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import negocio.NotaNeg;
+import negociolmpl.NotaNegImpl;
+
 /**
  * Servlet implementation class servletAlumnosCursos
  */
 @WebServlet("/servletAlumnosCursos")
 public class servletAlumnosCursos extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	static NotaNeg notaNeg = new NotaNegImpl();
        
     /**
      * @see HttpServlet#HttpServlet()
@@ -40,9 +44,24 @@ public class servletAlumnosCursos extends HttpServlet {
 		
 		if(request.getParameter("btnModificar")!=null) 
 		{
-			String[] aluSeleccionados = request.getParameterValues("chbkNotas");   
+			//String[] aluSeleccionados = request.getParameterValues("chbkNotas");
+			//int filas=0;
 			
-		}
+			int legajoAlumno = 1; 
+			int nota = Integer.parseInt(request.getParameter("nota"));
+			int idCurso = Integer.parseInt(request.getParameter("idCurso"));
+			
+			String seleccion = request.getParameter("examen");
+			
+			
+			notaNeg.modificarNota(legajoAlumno,nota,seleccion, idCurso);
+			//REQUESTDISPATCHER
+			//request.setAttribute("FilasAfectadas", filas);
+			RequestDispatcher rd = request.getRequestDispatcher("/cursos/listar.jsp");   
+	        rd.forward(request, response);    
+			
 	}
 
+}
+	
 }

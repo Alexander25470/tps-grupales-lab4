@@ -7,7 +7,7 @@ cursos:
 
 	/listar alumnos:
 		que se pueda buscar por legajo
-		que se pueda modificar la nota de almenos un legajo hardcodeado,
+		que se pueda modificar la nota de almenos un legajo hardcodeado,   --Done
 			para luego realizarlo masivamente
 		que se pueda modificar masivamente
 		que funcione guardar estado

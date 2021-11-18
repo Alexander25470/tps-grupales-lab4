@@ -5,8 +5,6 @@ import java.util.ArrayList;
 
 import dao.NotaDao;
 import entidad.Alumno;
-import entidad.Curso;
-import entidad.Docente;
 import entidad.EstadoAlumno;
 import entidad.Materia;
 import entidad.Nacionalidad;
@@ -89,6 +87,25 @@ public class NotaDaoImpl implements NotaDao{
 			
 			//Date fechaNac = new SimpleDateFormat("yyyy/MM/dd").parse(docente.getFechaNac());  
 			String query = "insert into NOTAS (legajo,ID_Curso) VALUES("+legajoAlumno+","+idCurso+")";
+			filas = cn.ejecutarConsulta(query);
+		}
+		catch(Exception e){
+			
+			e.printStackTrace();
+		}
+		
+		return filas;
+
+	}
+	@Override
+	public int modificarNota(int legajo, int nota, String examen,int idCurso) {
+		Conexion cn = new Conexion();
+		int filas = 0;
+		try {
+			cn.AbrirConexion();
+			
+			//Date fechaNac = new SimpleDateFormat("yyyy/MM/dd").parse(docente.getFechaNac());  
+			String query = "update notas set "+examen+" = "+nota+" where legajo = "+legajo+" and ID_Curso = "+idCurso+"";
 			filas = cn.ejecutarConsulta(query);
 		}
 		catch(Exception e){

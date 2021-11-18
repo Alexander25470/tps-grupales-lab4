@@ -22,4 +22,10 @@ public class NotaNegImpl implements NotaNeg {
 		return nd.agregar(legajoAlumno, idCurso);
 	}
 
+	@Override
+	public int modificarNota(int legajo, int nota, String examen,int idCurso) {
+		// TODO Auto-generated method stub
+		return nd.modificarNota(legajo, nota, examen, idCurso);
+	}
+
 }
