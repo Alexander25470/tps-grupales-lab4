@@ -52,14 +52,16 @@ public class servletAlumnosCursos extends HttpServlet {
 			//int filas=0;
 			
 			List<String> lista = Arrays.asList(aluSeleccionados);
+			int nota = Integer.parseInt(request.getParameter("nota"));
+			int idCurso = Integer.parseInt(request.getParameter("idCurso"));
 			
 			
 			for(String s : lista) {
 			
 			
 			int legajoAlumno = Integer.parseInt(s); 
-			int nota = Integer.parseInt(request.getParameter("nota"));
-			int idCurso = Integer.parseInt(request.getParameter("idCurso"));
+			
+			
 			
 			String seleccion = request.getParameter("examen");
 			
@@ -68,8 +70,8 @@ public class servletAlumnosCursos extends HttpServlet {
 			
 			}
 			//REQUESTDISPATCHER
-			//request.setAttribute("FilasAfectadas", filas);
-			RequestDispatcher rd = request.getRequestDispatcher("/cursos/listar.jsp");   
+			request.setAttribute("idCurso", idCurso);
+			RequestDispatcher rd = request.getRequestDispatcher("/cursos/listarAlumnos.jsp");   
 	        rd.forward(request, response);    
 			
 	}

@@ -66,7 +66,7 @@ table{
 	                <td><%=nota.getRecuperatorio2()%></td>
 	                <td><%=nota.getEstado().getDescripcion()%></td>
 	                <td><input type="checkbox" name="chbkNotas" value="<%=nota.getAlumno().getLegajo() %>"/></td>
-	                <td>  <form> <select> <option>Regular</option> </select> <button>Guardar estado</button> </form> </td>
+	                <td>  <form> <select name="estado"> <option value="1">Regular</option> </select> <button>Guardar estado</button> </form> </td>
 				</tr>
 			<%  } %>
 	        </tbody>

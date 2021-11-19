@@ -122,8 +122,8 @@ public class DocenteDaolmpl implements DocenteDao {
 				 nac.setNombre(rs.getString("nombreNac"));
 				 doc.setNacionalidad(nac);
 				 
-				 local.setId(Integer.parseInt(rs.getString("ID_Provincia")));
-				 local.setNombre(rs.getString("nombreProv"));
+				 local.setId(Integer.parseInt(rs.getString("ID_Localidad")));
+				 local.setNombre(rs.getString("nombreLocal"));
 				 doc.setLocalidad(local);
 				 
 				 doc.setDireccion(rs.getString("direccion"));
@@ -144,6 +144,47 @@ public class DocenteDaolmpl implements DocenteDao {
 		 }
 		return docentes;
 	}
-	
 
-}
+	@Override
+	public Docente obtenerUno(int legajo) {
+		Conexion cn = new Conexion();
+		cn.AbrirConexion();
+		Docente doc = new Docente();
+		Nacionalidad nac = new Nacionalidad();
+		Localidad loc = new Localidad();
+		try
+		 {
+			 ResultSet rs= cn.query("SELECT doc.*, nac.Nombre as nombreNac, loc.Nombre as nombreLoc FROM docentes doc inner join nacionalidades nac on doc.ID_Nacionalidad = nac.id inner join localidades loc on doc.ID_Localidad = loc.id where doc.estado != 0 and legajo = "+legajo+"");
+			 if(rs.next()) {
+			 
+				 doc.setLegajo(rs.getInt("legajo"));
+				 doc.setDni(rs.getString("dni"));
+				 doc.setNombreApellido(rs.getString("nombreApellido"));
+				 doc.setFechaNac(rs.getString("fechaNac"));
+				 
+				 nac.setId(Integer.parseInt(rs.getString("ID_Nacionalidad")));
+				 nac.setNombre(rs.getString("nombreNac"));
+				 doc.setNacionalidad(nac);
+				 
+				 loc.setId(Integer.parseInt(rs.getString("ID_Localidad")));
+				 loc.setNombre(rs.getString("nombreLoc"));
+				 doc.setLocalidad(loc);
+				 
+				 doc.setDireccion(rs.getString("direccion"));
+				 doc.setEmail(rs.getString("email"));
+				 doc.setTelefono(rs.getString("telefono"));
+			 
+			 }
+		 }
+		 catch(Exception e)
+		 {
+			 e.printStackTrace();
+		 }
+		 finally
+		 {
+			 cn.close();
+		 }
+		return doc;
+	}
+	}
+

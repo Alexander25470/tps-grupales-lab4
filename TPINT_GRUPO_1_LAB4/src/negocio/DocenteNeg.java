@@ -11,5 +11,6 @@ public interface DocenteNeg {
 	public ArrayList<Docente> obtenerTodos();
 	public ArrayList<Docente> obtenerTodos(int legajo);
 	public int eliminar(int legajo);
+	public Docente obtenerUno(int legajo);
 	
 }

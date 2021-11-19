@@ -18,11 +18,13 @@
 </style>
 <title>Insert title here</title>
 </head>
+
+<% 
 	ArrayList<Docente> listaDocentes;
 	if(request.getParameter("buscarLegajo") != null){
-		listaDocentes = (ArrayList<Docente>) servletDocentes.obtenerDocentes(request.getParameter("buscarLegajo"));
+		listaDocentes = (ArrayList<Docente>) servletDocente.obtenerDocentes(request.getParameter("buscarLegajo"));
 	}else{
-		listaDocentes = (ArrayList<Docente>) servletDocentes.obtenerDocentes();
+		listaDocentes = (ArrayList<Docente>) servletDocente.obtenerDocentes();
 	}
 	
 	
