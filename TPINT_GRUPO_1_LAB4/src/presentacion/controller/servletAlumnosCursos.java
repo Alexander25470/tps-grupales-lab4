@@ -1,5 +1,7 @@
 package presentacion.controller;
 
+import java.util.Arrays;
+import java.util.List;
 import java.io.IOException;
 
 import javax.servlet.RequestDispatcher;
@@ -9,6 +11,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import entidad.Nota;
 import negocio.NotaNeg;
 import negociolmpl.NotaNegImpl;
 
@@ -44,10 +47,17 @@ public class servletAlumnosCursos extends HttpServlet {
 		
 		if(request.getParameter("btnModificar")!=null) 
 		{
-			//String[] aluSeleccionados = request.getParameterValues("chbkNotas");
+			
+			String[] aluSeleccionados = request.getParameterValues("chbkNotas");
 			//int filas=0;
 			
-			int legajoAlumno = 1; 
+			List<String> lista = Arrays.asList(aluSeleccionados);
+			
+			
+			for(String s : lista) {
+			
+			
+			int legajoAlumno = Integer.parseInt(s); 
 			int nota = Integer.parseInt(request.getParameter("nota"));
 			int idCurso = Integer.parseInt(request.getParameter("idCurso"));
 			
@@ -55,6 +65,8 @@ public class servletAlumnosCursos extends HttpServlet {
 			
 			
 			notaNeg.modificarNota(legajoAlumno,nota,seleccion, idCurso);
+			
+			}
 			//REQUESTDISPATCHER
 			//request.setAttribute("FilasAfectadas", filas);
 			RequestDispatcher rd = request.getRequestDispatcher("/cursos/listar.jsp");   

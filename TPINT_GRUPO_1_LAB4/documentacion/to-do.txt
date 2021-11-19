@@ -9,7 +9,7 @@ cursos:
 		que se pueda buscar por legajo
 		que se pueda modificar la nota de almenos un legajo hardcodeado,   --Done
 			para luego realizarlo masivamente
-		que se pueda modificar masivamente
+		que se pueda modificar masivamente       --Done
 		que funcione guardar estado
 	/Agregar curso:
 		validar que se ingrese algo en año
