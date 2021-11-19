@@ -21,7 +21,8 @@
 
 <% 
 	ArrayList<Docente> listaDocentes;
-	if(request.getParameter("buscarLegajo") != null){
+	String legajoaBuscar = request.getParameter("buscarLegajo");
+	if(legajoaBuscar != null && legajoaBuscar !=""){
 		listaDocentes = (ArrayList<Docente>) servletDocente.obtenerDocentes(request.getParameter("buscarLegajo"));
 	}else{
 		listaDocentes = (ArrayList<Docente>) servletDocente.obtenerDocentes();
@@ -37,9 +38,9 @@
 	</a> 
     <h1>Listar docentes</h1>
 
-    <form action="" method="get">
+    <form action="listar.jsp" method="get">
         Buscar por legajo
-        <input type="text">
+        <input type="number" name="buscarLegajo" value="<%=legajoaBuscar%>" >
         <button type="submit">Buscar</button>
     </form>
     <a href="agregar.jsp">

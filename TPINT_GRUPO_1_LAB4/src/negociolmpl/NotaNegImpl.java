@@ -28,4 +28,16 @@ public class NotaNegImpl implements NotaNeg {
 		return nd.modificarNota(legajo, nota, examen, idCurso);
 	}
 
+	@Override
+	public ArrayList<Nota> obtenerNotasCurso(int idCurso, int legajo) {
+		// TODO Auto-generated method stub
+		return nd.obtenerNotasCurso(idCurso, legajo);
+	}
+
+	@Override
+	public int modificarEstado(int legajo, int estado, int idCurso) {
+		// TODO Auto-generated method stub
+		return nd.modificarEstado(legajo, estado, idCurso);
+	}
+
 }

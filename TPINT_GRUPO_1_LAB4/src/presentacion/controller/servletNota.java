@@ -70,5 +70,8 @@ public class servletNota extends HttpServlet {
 		return notaNeg.obtenerNotasCurso(idCurso);
 	}
 	
-
+	public static ArrayList<Nota> obtenerNotasCurso(int idCurso, int legajo) {
+		return notaNeg.obtenerNotasCurso(idCurso, legajo);
+	}
+	
 }

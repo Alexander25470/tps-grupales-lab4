@@ -74,8 +74,21 @@ public class servletAlumnosCursos extends HttpServlet {
 			RequestDispatcher rd = request.getRequestDispatcher("/cursos/listarAlumnos.jsp");   
 	        rd.forward(request, response);    
 			
+		}else if(request.getParameter("btnGuardarEstado")!=null) {
+			
+			int estado = Integer.parseInt(request.getParameter("estado"));
+			int idCurso = Integer.parseInt(request.getParameter("idCurso"));
+			int legajo = Integer.parseInt(request.getParameter("legajo"));
+			
+			notaNeg.modificarEstado(legajo, estado, idCurso);
+			
+			request.setAttribute("idCurso", idCurso);
+			RequestDispatcher rd = request.getRequestDispatcher("/cursos/listarAlumnos.jsp");   
+	        rd.forward(request, response); 
+			
+		}
 	}
 
 }
 	
-}
+

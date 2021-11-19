@@ -107,7 +107,7 @@ public class DocenteDaolmpl implements DocenteDao {
 		try
 		 {
 			cn.AbrirConexion();
-			 ResultSet rs= cn.query("SELECT doc.*, nac.Nombre as nombreNac, local.Nombre as nombreLocal FROM docentes doc inner join nacionalidades nac on doc.ID_Nacionalidad = nac.id inner join localidad local on doc.ID_Localidad = local.id where doc.estado != 0 and doc.legajo like \"%"+legajo+"%\";");
+			 ResultSet rs= cn.query("SELECT doc.*, nac.Nombre as nombreNac, local.Nombre as nombreLocal FROM docentes doc inner join nacionalidades nac on doc.ID_Nacionalidad = nac.id inner join localidades local on doc.ID_Localidad = local.id where doc.estado != 0 and doc.legajo like \"%"+legajo+"%\";");
 			 while(rs.next())
 			 {
 				 Docente doc = new Docente();

@@ -24,15 +24,25 @@ table{
 <% 
 	int idCurso = Integer.parseInt(request.getParameter("idCurso"));
 	ArrayList<Nota> listaNotas = (ArrayList<Nota>) servletNota.obtenerNotasCurso(idCurso);
+	
+	String legajoaBuscar = request.getParameter("buscarLegajo");
+	
+	if(legajoaBuscar != null && legajoaBuscar !=""){
+		listaNotas = (ArrayList<Nota>) servletNota.obtenerNotasCurso(idCurso, Integer.parseInt(legajoaBuscar));
+	}else{
+		listaNotas = (ArrayList<Nota>) servletNota.obtenerNotasCurso(idCurso);
+	}
+	
  %>
 	<a href="/TPINT_GRUPO_1_LAB4/inicio.jsp">
 		<button>Inicio</button> 
 	</a> 
 	<h1>Alumnos en el curso PROG 4 2020 SEMESTRE 2</h1>
 
-    <form action="" method="get">
+    <form action="listarAlumnos.jsp" method="get">
         Buscar por legajo
-        <input type="text">
+        <input type="number" name="buscarLegajo" value="<%=legajoaBuscar%>" >
+        <input name="idCurso" type ="text" hidden="true" value="<%=idCurso%>">
         <button type="submit">Buscar</button>
     </form>
 
@@ -66,7 +76,12 @@ table{
 	                <td><%=nota.getRecuperatorio2()%></td>
 	                <td><%=nota.getEstado().getDescripcion()%></td>
 	                <td><input type="checkbox" name="chbkNotas" value="<%=nota.getAlumno().getLegajo() %>"/></td>
-	                <td>  <form> <select name="estado"> <option value="1">Regular</option> </select> <button>Guardar estado</button> </form> </td>
+	                <td> 
+	                 <select name="estado"> 
+	                <option value="1">Regular</option>
+	                <option value="2">Libre</option>  
+	                </select>
+	                <button type="submit" name="btnGuardarEstado">Guardar estado</button> </td>
 				</tr>
 			<%  } %>
 	        </tbody>
