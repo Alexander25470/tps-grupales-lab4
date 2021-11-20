@@ -6,15 +6,12 @@ cursos:
 		que se pueda buscarlos por legajo
 
 	/listar alumnos:
-		que se pueda buscar por legajo
 		que se pueda modificar la nota de almenos un legajo hardcodeado,   --Done
 			para luego realizarlo masivamente
 		que se pueda modificar masivamente       --Done
-		que funcione guardar estado
 	/Agregar curso:
 		validar que se ingrese algo en año
 docentes:
-	buscar por legajo (se puede copiar el funcionamiento de alumnos)
 	modificar.jsp cargue los datos del legajo seleccionado
 	modificar.jsp guarde los datos modificados
 login:

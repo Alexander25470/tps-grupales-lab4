@@ -39,7 +39,7 @@ table{
 	</a> 
 	<h1>Alumnos en el curso PROG 4 2020 SEMESTRE 2</h1>
 
-    <form action="listarAlumnos.jsp" method="get">
+    <form action="/TPINT_GRUPO_1_LAB4/cursos/listarAlumnos.jsp" method="get">
         Buscar por legajo
         <input type="number" name="buscarLegajo" value="<%=legajoaBuscar%>" >
         <input name="idCurso" type ="text" hidden="true" value="<%=idCurso%>">
@@ -78,13 +78,13 @@ table{
 	                <td><input type="checkbox" name="chbkNotas" value="<%=nota.getAlumno().getLegajo() %>"/></td>
 	                <td>
 	                <form action="/TPINT_GRUPO_1_LAB4/servletAlumnosCursos" method="post"> 
-	                 <select name="estado"> 
-	                <option value="1">Regular</option>
-	                <option value="2">Libre</option>  
-	                </select>
-	                <input name="idCurso" type ="text" hidden="true" value="<%=idCurso%>">
-	                <input name="legajo" type ="text"hidden="true" value="<%=nota.getAlumno().getLegajo()%>">
-	                <button type="submit" name="btnGuardarEstado">Guardar estado</button> </td>
+	                	<select name="estado" value="<%=nota.getEstado().getId()%>"> 
+			                <option value="1" <%=nota.getEstado().getId()==2?"selected":"" %>>Regular</option>
+			                <option value="2" <%=nota.getEstado().getId()==2?"selected":"" %>>Libre</option>  
+		                </select>
+		                <input name="idCurso" type ="text" hidden="true" value="<%=idCurso%>">
+		                <input name="legajo" type ="text"hidden="true" value="<%=nota.getAlumno().getLegajo()%>">
+		                <button type="submit" name="btnGuardarEstado">Guardar estado</button> </td>
 	                </form>
 				</tr>
 			<%  } %>

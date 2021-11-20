@@ -20,7 +20,7 @@ public class NotaDaoImpl implements NotaDao{
 		try
 		 {
 			 cn.AbrirConexion();
-			 ResultSet rs= cn.query("SELECT nota.*, ea.descripcion as estadoAlumno FROM notas nota inner join estadosalumno ea on ea.ID = nota.estado where id_curso = " + idCurso);
+			 ResultSet rs= cn.query("SELECT nota.*, ea.descripcion as estadoAlumno FROM notas nota inner join estadosalumno ea on ea.ID = nota.estado where id_curso = " + idCurso +" order by 1" );
 			 while(rs.next())
 			 {
 				 Nota nota = new Nota();
