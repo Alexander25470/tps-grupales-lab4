@@ -85,4 +85,8 @@ public class servletDocente extends HttpServlet {
 		return LocNeg.obtenerTodos();
 	}
 	
+	public static Docente obtenerDocente(int legajo) {
+		return docNeg.obtenerUno(legajo);
+	}
+	
 }

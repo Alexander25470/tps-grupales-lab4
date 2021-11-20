@@ -4,7 +4,7 @@
 <%@page import="presentacion.controller.servletNacionalidades"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-    <%@page import="java.util.ArrayList"%>
+<%@page import="java.util.ArrayList"%>
 <%@page import="entidad.Nacionalidad"%>
 <%@page import="entidad.Localidad"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -42,7 +42,8 @@
             </tr>
             <tr>
                 <td>Localidad</td>
-                <td><select name="seleccionarLocalidad">
+                <td>
+	                <select name="seleccionarLocalidad">
 						<%
 						if(listaLocalidades!=null)
 							for (Localidad loc : listaLocalidades) {
@@ -51,11 +52,13 @@
 						<%
 							}
 						%>
-				</select></td>
+					</select>
+				</td>
             </tr>
             <tr>
                 <td>Nacionalidad</td>
-                <td><select name="seleccionarNacionalidad">
+                <td>
+	                <select name="seleccionarNacionalidad">
 						<%
 						if(listaNacionalidades!=null)
 							for (Nacionalidad nac : listaNacionalidades) {
@@ -64,7 +67,8 @@
 						<%
 							}
 						%>
-				</select></td>
+					</select>
+				</td>
             </tr>
             <tr>
                 <td>Email</td>
