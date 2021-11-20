@@ -13,16 +13,24 @@
 <body>
 <% 
 	int idCurso = Integer.parseInt(request.getParameter("idCurso"));
-	ArrayList<Alumno> listaAlumnos = (ArrayList<Alumno>) servletCurso.obtenerAlumnosQueNoEstanEnCurso(idCurso);
+	String legajoaBuscar = request.getParameter("buscarLegajo");
+	ArrayList<Alumno> listaAlumnos;
+	
+	if(legajoaBuscar != null && legajoaBuscar !=""){
+		listaAlumnos = (ArrayList<Alumno>) servletCurso.obtenerAlumnosQueNoEstanEnCurso(idCurso,Integer.parseInt(legajoaBuscar));
+	}else{
+		listaAlumnos = (ArrayList<Alumno>) servletCurso.obtenerAlumnosQueNoEstanEnCurso(idCurso);
+	}
  %>
 	<a href="/TPINT_GRUPO_1_LAB4/inicio.jsp">
 		<button>Inicio</button> 
 	</a> 
 	<h1>Agregar almunos al curso PROG 4 2020 SEMESTRE 2</h1>
 
-    <form action="" method="get">
+    <form action="/TPINT_GRUPO_1_LAB4/cursos/agregarAlumnos.jsp" method="get">
         Buscar por legajo
-        <input type="text">
+        <input type="number" name="buscarLegajo" value="<%=legajoaBuscar%>" >
+        <input name="idCurso" type ="text" hidden="true" value="<%=idCurso%>">
         <button type="submit" name="">Buscar</button>
     </form>
 

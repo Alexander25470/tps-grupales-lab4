@@ -11,5 +11,6 @@ public interface CursoDao {
 	public ArrayList<Curso> obtenerTodos();
 	public ArrayList<Alumno> obtenerAlumnosQueNoEstanEnCurso(int idCurso);
 	ArrayList<Curso> obtenerTodos(int anio);
+	ArrayList<Alumno> obtenerAlumnosQueNoEstanEnCurso(int idCurso, int legajo);
 
 }

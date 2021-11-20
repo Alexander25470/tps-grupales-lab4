@@ -3,12 +3,10 @@ alumnos:
 	modificar.jsp guarde los datos modificados
 cursos:
 	/agregar alumnos:
-		que se pueda buscarlos por legajo
 
 	/listar alumnos:
-		que se pueda modificar la nota de almenos un legajo hardcodeado,   --Done
-			para luego realizarlo masivamente
-		que se pueda modificar masivamente       --Done
+		validar que se seleccione almenos un alumno
+		
 	/Agregar curso:
 		validar que se ingrese algo en año
 docentes:
@@ -20,6 +18,7 @@ login:
 
 general:
 	validacion de que se completen los campos
+	agregar paginacion a las tablas
 
 ------ luego de tener lo anterior
 	validar que puede hacer cada tipo de usuario

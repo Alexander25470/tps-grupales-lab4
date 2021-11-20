@@ -89,5 +89,9 @@ public class servletCurso extends HttpServlet {
 	public static ArrayList<Alumno> obtenerAlumnosQueNoEstanEnCurso(int idCurso) {
 		return CurNeg.obtenerAlumnosQueNoEstanEnCurso(idCurso);
 	}
+	
+	public static ArrayList<Alumno> obtenerAlumnosQueNoEstanEnCurso(int idCurso, int legajo) {
+		return CurNeg.obtenerAlumnosQueNoEstanEnCurso(idCurso, legajo);
+	}
 }
 
