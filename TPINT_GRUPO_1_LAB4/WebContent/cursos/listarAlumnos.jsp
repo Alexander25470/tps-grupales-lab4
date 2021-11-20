@@ -8,17 +8,30 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
-<style type="text/css">
-table{
-        border-collapse: collapse;
-    }
-    td, th{
-        padding: .25rem;
-        border: 1px solid black;
-    }
-</style>
+	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+	<title>Insert title here</title>
+	<style type="text/css">
+	table{
+	        border-collapse: collapse;
+	    }
+	    td, th{
+	        padding: .25rem;
+	        border: 1px solid black;
+	    }
+	</style>
+	<script type="text/javascript">
+			const validateForm = ()=>{
+				if(! document.querySelectorAll("input[name='chbkNotas']:checked").length>0){
+				alert("Selecione almenos un alumno para modificar nota");
+					return false;
+				} else {
+					return true;
+				}
+
+				
+			}
+
+	</script>
 </head>
 <body style="height: 335px; ">
 <% 
@@ -46,7 +59,7 @@ table{
         <button type="submit">Buscar</button>
     </form>
 
-    <form action="/TPINT_GRUPO_1_LAB4/servletAlumnosCursos" method="post">
+    <form action="/TPINT_GRUPO_1_LAB4/servletAlumnosCursos" onsubmit="return validateForm()" method="post">
 	    <table>
 	        <thead>
 	            <tr>
@@ -75,7 +88,7 @@ table{
 	                <td><%=nota.getRecuperatorio1()%></td>
 	                <td><%=nota.getRecuperatorio2()%></td>
 	                <td><%=nota.getEstado().getDescripcion()%></td>
-	                <td><input type="checkbox" name="chbkNotas" value="<%=nota.getAlumno().getLegajo() %>"/></td>
+	                <td><input type="checkbox" name="chbkNotas" value="<%=nota.getAlumno().getLegajo() %>" /></td>
 	                <td>
 	                <form action="/TPINT_GRUPO_1_LAB4/servletAlumnosCursos" method="post"> 
 	                	<select name="estado" value="<%=nota.getEstado().getId()%>"> 
@@ -99,7 +112,7 @@ table{
     	</select>
     	<input name="idCurso" type ="text" hidden="true" value="<%=idCurso%>">
     	<p>Ingrese la nota</p>
-    	<input type="text" name="nota"/> <br/> <br/>
+    	<input type="text" name="nota" required/> <br/> <br/>
         <button type="submit" name="btnModificar">Modificar</button>
     </form>
     
