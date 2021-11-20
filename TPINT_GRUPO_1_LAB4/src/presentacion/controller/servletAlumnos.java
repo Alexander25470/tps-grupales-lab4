@@ -100,4 +100,8 @@ public class servletAlumnos extends HttpServlet {
 		return ProvNeg.obtenerTodos();
 	}
 
+	public static Alumno obtenerAlumno(int legajo) {
+		return aluNeg.obtenerUno(legajo);
+	}
+	
 }
