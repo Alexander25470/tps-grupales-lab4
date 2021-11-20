@@ -8,13 +8,13 @@
 </head>
 <body>
 	<h1>Seleccione que desea ver</h1>
-	<a href="alumnos/listar.jsp">
+	<a href="/TPINT_GRUPO_1_LAB4/alumnos/listar.jsp">
 		<button>Alumnos</button>
 	</a>
-	<a href="cursos/listar.jsp">
+	<a href="/TPINT_GRUPO_1_LAB4/cursos/listar.jsp">
 		<button>Cursos</button>
 	</a>
-	<a href="docentes/listar.jsp">
+	<a href="/TPINT_GRUPO_1_LAB4/docentes/listar.jsp">
 		<button>Docentes</button><a href="./inicio.jsp">
 	</a>
 </body>

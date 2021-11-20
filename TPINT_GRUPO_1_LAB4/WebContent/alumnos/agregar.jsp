@@ -16,7 +16,7 @@
 	ArrayList<Nacionalidad> listaNacionalidades = (ArrayList<Nacionalidad>) servletNacionalidades.obtenerNacionalidades();
 	ArrayList<Provincia> listaProvincias = (ArrayList<Provincia>) servletAlumnos.obtenerProvincias();
  %>
-	<a href="../inicio.jsp">
+	<a href="/TPINT_GRUPO_1_LAB4/inicio.jsp">
 		<button>Inicio</button> 
 	</a> 
     <h1>Agregar alumno</h1>
@@ -74,7 +74,7 @@
             </tr>
         </table>
         <a></a>
-        <a href="listar.jsp"><button type="button">Volver</button> <button type="submit" name="btnAgregar">Aceptar</button>
+        <a href="/TPINT_GRUPO_1_LAB4/alumnos/listar.jsp"><button type="button">Volver</button> <button type="submit" name="btnAgregar">Aceptar</button>
     </form> 
 </body>
 </html>

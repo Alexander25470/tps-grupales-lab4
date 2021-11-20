@@ -31,7 +31,7 @@
 
 %>
 <body>
-	<a href="../inicio.jsp">
+	<a href="/TPINT_GRUPO_1_LAB4/inicio.jsp">
 		<button>Inicio</button> 
 	</a> 
     <h1>Listar alumnos</h1>

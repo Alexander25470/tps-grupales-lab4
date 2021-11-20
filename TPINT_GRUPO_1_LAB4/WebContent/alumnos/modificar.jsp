@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<a href="../inicio.jsp">
+	<a href="/TPINT_GRUPO_1_LAB4/inicio.jsp">
 		<button>Inicio</button> 
 	</a> 
     <h1>Modificar alumno</h1>
@@ -47,7 +47,7 @@
                 <td><input type="text"></td>
             </tr>
         </table>
-        <a href="listar.jsp"><button type="button">Cancelar</button><button type="submit">Aceptar</button>
+        <a href="/TPINT_GRUPO_1_LAB4/alumnos/listar.jsp"><button type="button">Cancelar</button><button type="submit">Aceptar</button>
     </form> 
 
 </body>

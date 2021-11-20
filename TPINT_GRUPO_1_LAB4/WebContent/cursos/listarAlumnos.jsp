@@ -103,7 +103,7 @@ table{
         <button type="submit" name="btnModificar">Modificar</button>
     </form>
     
-    <button>Volver</button>
+    <a href="/TPINT_GRUPO_1_LAB4/cursos/listar.jsp"><button type="button">Volver</button></a>
 
 </body>
 </html>
