@@ -112,7 +112,7 @@
     	</select>
     	<input name="idCurso" type ="text" hidden="true" value="<%=idCurso%>">
     	<p>Ingrese la nota</p>
-    	<input type="text" name="nota" required/> <br/> <br/>
+    	<input type="number" name="nota" min="0" max="10" required/> <br/> <br/>
         <button type="submit" name="btnModificar">Modificar</button>
     </form>
     
