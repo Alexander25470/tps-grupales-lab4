@@ -76,12 +76,16 @@ table{
 	                <td><%=nota.getRecuperatorio2()%></td>
 	                <td><%=nota.getEstado().getDescripcion()%></td>
 	                <td><input type="checkbox" name="chbkNotas" value="<%=nota.getAlumno().getLegajo() %>"/></td>
-	                <td> 
+	                <td>
+	                <form action="/TPINT_GRUPO_1_LAB4/servletAlumnosCursos" method="post"> 
 	                 <select name="estado"> 
 	                <option value="1">Regular</option>
 	                <option value="2">Libre</option>  
 	                </select>
+	                <input name="idCurso" type ="text" hidden="true" value="<%=idCurso%>">
+	                <input name="legajo" type ="text"hidden="true" value="<%=nota.getAlumno().getLegajo()%>">
 	                <button type="submit" name="btnGuardarEstado">Guardar estado</button> </td>
+	                </form>
 				</tr>
 			<%  } %>
 	        </tbody>
