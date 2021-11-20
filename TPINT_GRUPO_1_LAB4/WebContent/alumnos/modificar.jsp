@@ -23,8 +23,8 @@
 		<button>Inicio</button> 
 	</a> 
     <h1>Modificar alumno</h1>
-    <form action="" method="post">
-    <input type="text" name="legajo" value="<%=legajo%>" hidden disabled/>
+    <form action="/TPINT_GRUPO_1_LAB4/servletAlumnos" method="post">
+    <input type="text" name="legajo" value="<%=legajo%>" hidden/>
         <table>
             <tr>
                 <td>Legajo</td>
@@ -32,15 +32,19 @@
             </tr>
             <tr>
                 <td>Dni</td>
-                <td><input type="number" value="<%=al.getDni()%>"></td>
+                <td><input type="number" value="<%=al.getDni()%>" name="dni"></td>
             </tr>
             <tr>
                 <td>Nombre y apellido</td>
-                <td><input type="text" value="<%=al.getNombreApellido()%>"></td>
+                <td><input type="text" value="<%=al.getNombreApellido()%>" name="nombreApellido"></td>
+            </tr>
+            <tr>
+                <td>Fecha de nacimiento</td>
+                <td><input type="date" name="fechaNac"  value="<%=al.getFechaNac()%>"></td>
             </tr>
             <tr>
                 <td>Direccion</td>
-                <td><input type="text" value="<%=al.getDireccion()%>"></td>
+                <td><input type="text" value="<%=al.getDireccion()%>" name="direccion"></td>
             </tr>
             <tr>
                 <td>Nacionalidad</td>
@@ -74,14 +78,17 @@
             </tr>
             <tr>
                 <td>Email</td>
-                <td><input type="text" value="<%=al.getEmail()%>"></td>
+                <td><input type="text" value="<%=al.getEmail()%>" name="email"></td>
             </tr>
             <tr>
                 <td>Telefono</td>
-                <td><input type="number"  value="<%=al.getTelefono()%>"></td>
+                <td><input type="number" value="<%=al.getTelefono()%>" name="telefono"></td>
             </tr>
         </table>
-        <a href="/TPINT_GRUPO_1_LAB4/alumnos/listar.jsp"><button type="button">Cancelar</button><button type="submit">Aceptar</button>
+        <a href="/TPINT_GRUPO_1_LAB4/alumnos/listar.jsp">
+        	<button type="button">Cancelar</button>
+        </a>
+        <button type="submit"  name="modificar">Aceptar</button>
     </form> 
 
 </body>

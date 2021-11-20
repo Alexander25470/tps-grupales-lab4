@@ -188,5 +188,25 @@ public class AlumnoDaolmpl implements AlumnoDao {
 		 }
 		return al;
 	}
+	
+	@Override
+	public int modificar(Alumno alu) {
+		Conexion cn = new Conexion();
+		int filas = 0;
+		try {
+			
+			cn.AbrirConexion();
+
+			String query = "UPDATE alumnos SET dni= "+alu.getDni()+" ,nombreApellido='"+alu.getNombreApellido()+"' ,fechaNac='"+alu.getFechaNac()+"' ,ID_Nacionalidad="+alu.getNacionalidad().getId()+" ,ID_Provincia="+alu.getProvincia().getId()+" ,direccion='"+alu.getDireccion()+"' ,email='"+alu.getEmail()+"' ,telefono='"+alu.getTelefono()+"'  WHERE legajo = "+alu.getLegajo();
+			filas = cn.ejecutarConsulta(query);
+		}
+		catch(Exception e){
+			
+			e.printStackTrace();
+		}
+		
+		return filas;
+		
+	}
 
 }

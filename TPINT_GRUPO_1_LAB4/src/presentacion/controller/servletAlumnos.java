@@ -54,7 +54,31 @@ public class servletAlumnos extends HttpServlet {
 		// TODO Auto-generated method stub
 		int filas=0;
 		System.out.println(request.getParameter("btnEliminar"));
-		if(request.getParameter("btnEliminar")!=null) 
+		if(request.getParameter("modificar")!=null) 
+		{
+			Alumno al=  new Alumno();
+			int legajo = Integer.parseInt(request.getParameter("legajo"));
+			
+			al.setLegajo(legajo);
+			al.setDni(request.getParameter("dni"));
+			al.setNombreApellido(request.getParameter("nombreApellido"));
+			al.setFechaNac(request.getParameter("fechaNac"));
+
+			al.setProvincia(new Provincia(Integer.parseInt(request.getParameter("idProvincia"))));
+			al.setNacionalidad(new Nacionalidad(Integer.parseInt(request.getParameter("idNacionalidad"))));
+			
+			al.setDireccion(request.getParameter("direccion"));
+			al.setEmail(request.getParameter("email"));
+			al.setTelefono(request.getParameter("telefono"));
+
+			aluNeg.modificar(al);
+			
+			request.setAttribute("modificado", true);
+			request.setAttribute("legajo", legajo);
+			RequestDispatcher rd = request.getRequestDispatcher("/alumnos/modificar.jsp");   
+	        rd.forward(request, response);  
+			
+		}else if(request.getParameter("btnEliminar")!=null) 
 		{
 			aluNeg.eliminar(Integer.parseInt(request.getParameter("legajo")));
 			request.setAttribute("eliminado", true);

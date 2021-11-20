@@ -43,7 +43,6 @@ public class servletDocente extends HttpServlet {
 		System.out.println(request.getParameter("btnEliminar"));
 		if(request.getParameter("modificar")!=null) 
 		{
-			System.out.println("modifica");
 			Docente doc  =  new Docente();
 			int legajo = Integer.parseInt(request.getParameter("legajo"));
 			

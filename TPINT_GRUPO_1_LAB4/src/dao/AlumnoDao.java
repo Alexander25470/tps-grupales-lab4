@@ -11,5 +11,6 @@ public interface AlumnoDao {
 	public ArrayList<Alumno> obtenerTodos(int legajo);
 	public int eliminar(int legajo);
 	public Alumno obtenerUno(int legajo);
+	int modificar(Alumno alu);
 
 }

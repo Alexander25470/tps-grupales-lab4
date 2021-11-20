@@ -1,5 +1,4 @@
 alumnos:
-	modificar.jsp guarde los datos modificados
 	validaciones
 cursos:
 	/agregar alumnos:
