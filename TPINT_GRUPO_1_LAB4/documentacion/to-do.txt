@@ -1,6 +1,6 @@
 alumnos:
-	modificar.jsp cargue los datos del legajo seleccionado
 	modificar.jsp guarde los datos modificados
+	validaciones
 cursos:
 	/agregar alumnos:
 
@@ -10,7 +10,7 @@ cursos:
 	/Agregar curso:
 		validar que se ingrese algo en año
 docentes:
-	modificar.jsp guarde los datos modificados
+	validaciones
 login:
 	que se pueda iniciar sesión y se guarde (en algun lado) el tipo de
 	usuario y legajo docente si es docente
@@ -18,7 +18,9 @@ login:
 general:
 	validacion de que se completen los campos
 	agregar paginacion a las tablas
-	carteles de confirmacion para elimimr/guardar
+	carteles de confirmacion para eliminar/guardar
+	carteles aclaratorios de si se elimino/guardo o no algo
+	que se vea el usuario en todas las paginas
 
 ------ luego de tener lo anterior
 	validar que puede hacer cada tipo de usuario

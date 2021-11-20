@@ -186,5 +186,26 @@ public class DocenteDaolmpl implements DocenteDao {
 		 }
 		return doc;
 	}
+	
+	@Override
+	public int modificar(Docente doc) {
+		Conexion cn = new Conexion();
+		int filas = 0;
+		try {
+			
+			cn.AbrirConexion();
+			String query = "UPDATE docentes SET dni= "+doc.getDni()+" ,nombreApellido='"+doc.getNombreApellido()+"' ,fechaNac='"+doc.getFechaNac()+"' ,ID_Nacionalidad="+doc.getNacionalidad().getId()+" ,ID_Localidad="+doc.getLocalidad().getId()+" ,direccion='"+doc.getDireccion()+"' ,email='"+doc.getEmail()+"' ,telefono='"+doc.getTelefono()+"'  WHERE legajo = "+doc.getLegajo();
+			filas = cn.ejecutarConsulta(query);
+		}
+		catch(Exception e){
+			
+			e.printStackTrace();
+		}
+		
+		return filas;
+		
 	}
+	
+	
+}
 

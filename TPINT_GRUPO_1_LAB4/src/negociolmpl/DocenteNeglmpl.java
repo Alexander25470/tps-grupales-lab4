@@ -35,4 +35,9 @@ public class DocenteNeglmpl implements DocenteNeg {
 		return DocDao.obtenerUno(legajo);
 	}
 
+	@Override
+	public int modificar(Docente doc) {
+		// TODO Auto-generated method stub
+		return DocDao.modificar(doc);
+	}
 }

@@ -79,7 +79,10 @@
                 <td><input type="text" name="telefono"></td>
             </tr>
         </table>
-        <a href="/TPINT_GRUPO_1_LAB4/docentes/listar.jsp"><button type="button">Cancelar</button></a><button type="submit" name = "btnAgregar">Aceptar</button>
+        <a href="/TPINT_GRUPO_1_LAB4/docentes/listar.jsp">
+        	<button type="button">Cancelar</button>
+        </a>
+        <button type="submit" name = "btnAgregar">Aceptar</button>
     </form>
     
     <%

@@ -41,7 +41,29 @@ public class servletDocente extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		int filas=0;
 		System.out.println(request.getParameter("btnEliminar"));
-		if(request.getParameter("btnEliminar")!=null) 
+		if(request.getParameter("modificar")!=null) 
+		{
+			System.out.println("modifica");
+			Docente doc  =  new Docente();
+			int legajo = Integer.parseInt(request.getParameter("legajo"));
+			
+			doc.setLegajo(legajo);
+			doc.setDni(request.getParameter("dni"));
+			doc.setNombreApellido(request.getParameter("nombreApellido"));
+			doc.setFechaNac(request.getParameter("fechaNac"));
+			doc.setLocalidad(new Localidad(Integer.parseInt(request.getParameter("idLocalidad"))));
+			doc.setNacionalidad(new Nacionalidad(Integer.parseInt(request.getParameter("idNacionalidad"))));
+			doc.setDireccion(request.getParameter("direccion"));
+			doc.setEmail(request.getParameter("email"));
+			doc.setTelefono(request.getParameter("telefono"));
+			
+			docNeg.modificar(doc);
+			request.setAttribute("modificado", true);
+			request.setAttribute("legajo", legajo);
+			RequestDispatcher rd = request.getRequestDispatcher("/docentes/modificar.jsp");   
+	        rd.forward(request, response);    
+			
+		}else if(request.getParameter("btnEliminar")!=null) 
 		{
 			docNeg.eliminar(Integer.parseInt(request.getParameter("legajo")));
 			request.setAttribute("eliminado", true);

@@ -12,4 +12,5 @@ public interface DocenteDao {
 	public ArrayList<Docente> obtenerTodos(int legajo);
 	public int eliminar(int legajo);
 	public Docente obtenerUno(int legajo);
+	int modificar(Docente doc);
 }
