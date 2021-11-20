@@ -15,7 +15,7 @@
 		<button>Cursos</button>
 	</a>
 	<a href="/TPINT_GRUPO_1_LAB4/docentes/listar.jsp">
-		<button>Docentes</button><a href="./inicio.jsp">
+		<button>Docentes</button>
 	</a>
 </body>
 </html>
