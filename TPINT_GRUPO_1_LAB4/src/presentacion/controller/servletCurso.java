@@ -66,7 +66,7 @@ public class servletCurso extends HttpServlet {
 			filas=CurNeg.agregar(cur);
 			//REQUESTDISPATCHER
 			request.setAttribute("FilasAfectadas", filas);
-			RequestDispatcher rd = request.getRequestDispatcher("/cursos/agregar.jsp");   
+			RequestDispatcher rd = request.getRequestDispatcher("/TPINT_GRUPO_1_LAB4/cursos/agregar.jsp");   
 	        rd.forward(request, response);    
 			
 		}

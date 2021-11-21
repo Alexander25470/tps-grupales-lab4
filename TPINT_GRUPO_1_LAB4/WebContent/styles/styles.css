@@ -1,0 +1,14 @@
+header {
+   	display: flex;
+   	flex-direction: row;
+   	flex-wrap: wrap;
+   	align-items: center;
+   	justify-content: space-between;
+}
+table{
+     border-collapse: collapse;
+ }
+ td, th{
+     padding: .25rem;
+     border: 1px solid black;
+ }

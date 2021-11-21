@@ -11,8 +11,7 @@ cursos:
 docentes:
 	validaciones
 login:
-	que se pueda iniciar sesión y se guarde (en algun lado) el tipo de
-	usuario y legajo docente si es docente
+	en la clase Usuario, guardar un docente en vez de un legajo.
 
 general:
 	validacion de que se completen los campos

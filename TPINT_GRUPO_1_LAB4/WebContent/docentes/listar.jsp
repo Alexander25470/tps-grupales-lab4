@@ -3,23 +3,17 @@
     pageEncoding="ISO-8859-1"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="entidad.Docente"%>
+<%@page import="entidad.Usuario"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<style>
-    table{
-        border-collapse: collapse;
-    }
-    td, th{
-        padding: .25rem;
-        border: 1px solid black;
-    }
-</style>
-<title>Insert title here</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+	<title>Insert title here</title>
+	<link rel="stylesheet" type="text/css" href="/TPINT_GRUPO_1_LAB4/styles/styles.css">
 </head>
 
 <% 
+	Usuario currentUser = (Usuario)(session.getAttribute("usuario"));
 	ArrayList<Docente> listaDocentes;
 	String legajoaBuscar = request.getParameter("buscarLegajo");
 	if(legajoaBuscar != null && legajoaBuscar !=""){
@@ -31,7 +25,12 @@
 	
 %>
 <body>
-
+	 <header>	 
+	 	<h1>Usuario <%=currentUser.getNombre()%></h1>
+		<form action="/TPINT_GRUPO_1_LAB4/servletUsuario" method="POST">
+			<button type="submit" name="cerrarSesion">Cerrar sesión</button>
+		</form>
+	 </header>
 
 	<a href="/TPINT_GRUPO_1_LAB4/inicio.jsp">
 		<button>Inicio</button> 

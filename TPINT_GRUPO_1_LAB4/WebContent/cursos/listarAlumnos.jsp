@@ -5,22 +5,15 @@
 <%@page import="entidad.Alumno"%>
 <%@page import="entidad.Nacionalidad"%>
 <%@page import="presentacion.controller.servletNota"%>
+<%@page import="entidad.Usuario"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 	<title>Insert title here</title>
-	<style type="text/css">
-	table{
-	        border-collapse: collapse;
-	    }
-	    td, th{
-	        padding: .25rem;
-	        border: 1px solid black;
-	    }
-	</style>
+	<link rel="stylesheet" type="text/css" href="/TPINT_GRUPO_1_LAB4/styles/styles.css">
 	<script type="text/javascript">
-			const validateForm = ()=>{
+			const validateForm = () => {
 				if(! document.querySelectorAll("input[name='chbkNotas']:checked").length>0){
 				alert("Selecione almenos un alumno para modificar nota");
 					return false;
@@ -36,6 +29,7 @@
 <body style="height: 335px; ">
 <% 
 	int idCurso = Integer.parseInt(request.getParameter("idCurso"));
+	Usuario currentUser = (Usuario)(session.getAttribute("usuario"));
 	ArrayList<Nota> listaNotas = (ArrayList<Nota>) servletNota.obtenerNotasCurso(idCurso);
 	
 	String legajoaBuscar = request.getParameter("buscarLegajo");
@@ -47,6 +41,10 @@
 	}
 	
  %>
+	<h1>Usuario <%=currentUser.getNombre()%></h1>
+		<form action="/TPINT_GRUPO_1_LAB4/servletUsuario" method="POST">
+	<button type="submit" name="cerrarSesion">Cerrar sesión</button>
+</form>
 	<a href="/TPINT_GRUPO_1_LAB4/inicio.jsp">
 		<button>Inicio</button> 
 	</a> 
