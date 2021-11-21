@@ -17,7 +17,7 @@ login:
 
 general:
 	validacion de que se completen los campos
-	agregar paginacion a las tablas
+	agregar paginacion a las tablas (copiar de alumnos/listar)
 	carteles de confirmacion para eliminar/guardar
 	carteles aclaratorios de si se elimino/guardo o no algo
 	que se vea el usuario en todas las paginas
