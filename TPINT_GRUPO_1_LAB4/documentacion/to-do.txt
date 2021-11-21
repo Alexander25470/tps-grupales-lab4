@@ -4,11 +4,13 @@ cursos:
 	/agregar alumnos:
 
 	/listar alumnos:
+		si el uduario es docente solo le aparescan SUS cursos
 		validar que se seleccione almenos un alumno
 		
 	/Agregar curso:
 		validar que se ingrese algo en año
 docentes:
+	cuando el admin da de alta un doocente le cree usuario y contraseña
 	validaciones
 login:
 	en la clase Usuario, guardar un docente en vez de un legajo.
