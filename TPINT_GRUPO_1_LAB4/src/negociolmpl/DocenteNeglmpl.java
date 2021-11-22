@@ -10,9 +10,9 @@ import negocio.DocenteNeg;
 public class DocenteNeglmpl implements DocenteNeg {
 	DocenteDao DocDao = new DocenteDaolmpl();
 	@Override
-	public int agregar(Docente docente) {
+	public int agregar(Docente docente, String constrasenia) {
 		
-		return DocDao.agregar(docente);
+		return DocDao.agregar(docente, constrasenia);
 	}
 	
 	public ArrayList<Docente> obtenerTodos(){

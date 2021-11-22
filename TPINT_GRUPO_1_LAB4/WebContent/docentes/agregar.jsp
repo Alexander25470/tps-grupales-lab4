@@ -14,6 +14,16 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 	<title>Insert title here</title>
 	<link rel="stylesheet" type="text/css" href="/TPINT_GRUPO_1_LAB4/styles/styles.css">
+	<script type="text/javascript">
+			const validateForm = () => {
+				if(document.getElementById("password").value != document.getElementById("confirmPassword").value){
+				alert("Las contraseñas deben ser iguales");
+					return false;
+				} else {
+					return true;
+				}
+			}
+	</script>
 </head>
 <body>
 <% 
@@ -31,11 +41,19 @@
 		<button>Inicio</button> 
 	</a>
     <h1>Agregar docente</h1>
-    <form action="/TPINT_GRUPO_1_LAB4/servletDocente" method="post">
+    <form action="/TPINT_GRUPO_1_LAB4/servletDocente" method="post" onsubmit="return validateForm()">
         <table>
             <tr>
                 <td>Dni</td>
                 <td><input type="number" name="dni" required></td>
+            </tr>
+            <tr>
+                <td>Contraseña</td>
+                <td><input type="number" id="password" name="password" required></td>
+            </tr>
+            <tr>
+                <td>Confirmar contraseña</td>
+                <td><input type="number" id="confirmPassword" name="password2" required></td>
             </tr>
             <tr>
                 <td>Nombre y apellido</td>

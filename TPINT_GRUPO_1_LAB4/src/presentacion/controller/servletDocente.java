@@ -84,7 +84,7 @@ public class servletDocente extends HttpServlet {
 			
 			System.out.println(doc.getFechaNac());
 			
-			filas=docNeg.agregar(doc);
+			filas=docNeg.agregar(doc, request.getParameter("password"));
 			//REQUESTDISPATCHER
 			request.setAttribute("FilasAfectadas", filas);
 			RequestDispatcher rd = request.getRequestDispatcher("/docentes/agregar.jsp");   

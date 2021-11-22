@@ -2,7 +2,12 @@ package daolmpl;
 
 
 import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
 
 import dao.DocenteDao;
 import entidad.Alumno;
@@ -14,21 +19,42 @@ import entidad.Provincia;
 public class DocenteDaolmpl implements DocenteDao {	
 		
 	@Override
-	public int agregar(Docente docente) {
+	public int agregar(Docente docente, String contrasenia) {
 		Conexion cn = new Conexion();
 		int filas = 0;
 		try {
-			cn.AbrirConexion();
+			Connection conn = cn.AbrirConexion();
 			
 			//Date fechaNac = new SimpleDateFormat("yyyy/MM/dd").parse(docente.getFechaNac());  
 			String query = "Insert into Docentes(dni, nombreApellido,FechaNac,ID_Nacionalidad, ID_Localidad, "
 			+ "direccion,email,telefono)values('"+docente.getDni()+"','"+docente.getNombreApellido()+"','"+docente.getFechaNac()+"',"
 			+ "'"+docente.getNacionalidad().getId()+"','"+docente.getLocalidad().getId()+"','"+docente.getDireccion()+"','"+docente.getEmail()+"','"+docente.getTelefono()+"')";
-			filas = cn.ejecutarConsulta(query);
+			PreparedStatement st;
+			try {
+				st = conn.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
+				st.execute();
+				ResultSet rs = st.getGeneratedKeys();
+				if(rs.next()) {
+					System.out.println("hola");
+					System.out.println(rs.getString(1));
+					String queryUser = "insert into USUARIOS (legajo_docente,nombre,contrasenia,administrador) VALUES ("+rs.getString(1)+", '"+docente.getEmail()+"','"+contrasenia+"', 0)";
+					System.out.println(queryUser);
+					filas = cn.ejecutarConsulta(queryUser);
+					
+				}
+			}
+			catch(SQLException e)
+			{
+				e.printStackTrace();
+			}
+			
 		}
 		catch(Exception e){
 			
 			e.printStackTrace();
+		} finally
+		{
+			cn.close();
 		}
 		
 		return filas;

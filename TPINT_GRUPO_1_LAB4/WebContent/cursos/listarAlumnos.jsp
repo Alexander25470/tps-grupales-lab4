@@ -23,10 +23,7 @@
 				} else {
 					return true;
 				}
-
-				
 			}
-
 	</script>
 </head>
 <body style="height: 335px; ">

@@ -6,8 +6,7 @@ import java.util.ArrayList;
 import entidad.Docente;
 
 public interface DocenteNeg {
-	
-	public int agregar(Docente docente);
+	int agregar(Docente docente, String constrasenia);
 	public ArrayList<Docente> obtenerTodos();
 	public ArrayList<Docente> obtenerTodos(int legajo);
 	public int eliminar(int legajo);

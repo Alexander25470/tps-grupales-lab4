@@ -10,7 +10,6 @@ cursos:
 	/Agregar curso:
 		validar que se ingrese algo en año
 docentes:
-	cuando el admin da de alta un doocente le cree usuario y contraseña
 	validaciones
 login:
 	en la clase Usuario, guardar un docente en vez de un legajo.
@@ -19,7 +18,4 @@ general:
 	validacion de que se completen los campos
 	carteles de confirmacion para eliminar/guardar
 	carteles aclaratorios de si se elimino/guardo o no algo
-	que se vea el usuario en todas las paginas
-
------- luego de tener lo anterior
 	validar que puede hacer cada tipo de usuario
