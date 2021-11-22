@@ -35,24 +35,24 @@
         <table>
             <tr>
                 <td>Dni</td>
-                <td><input type="number" name="dni"></td>
+                <td><input type="number" name="dni" required></td>
             </tr>
             <tr>
                 <td>Nombre y apellido</td>
-                <td><input type="text" name= "nombreApellido"></td>
+                <td><input type="text" name= "nombreApellido" required></td>
             </tr>
             <tr>
                 <td>Fecha de nacimiento</td>
-                <td><input type="date" name="fechaNac"></td>
+                <td><input type="date" name="fechaNac" required></td>
             </tr>
             <tr>
                 <td>Direccion</td>
-                <td><input type="text" name="direccion"></td>
+                <td><input type="text" name="direccion" required></td>
             </tr>
             <tr>
                 <td>Localidad</td>
                 <td>
-	                <select name="seleccionarLocalidad">
+	                <select name="seleccionarLocalidad" required>
 						<%
 						if(listaLocalidades!=null)
 							for (Localidad loc : listaLocalidades) {
@@ -67,7 +67,7 @@
             <tr>
                 <td>Nacionalidad</td>
                 <td>
-	                <select name="seleccionarNacionalidad">
+	                <select name="seleccionarNacionalidad" required>
 						<%
 						if(listaNacionalidades!=null)
 							for (Nacionalidad nac : listaNacionalidades) {
@@ -81,11 +81,11 @@
             </tr>
             <tr>
                 <td>Email</td>
-                <td><input type="text" name="email"></td>
+                <td><input type="text" name="email" required></td>
             </tr>
             <tr>
                 <td>Telefono</td>
-                <td><input type="text" name="telefono"></td>
+                <td><input type="text" name="telefono" required></td>
             </tr>
         </table>
         <a href="/TPINT_GRUPO_1_LAB4/docentes/listar.jsp">

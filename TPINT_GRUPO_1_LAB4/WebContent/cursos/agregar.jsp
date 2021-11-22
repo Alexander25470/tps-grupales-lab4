@@ -49,7 +49,7 @@
              <tr>
                 <td>Semestre</td>
                 <td>
-                    <select name="semestre">
+                    <select name="semestre" required>
                         <option value="1">Primer semestre</option>
                         <option value="2">Segundo semestre</option>
                     </select>
@@ -58,7 +58,7 @@
             <tr>
                 <td>Docente</td>
                 <td>
-                    <select name="seleccionarProfesor">
+                    <select name="seleccionarProfesor" required>
 						<%
 						if(listaDocentes!=null)
 							for (Docente doc : listaDocentes) {
@@ -72,7 +72,7 @@
             </tr>
             <tr>
                 <td>Año</td>
-                <td><input type="number" name="año"></td>
+                <td><input type="number" name="año" required></td>
             </tr>
         </table>
         <a href="/TPINT_GRUPO_1_LAB4/cursos/listar.jsp"><button type="button">Cancelar</button></a><button type="submit" name="btnAgregar">Aceptar</button>
