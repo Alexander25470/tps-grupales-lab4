@@ -89,5 +89,10 @@
 			<%  } %>
         </tbody>
     </table>
+    <script type="text/javascript">
+    	$(document).ready( () => {
+		    $('#myTable').DataTable();
+		} );
+    </script>
 </body>
 </html>

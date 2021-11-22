@@ -12,6 +12,9 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 	<title>Insert title here</title>
 	<link rel="stylesheet" type="text/css" href="/TPINT_GRUPO_1_LAB4/styles/styles.css">
+	<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css">
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+	<script type="text/javascript" src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
 	<script type="text/javascript">
 			const validateForm = () => {
 				if(! document.querySelectorAll("input[name='chbkNotas']:checked").length>0){
@@ -58,7 +61,7 @@
     </form>
 
     <form action="/TPINT_GRUPO_1_LAB4/servletAlumnosCursos" onsubmit="return validateForm()" method="post">
-	    <table>
+	    <table id="myTable">
 	        <thead>
 	            <tr>
 	                <th>Legajo</th>
@@ -101,6 +104,11 @@
 			<%  } %>
 	        </tbody>
 	    </table>
+		<script type="text/javascript">
+	    	$(document).ready( () => {
+			    $('#myTable').DataTable();
+			} );
+	    </script>
    		<p>Seleccione la nota a modificar/cargar</p>
     	<select name="examen">
     		<option value="parcial1">Nota parcial 1</option>
