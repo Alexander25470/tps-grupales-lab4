@@ -23,6 +23,8 @@ public class UsuarioDaoImpl implements UsuarioDao {
 				 user.setLegajoDocente(rs.getInt("legajo_docente"));
 				 user.setNombre(rs.getString("nombre"));
 				 user.setAdmin(rs.getBoolean("administrador"));
+			 } else {
+				 user = null;
 			 }
 		 }
 		 catch(Exception e)
