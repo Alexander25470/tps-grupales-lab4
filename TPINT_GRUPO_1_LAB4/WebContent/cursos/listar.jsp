@@ -45,7 +45,7 @@
 	<h1>Cursos</h1>
     <form action="/TPINT_GRUPO_1_LAB4/cursos/listar.jsp" method="get">
         buscar por año
-        <input type="number" name="anio" value="<%=request.getParameter("anio")%>">
+        <input type="number" name="anio" min="0" value="<%=request.getParameter("anio")%>">
         <button type="submit">Buscar</button>
     </form>
     <br/>
