@@ -21,22 +21,25 @@
 <body>
 	<% 
 		String semestre;
+		ArrayList<Curso> listaCursos = new ArrayList<Curso>();
 		Usuario currentUser = (Usuario)(session.getAttribute("usuario"));
-		ArrayList<Curso> listaCursos;
-		String anioABuscar = request.getParameter("anio"); 
-		if(anioABuscar != null && anioABuscar !=""){
+		if(session.getAttribute("usuario") == null){
+			response.sendRedirect("/TPINT_GRUPO_1_LAB4/login.jsp");
+			System.out.println("No hay usuario");
+		} else {
+			String anioABuscar = request.getParameter("anio");
 			listaCursos = (ArrayList<Curso>) servletCurso.obtenerCursos(anioABuscar);
-		}else{
-			listaCursos = (ArrayList<Curso>) servletCurso.obtenerCursos();
 		}
-	
+		
 	 %>
- 	 <header>	 
-	 	<h1>Usuario <%=currentUser.getNombre()%></h1>
-		<form action="/TPINT_GRUPO_1_LAB4/servletUsuario" method="POST">
-			<button type="submit" name="cerrarSesion">Cerrar sesión</button>
-		</form>
-	 </header>
+ 	 <%if(currentUser != null) {%>
+	 	 <header>	 
+		 	<h1>Usuario <%=currentUser.getNombre()%></h1>
+			<form action="/TPINT_GRUPO_1_LAB4/servletUsuario" method="POST">
+				<button type="submit" name="cerrarSesion">Cerrar sesión</button>
+			</form>
+		 </header>
+	<%} %>
 	<a href="/TPINT_GRUPO_1_LAB4/inicio.jsp">
 		<button>Inicio</button> 
 	</a> 
