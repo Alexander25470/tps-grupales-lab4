@@ -48,9 +48,15 @@
         <input type="number" name="anio" value="<%=request.getParameter("anio")%>">
         <button type="submit">Buscar</button>
     </form>
-    <a href="agregar.jsp">
-		<button>Agregar nuevo curso</button>
-    </a>
+    <br/>
+    <% 
+	if(currentUser != null && currentUser.isAdmin())
+	{%>	
+	    <a href="agregar.jsp">
+			<button>Agregar nuevo curso</button>
+	    </a>
+	<%} %>
+    
     <table id="myTable">
         <thead>
             <tr>
