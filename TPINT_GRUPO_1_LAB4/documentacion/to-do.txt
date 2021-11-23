@@ -2,13 +2,12 @@ alumnos:
 	validaciones
 cursos:
 	/agregar alumnos:
-
+		no permitir menor a 0 en buscar por legajo
 	/listar alumnos:
-		si el uduario es docente solo le aparescan SUS cursos
-		validar que se seleccione almenos un alumno
-		
+		agregar alumnos solo le deberia aparecer al administrador
 	/Agregar curso:
 		validar que se ingrese algo en año
+
 docentes:
 	validaciones
 login:
