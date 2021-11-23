@@ -17,6 +17,9 @@
 		</form>
 	 </header>
 	<h2>Seleccione que desea ver</h2>
+	<% 
+	if(currentUser.isAdmin())
+	{%>
 	<a href="/TPINT_GRUPO_1_LAB4/alumnos/listar.jsp">
 		<button>Alumnos</button>
 	</a>
@@ -26,5 +29,11 @@
 	<a href="/TPINT_GRUPO_1_LAB4/docentes/listar.jsp">
 		<button>Docentes</button>
 	</a>
+	<%} else
+	{ %>
+	<a href="/TPINT_GRUPO_1_LAB4/cursos/listar.jsp">
+		<button>Cursos</button>
+	</a>
+	<%} %>
 </body>
 </html>

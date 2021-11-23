@@ -20,7 +20,6 @@
 </head>
 <body>
 	<% 
-		String semestre;
 		ArrayList<Curso> listaCursos = new ArrayList<Curso>();
 		Usuario currentUser = (Usuario)(session.getAttribute("usuario"));
 		if(session.getAttribute("usuario") == null){
@@ -28,7 +27,7 @@
 			System.out.println("No hay usuario");
 		} else {
 			String anioABuscar = request.getParameter("anio");
-			listaCursos = (ArrayList<Curso>) servletCurso.obtenerCursos(anioABuscar);
+			listaCursos = (ArrayList<Curso>) servletCurso.obtenerCursos(anioABuscar, currentUser.getLegajoDocente());
 		}
 		
 	 %>
@@ -68,23 +67,31 @@
         if(listaCursos!=null)
 			for(Curso cur : listaCursos) 
 			{
+			String semestre;
 			if(cur.getSemestre() == 1){
 				semestre = "Primer semestre";
 			}else{
 				semestre = "Segundo semestre";
 			};
-			%>
+		%>
             <tr>
                 <td><%=cur.getId() %></td>
                 <td><%=cur.getMateria().getNombre() %></td>
                 <td><%=cur.getDocente().getNombreApellido() %></td>
                 <td><%=semestre %></td>
                 <td><%=cur.getAnio() %></td>
-                <td> <a href="/TPINT_GRUPO_1_LAB4/cursos/listarAlumnos.jsp?idCurso=<%=cur.getId()%>"> <button>Ver alumnos</button></a> <a href="/TPINT_GRUPO_1_LAB4/cursos/agregarAlumnos.jsp?idCurso=<%=cur.getId()%>"><button>Agregar alumnos</button></a> </td>
+                <td>
+	                <a href="/TPINT_GRUPO_1_LAB4/cursos/listarAlumnos.jsp?idCurso=<%=cur.getId()%>">
+	               	 <button>Ver alumnos</button>
+	                </a>
+	                <a href="/TPINT_GRUPO_1_LAB4/cursos/agregarAlumnos.jsp?idCurso=<%=cur.getId()%>">
+	                	<button>Agregar alumnos</button>
+	                </a>
+                </td>
             </tr>
-          <%  } %>
-        </tbody>
-    </table>
+          <% } %>
+	        </tbody>
+	    </table>
         <script type="text/javascript">
     	$(document).ready( () => {
 		    $('#myTable').DataTable();

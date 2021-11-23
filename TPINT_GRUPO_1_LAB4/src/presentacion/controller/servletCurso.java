@@ -66,7 +66,7 @@ public class servletCurso extends HttpServlet {
 			filas=CurNeg.agregar(cur);
 			//REQUESTDISPATCHER
 			request.setAttribute("FilasAfectadas", filas);
-			RequestDispatcher rd = request.getRequestDispatcher("/TPINT_GRUPO_1_LAB4/cursos/agregar.jsp");   
+			RequestDispatcher rd = request.getRequestDispatcher("/cursos/agregar.jsp");   
 	        rd.forward(request, response);    
 			
 		}
@@ -74,12 +74,12 @@ public class servletCurso extends HttpServlet {
 		
 	}
 	
-	public static ArrayList<Curso> obtenerCursos() {
-		return CurNeg.obtenerTodos();
-	}
-	
-	public static ArrayList<Curso> obtenerCursos(String anio) {
-		return CurNeg.obtenerTodos(Integer.parseInt(anio));
+	public static ArrayList<Curso> obtenerCursos(String strAnio, int legajo) {
+		int anio = -1;
+		if(strAnio != null && strAnio != "") {
+			anio = Integer.parseInt(strAnio);
+		}
+		return CurNeg.obtenerTodos(anio, legajo);
 	}
 	
 	public static ArrayList<Materia> obtenerMaterias() {
