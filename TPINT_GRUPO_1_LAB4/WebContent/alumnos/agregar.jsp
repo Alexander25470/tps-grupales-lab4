@@ -87,8 +87,9 @@
                 <td><input type="number" name="telefono" required></td>
             </tr>
         </table>
-        <a></a>
-        <a href="/TPINT_GRUPO_1_LAB4/alumnos/listar.jsp"><button type="button">Volver</button> <button type="submit" name="btnAgregar">Aceptar</button>
-    </form> 
+        <a href="/TPINT_GRUPO_1_LAB4/alumnos/listar.jsp"><button type="button">Volver</button> 
+        <button type="submit" name="btnAgregar">Aceptar</button>
+        </a>
+    </form>
 </body>
 </html>

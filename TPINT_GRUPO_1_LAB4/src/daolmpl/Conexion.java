@@ -55,7 +55,7 @@ public class Conexion {
 		Statement st;
 		try {
 			st = connection.createStatement();
-		    st.executeUpdate(query);
+		    filas = st.executeUpdate(query);
 		}
 		catch(SQLException e)
 		{

@@ -106,8 +106,10 @@ public class servletAlumnos extends HttpServlet {
 			//REQUESTDISPATCHER
 			request.setAttribute("FilasAfectadas", filas);
 			RequestDispatcher rd = request.getRequestDispatcher("/alumnos/agregar.jsp");   
-	        rd.forward(request, response);    
-			
+	        rd.forward(request, response);
+	        if(filas >= 1){
+	        	System.out.print("Se agregó correctamente");
+	        }
 		}
 		
 	}
