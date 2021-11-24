@@ -92,10 +92,13 @@
         </a>
     </form>
     
-    <%  boolean agregado = Boolean.TRUE == request.getAttribute("agregado");
-    	if(agregado){
+     <% int filas = Integer.parseInt((String)request.getAttribute("filas"));
+    	if(filas>0){
      %>
-     	<p>Alumno agregado con exito</p>
+    	<p>Alumno agregado con exito</p>
+     <%}else if(filas == -1){
+    	 %>
+    	 <p>El Alumno no ha podido ser agregado</p>
      <%}%>
 </body>
 </html>

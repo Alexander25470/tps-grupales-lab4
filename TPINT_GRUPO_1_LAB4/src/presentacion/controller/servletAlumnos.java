@@ -104,7 +104,7 @@ public class servletAlumnos extends HttpServlet {
 			
 			filas=aluNeg.agregar(al);
 			//REQUESTDISPATCHER
-			request.setAttribute("agregado", filas>=1);
+			request.setAttribute("filas", filas);
 			RequestDispatcher rd = request.getRequestDispatcher("/alumnos/agregar.jsp");   
 	        rd.forward(request, response);
 		}

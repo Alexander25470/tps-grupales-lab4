@@ -19,7 +19,7 @@ public class AlumnoDaolmpl implements AlumnoDao {
 		
 		
 		Conexion cn = new Conexion();
-		int filas = 0;
+		int filas = -1;
 		try {
 			
 			cn.AbrirConexion();
@@ -130,7 +130,7 @@ public class AlumnoDaolmpl implements AlumnoDao {
 	@Override
 	public int eliminar(int legajo) {
 		Conexion cn = new Conexion();
-		int filas = 0;
+		int filas = -1;
 		try {
 			
 			cn.AbrirConexion();
@@ -192,7 +192,7 @@ public class AlumnoDaolmpl implements AlumnoDao {
 	@Override
 	public int modificar(Alumno alu) {
 		Conexion cn = new Conexion();
-		int filas = 0;
+		int filas = -1;
 		try {
 			
 			cn.AbrirConexion();
