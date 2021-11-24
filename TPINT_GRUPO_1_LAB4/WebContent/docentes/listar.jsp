@@ -13,8 +13,11 @@
 	<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 	<script type="text/javascript" src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
 	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-	<title>Insert title here</title>
+	<title>Listar docentes</title>
 	<link rel="stylesheet" type="text/css" href="/TPINT_GRUPO_1_LAB4/styles/styles.css">
+	<script type="text/javascript">
+		const confirmacionEliminar = (na)=> confirm("¿Está seguro de que desea eliminar al docente "+na+"?");
+	</script>
 </head>
 
 <% 
@@ -80,7 +83,7 @@
 	                <td><%=doc.getEmail() %></td>
 	                <td><%=doc.getTelefono() %></td>
 	                <td> <a href="modificar.jsp?legajo=<%=doc.getLegajo() %>"><button>Modificar</button></a>
-				    <form action="/TPINT_GRUPO_1_LAB4/servletDocente" method="post">
+				    <form action="/TPINT_GRUPO_1_LAB4/servletDocente" method="post" onsubmit="return confirmacionEliminar('<%=doc.getNombreApellido()%>')">
 				        <input name="legajo" type ="text" hidden="true" value="<%=doc.getLegajo()%>">
 				        <button name="btnEliminar" type="submit" value="eliminar">Eliminar</button>
 				    </form>
