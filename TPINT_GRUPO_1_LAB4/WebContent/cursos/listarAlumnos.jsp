@@ -70,8 +70,12 @@
 	                <th>Recuperatorio 1</th>
 	                <th>Recuperatorio 2</th>
 	                <th>Estado</th>
-	                <th>Modificar nota</th>
-	                <th>Modificar estado</th>
+	                <%
+	                if(!currentUser.isAdmin())
+					{%>
+		                <th>Modificar nota</th>
+		                <th>Modificar estado</th>
+					<%} %>
 	            </tr>
 	        </thead>
 	        <tbody>
@@ -88,18 +92,22 @@
 	                <td><%=nota.getRecuperatorio1()%></td>
 	                <td><%=nota.getRecuperatorio2()%></td>
 	                <td><%=nota.getEstado().getDescripcion()%></td>
-	                <td><input type="checkbox" name="chbkNotas" value="<%=nota.getAlumno().getLegajo() %>" /></td>
-	                <td>
-	                <form action="/TPINT_GRUPO_1_LAB4/servletAlumnosCursos" method="post"> 
-	                	<select name="estado" value="<%=nota.getEstado().getId()%>"> 
-			                <option value="1" <%=nota.getEstado().getId()==2?"selected":"" %>>Regular</option>
-			                <option value="2" <%=nota.getEstado().getId()==2?"selected":"" %>>Libre</option>  
-		                </select>
-		                <input name="idCurso" type ="text" hidden="true" value="<%=idCurso%>">
-		                <input name="legajo" type ="text"hidden="true" value="<%=nota.getAlumno().getLegajo()%>">
-		                <button type="submit" name="btnGuardarEstado">Guardar estado</button> </td>
-	                </form>
-				</tr>
+	                <%
+	                if(!currentUser.isAdmin())
+					{%>
+		                <td><input type="checkbox" name="chbkNotas" value="<%=nota.getAlumno().getLegajo() %>" /></td>
+		                <td>
+		                <form action="/TPINT_GRUPO_1_LAB4/servletAlumnosCursos" method="post"> 
+		                	<select name="estado" value="<%=nota.getEstado().getId()%>"> 
+				                <option value="1" <%=nota.getEstado().getId()==2?"selected":"" %>>Regular</option>
+				                <option value="2" <%=nota.getEstado().getId()==2?"selected":"" %>>Libre</option>  
+			                </select>
+			                <input name="idCurso" type ="text" hidden="true" value="<%=idCurso%>">
+			                <input name="legajo" type ="text"hidden="true" value="<%=nota.getAlumno().getLegajo()%>">
+			                <button type="submit" name="btnGuardarEstado">Guardar estado</button> </td>
+		                </form>
+					</tr>
+					<%} %>
 			<%  } %>
 	        </tbody>
 	    </table>
@@ -108,17 +116,21 @@
 			    $('#myTable').DataTable();
 			} );
 	    </script>
-   		<p>Seleccione la nota a modificar/cargar</p>
-    	<select name="examen">
-    		<option value="parcial1">Nota parcial 1</option>
-    		<option value="parcial2">Nota parcial 2</option>
-    		<option value="recuperatorio1">Recuperatorio 1</option>
-    		<option value="recuperatorio2">Recuperatorio 2</option>
-    	</select>
-    	<input name="idCurso" type ="text" hidden="true" value="<%=idCurso%>">
-    	<p>Ingrese la nota</p>
-    	<input type="number" name="nota" min="0" max="10" required/> <br/> <br/>
-        <button type="submit" name="btnModificar">Modificar</button>
+	    <%
+         	if(!currentUser.isAdmin())
+		{%>
+	   		<p>Seleccione la nota a modificar/cargar</p>
+	    	<select name="examen">
+	    		<option value="parcial1">Nota parcial 1</option>
+	    		<option value="parcial2">Nota parcial 2</option>
+	    		<option value="recuperatorio1">Recuperatorio 1</option>
+	    		<option value="recuperatorio2">Recuperatorio 2</option>
+	    	</select>
+	    	<input name="idCurso" type ="text" hidden="true" value="<%=idCurso%>">
+	    	<p>Ingrese la nota</p>
+	    	<input type="number" name="nota" min="0" max="10" required/> <br/> <br/>
+	        <button type="submit" name="btnModificar">Modificar</button>
+		<%} %>
     </form>
     
     <a href="/TPINT_GRUPO_1_LAB4/cursos/listar.jsp"><button type="button">Volver</button></a>
