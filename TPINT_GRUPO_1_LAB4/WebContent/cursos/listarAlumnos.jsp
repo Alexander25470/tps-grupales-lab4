@@ -26,25 +26,27 @@
 			}
 	</script>
 </head>
-<body style="height: 335px; ">
-<% 
-	int idCurso = Integer.parseInt(request.getParameter("idCurso"));
-	Usuario currentUser = (Usuario)(session.getAttribute("usuario"));
-	ArrayList<Nota> listaNotas = (ArrayList<Nota>) servletNota.obtenerNotasCurso(idCurso);
-	
-	String legajoaBuscar = request.getParameter("buscarLegajo");
-	
-	if(legajoaBuscar != null && legajoaBuscar !=""){
-		listaNotas = (ArrayList<Nota>) servletNota.obtenerNotasCurso(idCurso, Integer.parseInt(legajoaBuscar));
-	}else{
-		listaNotas = (ArrayList<Nota>) servletNota.obtenerNotasCurso(idCurso);
-	}
-	
- %>
-	<h1>Usuario <%=currentUser.getNombre()%></h1>
+<body>
+	<% 
+		int idCurso = Integer.parseInt(request.getParameter("idCurso"));
+		Usuario currentUser = (Usuario)(session.getAttribute("usuario"));
+		ArrayList<Nota> listaNotas = (ArrayList<Nota>) servletNota.obtenerNotasCurso(idCurso);
+		
+		String legajoaBuscar = request.getParameter("buscarLegajo");
+		
+		if(legajoaBuscar != null && legajoaBuscar !=""){
+			listaNotas = (ArrayList<Nota>) servletNota.obtenerNotasCurso(idCurso, Integer.parseInt(legajoaBuscar));
+		}else{
+			listaNotas = (ArrayList<Nota>) servletNota.obtenerNotasCurso(idCurso);
+		}
+		
+	 %>
+	<header>	 
+	 	<h1>Bienvenido <%=currentUser.getNombre()%></h1>
 		<form action="/TPINT_GRUPO_1_LAB4/servletUsuario" method="POST">
-	<button type="submit" name="cerrarSesion">Cerrar sesión</button>
-</form>
+			<button type="submit" name="cerrarSesion">Cerrar sesión</button>
+		</form>
+	 </header>
 	<a href="/TPINT_GRUPO_1_LAB4/inicio.jsp">
 		<button>Inicio</button> 
 	</a> 
@@ -52,7 +54,7 @@
 
     <form action="/TPINT_GRUPO_1_LAB4/cursos/listarAlumnos.jsp" method="get">
         Buscar por legajo
-        <input type="number" name="buscarLegajo" value="<%=legajoaBuscar%>" >
+        <input type="number" name="buscarLegajo" min="0" value="<%=legajoaBuscar%>" >
         <input name="idCurso" type ="text" hidden="true" value="<%=idCurso%>">
         <button type="submit">Buscar</button>
     </form>
