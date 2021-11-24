@@ -42,26 +42,26 @@
             </tr>
             <tr>
                 <td>Dni</td>
-                <td><input type="number" name="dni" value="<%=doc.getDni()%>"></td>
+                <td><input  type="number" min="0" name="dni" required value="<%=doc.getDni()%>"></td>
             </tr>
             <tr>
                 <td>Nombre y apellido</td>
-                <td><input type="text" name="nombreApellido" value="<%=doc.getNombreApellido()%>"></td>
+                <td><input type="text" name="nombreApellido" required value="<%=doc.getNombreApellido()%>"></td>
             </tr>
             <tr>
             	<td>Fecha de nacimiento</td>
 	             <td>
-	            	 <input type="date" name="fechaNac" value="<%=doc.getFechaNac()%>">
+	            	 <input type="date" name="fechaNac" required value="<%=doc.getFechaNac()%>">
 	             </td>
             </tr>
             <tr>
                 <td>Direccion</td>
-                <td><input type="text" name="direccion" value="<%=doc.getDireccion()%>"></td>
+                <td><input type="text" name="direccion" required value="<%=doc.getDireccion()%>"></td>
             </tr>
             <tr>
                 <td>Localidad</td>
                 <td>
-					<select name="idLocalidad">
+					<select name="idLocalidad" required>
 						<%
 						if(listaLocalidades!=null)
 							for (Localidad loc : listaLocalidades) {
@@ -76,7 +76,7 @@
             <tr>
                 <td>Nacionalidad</td>
                 <td>
-	                <select name="idNacionalidad">
+	                <select name="idNacionalidad" required>
 						<%
 						if(listaNacionalidades!=null)
 							for (Nacionalidad nac : listaNacionalidades) {
@@ -90,11 +90,11 @@
             </tr>
             <tr>
                 <td>Email</td>
-                <td><input type="text" name="email" value="<%=doc.getEmail()%>"></td>
+                <td><input type="email" name="email" required value="<%=doc.getEmail()%>"></td>
             </tr>
             <tr>
                 <td>Telefono</td>
-                <td><input type="number" name="telefono" value="<%=doc.getTelefono()%>"></td>
+                <td><input type="number" name="telefono" required value="<%=doc.getTelefono()%>"></td>
             </tr>
         </table>
         <a href="/TPINT_GRUPO_1_LAB4/docentes/listar.jsp">

@@ -45,15 +45,15 @@
         <table>
             <tr>
                 <td>Dni</td>
-                <td><input type="number" name="dni" required></td>
+                <td><input type="number" min="0" name="dni" required></td>
             </tr>
             <tr>
                 <td>Contraseña</td>
-                <td><input type="number" id="password" name="password" required></td>
+                <td><input type="password" id="password" name="password" required></td>
             </tr>
             <tr>
                 <td>Confirmar contraseña</td>
-                <td><input type="number" id="confirmPassword" name="password2" required></td>
+                <td><input type="password" id="confirmPassword" name="password2" required></td>
             </tr>
             <tr>
                 <td>Nombre y apellido</td>
@@ -99,11 +99,11 @@
             </tr>
             <tr>
                 <td>Email</td>
-                <td><input type="text" name="email" required></td>
+                <td><input type="email" name="email" required></td>
             </tr>
             <tr>
                 <td>Telefono</td>
-                <td><input type="text" name="telefono" required></td>
+                <td><input type="number" name="telefono" required></td>
             </tr>
         </table>
         <a href="/TPINT_GRUPO_1_LAB4/docentes/listar.jsp">

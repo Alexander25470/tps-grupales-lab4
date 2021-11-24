@@ -6,7 +6,6 @@ cursos:
 	/listar alumnos:
 		
 	/Agregar curso:
-		validar que se ingrese algo en año
 
 docentes:
 	validaciones
