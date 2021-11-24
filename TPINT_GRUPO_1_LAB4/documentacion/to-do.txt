@@ -1,5 +1,5 @@
 alumnos:
-	validaciones
+	
 cursos:
 	/agregar alumnos:
 		
@@ -13,7 +13,7 @@ login:
 	en la clase Usuario, guardar un docente en vez de un legajo.
 
 general:
-	validacion de que se completen los campos
-	carteles de confirmacion para eliminar/guardar
+	validacion de que se completen los campos (creo que está listo pero revisar por las dudas)
+	carteles de confirmacion para modificar/guardar
 	carteles aclaratorios de si se elimino/guardo o no algo
-	validar que puede hacer cada tipo de usuario
+	validar que puede hacer cada tipo de usuario (creo que listo, pero revisar por las dudas)
