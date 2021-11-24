@@ -87,12 +87,17 @@
                 <td><%=semestre %></td>
                 <td><%=cur.getAnio() %></td>
                 <td>
+                
 	                <a href="/TPINT_GRUPO_1_LAB4/cursos/listarAlumnos.jsp?idCurso=<%=cur.getId()%>">
 	               	 <button>Ver alumnos</button>
 	                </a>
+	                <% 
+						if(currentUser != null && currentUser.isAdmin())
+					{%>	
 	                <a href="/TPINT_GRUPO_1_LAB4/cursos/agregarAlumnos.jsp?idCurso=<%=cur.getId()%>">
 	                	<button>Agregar alumnos</button>
 	                </a>
+	                <%} %>
                 </td>
             </tr>
           <% } %>

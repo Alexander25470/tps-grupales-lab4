@@ -41,7 +41,7 @@
 
     <form action="/TPINT_GRUPO_1_LAB4/cursos/agregarAlumnos.jsp" method="get">
         Buscar por legajo
-        <input type="number" name="buscarLegajo" value="<%=legajoaBuscar%>" >
+        <input type="number" name="buscarLegajo" min="0" value="<%=legajoaBuscar%>" >
         <input name="idCurso" type ="text" hidden="true" value="<%=idCurso%>">
         <button type="submit" name="">Buscar</button>
     </form>

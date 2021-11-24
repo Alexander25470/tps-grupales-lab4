@@ -2,9 +2,9 @@ alumnos:
 	validaciones
 cursos:
 	/agregar alumnos:
-		no permitir menor a 0 en buscar por legajo
+		
 	/listar alumnos:
-		agregar alumnos solo le deberia aparecer al administrador
+		
 	/Agregar curso:
 		validar que se ingrese algo en año
 
