@@ -34,7 +34,7 @@
         <table>
             <tr>
                 <td>Dni</td>
-                <td><input type="number" name="dni" required></td>
+                <td><input type="number" min="0" name="dni" required></td>
             </tr>
             <tr>
                 <td>Nombre y apellido</td>
@@ -50,7 +50,8 @@
             </tr>
              <tr>
                 <td>Nacionalidad</td>
-                <td> <select name="seleccionarNacionalidad" required>
+                <td>
+	                <select name="seleccionarNacionalidad" required>
 						<%
 						if(listaNacionalidades!=null)
 							for (Nacionalidad nac : listaNacionalidades) {
@@ -59,11 +60,13 @@
 						<%
 							}
 						%>
-				</select> </td>
+					</select>
+				</td>
             </tr>
             <tr>
                 <td>Provincia</td>
-                <td> <select name="seleccionarProvincia" required>
+                <td>
+	                <select name="seleccionarProvincia" required>
 						<%
 						if(listaProvincias!=null)
 							for (Provincia prov : listaProvincias) {
@@ -72,11 +75,12 @@
 						<%
 							}
 						%>
-				</select> </td>
+					</select>
+				</td>
             </tr>
             <tr>
                 <td>Email</td>
-                <td><input type="text" name="email" required></td>
+                <td><input type="email" name="email" required></td>
             </tr>
             <tr>
                 <td>Telefono</td>
