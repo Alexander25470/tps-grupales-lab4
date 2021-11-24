@@ -91,5 +91,11 @@
         <button type="submit" name="btnAgregar">Aceptar</button>
         </a>
     </form>
+    
+    <%  boolean agregado = Boolean.TRUE == request.getAttribute("agregado");
+    	if(agregado){
+     %>
+     	<p>Alumno agregado con exito</p>
+     <%}%>
 </body>
 </html>
