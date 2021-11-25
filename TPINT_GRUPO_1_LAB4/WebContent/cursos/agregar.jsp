@@ -10,8 +10,13 @@
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-	<title>Insert title here</title>
-	<link rel="stylesheet" type="text/css" href="/TPINT_GRUPO_1_LAB4/styles/styles.css">
+	<title>Agregar Curso</title>
+	<link rel="stylesheet" type="text/css" href="/TPINT_GRUPO_1_LAB4/styles/styles.css">	
+	
+	<script type="text/javascript">
+	const confirmacionAgregar = (na)=> confirm("¿Está seguro que desea agregar el curso"+na+"?");
+	</script>
+	
 </head>
 <body>
 	<% 
@@ -29,7 +34,7 @@
 		<button>Inicio</button> 
 	</a> 
     <h1>Agregar curso</h1>
-    <form action="/TPINT_GRUPO_1_LAB4/servletCurso" method="post">
+    <form action="/TPINT_GRUPO_1_LAB4/servletCurso" method="post" onsubmit="return confirmacionAgregar('')">
         <table>
             <tr>
                 <td>Materia</td>
@@ -75,7 +80,7 @@
                 <td><input type="number" name="año" required></td>
             </tr>
         </table>
-        <a href="/TPINT_GRUPO_1_LAB4/cursos/listar.jsp"><button type="button">Cancelar</button></a><button type="submit" name="btnAgregar">Aceptar</button>
+        <a href="/TPINT_GRUPO_1_LAB4/cursos/listar.jsp"><button type="button">Cancelar</button></a><button type="submit" name="btnAgregar" >Aceptar </button >
     </form>
     
 	 <%
