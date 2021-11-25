@@ -93,7 +93,7 @@
     <% if(filas==1) 
 	{
 %>
-		Usuario agregado con exito
+		Curso agregado con exito
 <%} %>
      
 </body>

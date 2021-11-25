@@ -10,8 +10,12 @@
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-	<title>Insert title here</title>
-	<link rel="stylesheet" type="text/css" href="/TPINT_GRUPO_1_LAB4/styles/styles.css">
+	<title>Agregar Alumno</title>
+	<link rel="stylesheet" type="text/css" href="/TPINT_GRUPO_1_LAB4/styles/styles.css">	
+	
+	<script type="text/javascript">
+	const confirmacionAgregar = (na) => confirm("¿Está seguro que desea agregar el alumno"+na+"?");
+	</script>
 </head>
 <body>
 <% 
@@ -30,7 +34,7 @@
 		<button>Inicio</button> 
 	</a> 
     <h1>Agregar alumno</h1>
-    <form action="/TPINT_GRUPO_1_LAB4/servletAlumnos" method="post">
+    <form action="/TPINT_GRUPO_1_LAB4/servletAlumnos" method="post" onsubmit="return confirmacionAgregar('')">
         <table>
             <tr>
                 <td>Dni</td>

@@ -132,8 +132,21 @@
 	        <button type="submit" name="btnModificar">Modificar</button>
 		<%} %>
     </form>
-    
     <a href="/TPINT_GRUPO_1_LAB4/cursos/listar.jsp"><button type="button">Volver</button></a>
-
+	
+	<% 
+     	int filas = -1;
+     	if( request.getAttribute("filas") != null ){
+	     	filas = (Integer)request.getAttribute("filas");
+     	}
+    	if(filas>0){
+     %>
+    	<p>Nota modificada con exito</p>
+     <%}else if(filas == 0){
+    	 %>
+    	 <p>La nota no ha podido ser modificada</p>
+     <%}%>
+     
+	
 </body>
 </html>

@@ -49,7 +49,7 @@ public class servletAlumnosCursos extends HttpServlet {
 		{
 			
 			String[] aluSeleccionados = request.getParameterValues("chbkNotas");
-			//int filas=0;
+			int filas=0;
 			
 			List<String> lista = Arrays.asList(aluSeleccionados);
 			int nota = Integer.parseInt(request.getParameter("nota"));
@@ -66,11 +66,12 @@ public class servletAlumnosCursos extends HttpServlet {
 			String seleccion = request.getParameter("examen");
 			
 			
-			notaNeg.modificarNota(legajoAlumno,nota,seleccion, idCurso);
+			filas += notaNeg.modificarNota(legajoAlumno,nota,seleccion, idCurso);
 			
 			}
 			//REQUESTDISPATCHER
 			request.setAttribute("idCurso", idCurso);
+			request.setAttribute("filas", filas);
 			RequestDispatcher rd = request.getRequestDispatcher("/cursos/listarAlumnos.jsp");   
 	        rd.forward(request, response);    
 			
