@@ -92,11 +92,15 @@
         </a>
     </form>
     
-     <% int filas = Integer.parseInt((String)request.getAttribute("filas"));
+     <% 
+     	int filas = -1;
+     	if( request.getAttribute("filas") != null ){
+	     	filas = (Integer)request.getAttribute("filas");
+     	}
     	if(filas>0){
      %>
     	<p>Alumno agregado con exito</p>
-     <%}else if(filas == -1){
+     <%}else if(filas == 0){
     	 %>
     	 <p>El Alumno no ha podido ser agregado</p>
      <%}%>

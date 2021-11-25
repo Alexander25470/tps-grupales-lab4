@@ -19,7 +19,7 @@ public class AlumnoDaolmpl implements AlumnoDao {
 		
 		
 		Conexion cn = new Conexion();
-		int filas = -1;
+		int filas = 0;
 		try {
 			
 			cn.AbrirConexion();

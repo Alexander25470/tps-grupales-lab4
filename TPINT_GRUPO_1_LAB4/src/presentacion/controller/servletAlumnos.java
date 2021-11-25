@@ -52,8 +52,6 @@ public class servletAlumnos extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		int filas=0;
-		System.out.println(request.getParameter("btnEliminar"));
 		if(request.getParameter("modificar")!=null) 
 		{
 			Alumno al=  new Alumno();
@@ -102,7 +100,7 @@ public class servletAlumnos extends HttpServlet {
 			
 			System.out.println(al.getFechaNac());
 			
-			filas=aluNeg.agregar(al);
+			int filas=aluNeg.agregar(al);
 			//REQUESTDISPATCHER
 			request.setAttribute("filas", filas);
 			RequestDispatcher rd = request.getRequestDispatcher("/alumnos/agregar.jsp");   

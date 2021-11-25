@@ -50,7 +50,7 @@ public class Conexion {
 	
 	public int ejecutarConsulta(String query) {
 		
-		int filas = -1;
+		int filas = 0;
 		
 		Statement st;
 		try {

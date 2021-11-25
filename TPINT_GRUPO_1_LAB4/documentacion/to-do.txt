@@ -1,19 +1,21 @@
 alumnos:
-	
+	-
 cursos:
 	/agregar alumnos:
-		
+			-
 	/listar alumnos:
-		
+			-
 	/Agregar curso:
-
+			-
 docentes:
-	validaciones
+	-
 login:
-	en la clase Usuario, guardar un docente en vez de un legajo.
+	- en la clase Usuario, guardar un docente en vez de un legajo. (solo si sobra tiempo)
 
 general:
-	validacion de que se completen los campos (creo que está listo pero revisar por las dudas)
-	carteles de confirmacion para modificar/guardar
-	carteles aclaratorios de si se elimino/guardo o no algo
-	validar que puede hacer cada tipo de usuario (creo que listo, pero revisar por las dudas)
+	- validacion de que se completen los campos (creo que está listo pero revisar por las dudas)
+	- validar que puede hacer cada tipo de usuario (creo que listo, pero revisar por las dudas)
+
+IMPORTANTES:
+	- carteles de confirmacion para modificar/guardar
+	- carteles aclaratorios de si se elimino/guardo o no algo
