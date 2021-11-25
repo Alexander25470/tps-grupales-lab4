@@ -11,8 +11,13 @@
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-	<title>Insert title here</title>
+	<title>Modificar docente</title>
 	<link rel="stylesheet" type="text/css" href="/TPINT_GRUPO_1_LAB4/styles/styles.css">
+	
+	<script type="text/javascript">
+	const confirmacionModificar = (na)=> confirm("¿Está seguro que desea modificar al docente "+na+"?");
+	</script>
+	
 </head>
 <body>
 	<%
@@ -24,7 +29,7 @@
 	 %>
 	 <header>	 
 	 	<h1>Usuario <%=currentUser.getNombre()%></h1>
-		<form action="/TPINT_GRUPO_1_LAB4/servletUsuario" method="POST">
+		<form action="/TPINT_GRUPO_1_LAB4/servletUsuario" method="POST" >
 			<button type="submit" name="cerrarSesion">Cerrar sesión</button>
 		</form>
 	 </header>
@@ -33,7 +38,7 @@
 	</a>
     <h1>Modificar docente</h1>
     
-    <form action="/TPINT_GRUPO_1_LAB4/servletDocente" method="post">
+    <form action="/TPINT_GRUPO_1_LAB4/servletDocente" method="post" onsubmit="return confirmacionModificar('<%=doc.getNombreApellido()%>')">
         <input type="text" name="legajo" value="<%=legajo%>" hidden/>
         <table>
             <tr>
