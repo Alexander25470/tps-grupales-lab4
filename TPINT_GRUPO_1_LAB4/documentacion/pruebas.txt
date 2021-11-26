@@ -1,0 +1,16 @@
+alumnos:
+	modificar ok
+	agregar ok
+	listar ok
+docentes
+	modificar ok
+	agregar ok
+	listar ok
+cursos:
+	agregar ok
+	listar ok
+	agregar alumnos a curso ok
+	modificar notas ok
+	modificar notas masivas ok
+	modificar estado masivo ok
+	modificar estado individual ok

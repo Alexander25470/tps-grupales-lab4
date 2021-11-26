@@ -71,19 +71,38 @@ public class servletAlumnosCursos extends HttpServlet {
 			}
 			//REQUESTDISPATCHER
 			request.setAttribute("idCurso", idCurso);
-			request.setAttribute("filas", filas);
+			request.setAttribute("filasNotas", filas);
 			RequestDispatcher rd = request.getRequestDispatcher("/cursos/listarAlumnos.jsp");   
 	        rd.forward(request, response);    
 			
-		}else if(request.getParameter("btnGuardarEstado")!=null) {
+		}else if(request.getParameter("btnGuardarEstadoMasivo")!=null) {
+			int filas=0;
+			int estado = Integer.parseInt(request.getParameter("estado"));
+			int idCurso = Integer.parseInt(request.getParameter("idCurso"));
+			String[] aluSeleccionados = request.getParameterValues("chbkEstado");
+			List<String> lista = Arrays.asList(aluSeleccionados);
+			
+			for(String s : lista) {
+				int legajoAlumno = Integer.parseInt(s); 
+				filas+= notaNeg.modificarEstado(legajoAlumno, estado, idCurso);
+			}
+			//REQUESTDISPATCHER
+			request.setAttribute("idCurso", idCurso);
+			request.setAttribute("filasEstadoMasivo", filas);
+			RequestDispatcher rd = request.getRequestDispatcher("/cursos/listarAlumnos.jsp");   
+	        rd.forward(request, response);    
+			
+		} else if(request.getParameter("btnGuardarEstado")!=null) {
 			
 			int estado = Integer.parseInt(request.getParameter("estado"));
 			int idCurso = Integer.parseInt(request.getParameter("idCurso"));
 			int legajo = Integer.parseInt(request.getParameter("legajo"));
+			int filas=0;
 			
-			notaNeg.modificarEstado(legajo, estado, idCurso);
+			filas = notaNeg.modificarEstado(legajo, estado, idCurso);
 			
 			request.setAttribute("idCurso", idCurso);
+			request.setAttribute("filasEstado", filas);
 			RequestDispatcher rd = request.getRequestDispatcher("/cursos/listarAlumnos.jsp");   
 	        rd.forward(request, response); 
 			

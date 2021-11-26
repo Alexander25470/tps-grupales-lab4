@@ -15,5 +15,10 @@
 		<input type="password" name="contrasenia" required/>
 		<button type="submit" name="login">Ingresar</button>
 	</form>
+	<%
+		if(request.getAttribute("noEncontrado") != null){
+	%>
+		<p>Credenciales invalidas.</p>
+	<%}%>
 </body>
 </html>

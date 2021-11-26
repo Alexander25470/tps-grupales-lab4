@@ -105,7 +105,9 @@
 	    </table>
         <script type="text/javascript">
     	$(document).ready( () => {
-		    $('#myTable').DataTable();
+		    $('#myTable').DataTable({
+			    	searching: false,
+			    });
 		} );
     </script>
 </body>

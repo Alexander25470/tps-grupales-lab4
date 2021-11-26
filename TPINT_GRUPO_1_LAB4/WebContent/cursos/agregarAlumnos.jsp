@@ -86,26 +86,31 @@
 				        <input name="idCurso" type ="text" hidden="true" value="<%=request.getParameter("idCurso")%>">
 				        <button name="btnAgregar" type="submit">Agregar</button>
 				    </form>
-		
-				<% int filas = -1;
-			     	if( request.getAttribute("filas") != null ){
-				     	filas = (Integer)request.getAttribute("filas");
-			     	}
-			    	if(filas>0){
-			     %>
-			    	<p>El Alumno ha sido agregado al curso con exito</p>
-			     <%}else if(filas == 0){
-			    	 %>
-			    	 <p>El Alumno no ha podido ser agregado al curso</p>
-			     <%}%>
 				    </td>
 				</tr>
 			<%  } %>
         </tbody>
     </table>
+    <% int filas = -1;
+     	if( request.getAttribute("filas") != null ){
+	     	filas = (Integer)request.getAttribute("filas");
+     	}
+    	if(filas>0){
+     %>
+    	<script type="text/javascript">
+			alert("El alumno ha sido agregado al curso con exito");
+		</script>
+     <%}else if(filas == 0){
+    	 %>
+    	 <script type="text/javascript">
+			alert("El alumno no ha podido ser agregado al curso");
+		</script>
+     <%}%>
     <script type="text/javascript">
 	    	$(document).ready( () => {
-			    $('#myTable').DataTable();
+			    $('#myTable').DataTable({
+			    	searching: false,
+			    });
 			} );
 	 </script>
      <a href="/TPINT_GRUPO_1_LAB4/cursos/listar.jsp"><button type="button">Volver</button>

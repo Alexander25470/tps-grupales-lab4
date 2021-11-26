@@ -98,7 +98,7 @@
 				<%}else if(filas == 0){
 					
 			     %>
-			    	 <p>El Curso no ha podido ser agregado</p>
+			    	 <p>El curso no ha podido ser agregado</p>
 			     <%}%>
      
 </body>

@@ -54,9 +54,9 @@ public class servletNota extends HttpServlet {
 			int legajoAlumno = Integer.parseInt(request.getParameter("legajo"));
 			int idCurso = Integer.parseInt(request.getParameter("idCurso"));
 			
-			notaNeg.agregar(legajoAlumno, idCurso);
+			filas = notaNeg.agregar(legajoAlumno, idCurso);
 			//REQUESTDISPATCHER
-			request.setAttribute("FilasAfectadas", filas);
+			request.setAttribute("filas", filas);
 			RequestDispatcher rd = request.getRequestDispatcher("/cursos/agregarAlumnos.jsp");   
 	        rd.forward(request, response);    
 			

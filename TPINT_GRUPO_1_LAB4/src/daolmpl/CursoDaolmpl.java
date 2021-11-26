@@ -16,10 +16,8 @@ public class CursoDaolmpl implements CursoDao {
 
 	public int agregar(Curso curso) {
 		
-		
-		
 		Conexion cn = new Conexion();
-		int filas = -1;
+		int filas = 0;
 		try {
 			cn.AbrirConexion();
 	

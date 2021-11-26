@@ -86,7 +86,7 @@ public class servletDocente extends HttpServlet {
 			
 			filas=docNeg.agregar(doc, request.getParameter("password"));
 			//REQUESTDISPATCHER
-			request.setAttribute("FilasAfectadas", filas);
+			request.setAttribute("filas", filas);
 			RequestDispatcher rd = request.getRequestDispatcher("/docentes/agregar.jsp");   
 	        rd.forward(request, response);    
 			

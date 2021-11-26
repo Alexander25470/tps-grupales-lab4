@@ -16,14 +16,25 @@
 	<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 	<script type="text/javascript" src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
 	<script type="text/javascript">
-			const validateForm = () => {
-				if(! document.querySelectorAll("input[name='chbkNotas']:checked").length>0){
-				alert("Selecione almenos un alumno para modificar nota");
-					return false;
-				} else {
-					return true;
-				}
+		const validateForm = () => {
+			if(! document.querySelectorAll("input[name='chbkNotas']:checked").length>0){
+			alert("Selecione almenos un alumno para modificar nota.");
+				return false;
+			} else {
+				return true;
 			}
+		}
+		const validateFormEstadoMasivo = () => {
+			if(! document.querySelectorAll("input[name='chbkEstado']:checked").length>0){
+			alert("Selecione almenos un alumno para modificar estado.");
+				return false;
+			} else {
+				return true;
+			}
+		}
+		const confirmacionModificarEstado = (na)=> confirm("¿Está seguro de que desea el estado del alumno "+na+"?");
+		const confirmacionModificarEstadoMasivo = ()=> confirm("¿Está seguro de que desea modificar el estado de los alumnos?");
+		const confirmacionModificarNota = ()=> confirm("¿Está seguro de que desea modificar la nota de los alumnos?");
 	</script>
 </head>
 <body>
@@ -58,8 +69,18 @@
         <input name="idCurso" type ="text" hidden="true" value="<%=idCurso%>">
         <button type="submit">Buscar</button>
     </form>
+    <div>    
+	    <%  
+		if(listaNotas!=null && !currentUser.isAdmin())
+			for(Nota nota : listaNotas) 
+		{
+		%>
+	    <form action="/TPINT_GRUPO_1_LAB4/servletAlumnosCursos" method="post" id="formularioEstado-<%=nota.getAlumno().getLegajo()%>" onsubmit="return confirmacionModificarEstado('<%=nota.getAlumno().getNombreApellido()%>')"></form>
+		<%} %>
+		<form action="/TPINT_GRUPO_1_LAB4/servletAlumnosCursos" method="post" id="formularioEstadoMasivo" onsubmit="return validateFormEstadoMasivo() && confirmacionModificarEstadoMasivo()"></form>
+    </div>
 
-    <form action="/TPINT_GRUPO_1_LAB4/servletAlumnosCursos" onsubmit="return validateForm()" method="post">
+    <form action="/TPINT_GRUPO_1_LAB4/servletAlumnosCursos" onsubmit="return validateForm() && confirmacionModificarNota()" method="post" name="formularioNota">
 	    <table id="myTable">
 	        <thead>
 	            <tr>
@@ -75,76 +96,121 @@
 					{%>
 		                <th>Modificar nota</th>
 		                <th>Modificar estado</th>
+		                <th>Modificar estado individual</th>
 					<%} %>
 	            </tr>
 	        </thead>
 	        <tbody>
 	            <%  
 				if(listaNotas!=null)
-				for(Nota nota : listaNotas) 
-			{
-			%>
-				<tr>
-					<td><%=nota.getAlumno().getLegajo() %></td>
-	                <td><%=nota.getAlumno().getNombreApellido()%></td>
-	                <td><%=nota.getParcial1()%></td>
-	                <td><%=nota.getParcial2()%></td>
-	                <td><%=nota.getRecuperatorio1()%></td>
-	                <td><%=nota.getRecuperatorio2()%></td>
-	                <td><%=nota.getEstado().getDescripcion()%></td>
-	                <%
-	                if(!currentUser.isAdmin())
-					{%>
-		                <td><input type="checkbox" name="chbkNotas" value="<%=nota.getAlumno().getLegajo() %>" /></td>
-		                <td>
-		                <form action="/TPINT_GRUPO_1_LAB4/servletAlumnosCursos" method="post"> 
-		                	<select name="estado" value="<%=nota.getEstado().getId()%>"> 
-				                <option value="1" <%=nota.getEstado().getId()==2?"selected":"" %>>Regular</option>
-				                <option value="2" <%=nota.getEstado().getId()==2?"selected":"" %>>Libre</option>  
-			                </select>
-			                <input name="idCurso" type ="text" hidden="true" value="<%=idCurso%>">
-			                <input name="legajo" type ="text"hidden="true" value="<%=nota.getAlumno().getLegajo()%>">
-			                <button type="submit" name="btnGuardarEstado">Guardar estado</button> </td>
-		                </form>
+					for(Nota nota : listaNotas) 
+				{
+				%>
+					<tr>
+						<td><%=nota.getAlumno().getLegajo() %></td>
+		                <td><%=nota.getAlumno().getNombreApellido()%></td>
+		                <td><%=nota.getParcial1()%></td>
+		                <td><%=nota.getParcial2()%></td>
+		                <td><%=nota.getRecuperatorio1()%></td>
+		                <td><%=nota.getRecuperatorio2()%></td>
+		                <td><%=nota.getEstado().getDescripcion()%></td>
+		                <%
+		                if(!currentUser.isAdmin())
+						{%>
+			                <td><input type="checkbox" name="chbkNotas" value="<%=nota.getAlumno().getLegajo() %>" /></td>
+			                <td><input type="checkbox" name="chbkEstado" value="<%=nota.getAlumno().getLegajo() %>" form="formularioEstadoMasivo" /></td>
+			                <td>
+				                	<select name="estado" form="formularioEstado-<%=nota.getAlumno().getLegajo()%>" value="<%=nota.getEstado().getId()%>"> 
+						                <option value="1" <%=nota.getEstado().getId()==2?"selected":"" %>>Regular</option>
+						                <option value="2" <%=nota.getEstado().getId()==2?"selected":"" %>>Libre</option>  
+					                </select>
+					                <input name="idCurso" type ="text" hidden="true" form="formularioEstado-<%=nota.getAlumno().getLegajo()%>" value="<%=idCurso%>">
+					                <input name="legajo" type ="text"hidden="true" form="formularioEstado-<%=nota.getAlumno().getLegajo()%>" value="<%=nota.getAlumno().getLegajo()%>">
+					                <button type="submit" name="btnGuardarEstado" form="formularioEstado-<%=nota.getAlumno().getLegajo()%>">Guardar estado</button>
+			                </td>
+						<%} %>
 					</tr>
-					<%} %>
-			<%  } %>
+				<%  } %>
 	        </tbody>
 	    </table>
 		<script type="text/javascript">
 	    	$(document).ready( () => {
-			    $('#myTable').DataTable();
+			    $('#myTable').DataTable({
+			    	searching: false,
+			    });
 			} );
 	    </script>
 	    <%
          	if(!currentUser.isAdmin())
 		{%>
-	   		<p>Seleccione la nota a modificar/cargar</p>
-	    	<select name="examen">
-	    		<option value="parcial1">Nota parcial 1</option>
-	    		<option value="parcial2">Nota parcial 2</option>
-	    		<option value="recuperatorio1">Recuperatorio 1</option>
-	    		<option value="recuperatorio2">Recuperatorio 2</option>
-	    	</select>
-	    	<input name="idCurso" type ="text" hidden="true" value="<%=idCurso%>">
-	    	<p>Ingrese la nota</p>
-	    	<input type="number" name="nota" min="0" max="10" required/> <br/> <br/>
-	        <button type="submit" name="btnModificar">Modificar</button>
+		<h2>Modificacion masiva</h2>
+		<div class="row">
+			<div class="col">
+				<h3>Notas</h3>
+		   		<p>Seleccione la nota a modificar/cargar</p>
+		    	<select name="examen">
+		    		<option value="parcial1">Nota parcial 1</option>
+		    		<option value="parcial2">Nota parcial 2</option>
+		    		<option value="recuperatorio1">Recuperatorio 1</option>
+		    		<option value="recuperatorio2">Recuperatorio 2</option>
+		    	</select>
+		    	<input name="idCurso" type ="text" hidden="true" value="<%=idCurso%>">
+		    	<p>Ingrese la nota</p>
+		    	<input type="number" name="nota" min="0" max="10" required/> <br/> <br/>
+		        <button type="submit" name="btnModificar">Modificar</button>
+		        	<% 
+				     	int filasNotas = -1;
+				     	if( request.getAttribute("filasNotas") != null ){
+					     	filasNotas = (Integer)request.getAttribute("filasNotas");
+				     	}
+				    	if(filasNotas>0){
+				     %>
+				    	<p>Nota modificada con exito</p>
+				     <%}else if(filasNotas == 0){
+				    	 %>
+				    	 <p>La nota no ha podido ser modificada</p>
+				     <%}%>
+			</div>
+			<div class="col">
+				<h3>Estado</h3>
+				<select name="estado"  form="formularioEstadoMasivo" > 
+	                <option value="1">Regular</option>
+	                <option value="2">Libre</option>  
+                </select>
+                <input name="idCurso" type ="text" hidden="true" value="<%=idCurso%>"  form="formularioEstadoMasivo">
+                <button type="submit" name="btnGuardarEstadoMasivo"  form="formularioEstadoMasivo" >Guardar estado</button>
+                <% 
+				     	int filasEstadoMasivo = -1;
+				     	if( request.getAttribute("filasEstadoMasivo") != null ){
+					     	filasEstadoMasivo = (Integer)request.getAttribute("filasEstadoMasivo");
+				     	}
+				    	if(filasEstadoMasivo>0){
+				     %>
+				    	<p>Estado modificado con exito</p>
+				     <%}else if(filasEstadoMasivo == 0){
+				    	 %>
+				    	 <p>El estado no ha podido ser modificado</p>
+				     <%}%>
+			</div>
+		</div>
 		<%} %>
     </form>
     <a href="/TPINT_GRUPO_1_LAB4/cursos/listar.jsp"><button type="button">Volver</button></a>
 	
-	<% 
-     	int filas = -1;
-     	if( request.getAttribute("filas") != null ){
-	     	filas = (Integer)request.getAttribute("filas");
+    <% int filasEstado = -1;
+     	if( request.getAttribute("filasEstado") != null ){
+	     	filasEstado = (Integer)request.getAttribute("filasEstado");
      	}
-    	if(filas>0){
+    	if(filasEstado>0){
      %>
-    	<p>Nota modificada con exito</p>
-     <%}else if(filas == 0){
+    	<script type="text/javascript">
+			alert("El estado del alumno ha sido modificado con exito");
+		</script>
+     <%}else if(filasEstado == 0){
     	 %>
-    	 <p>La nota no ha podido ser modificada</p>
+    	 <script type="text/javascript">
+			alert("El estado del alumno no ha podido ser modificado");
+		</script>
      <%}%>
      
 	

@@ -12,3 +12,15 @@ table{
      padding: .25rem;
      border: 1px solid black;
  }
+ 
+ .row{
+ 	display: flex;
+ 	flex-direction: row;
+ 	flex-wrap: wrap;
+ 	justify-content: space-around;
+ }
+ 
+ .col{
+ 	display: flex;
+ 	flex-direction: column;
+ }

@@ -51,7 +51,7 @@
             </tr>
             <tr>
                 <td>Nombre y apellido</td>
-                <td><input type="text" name="nombreApellido" required value="<%=doc.getNombreApellido()%>"></td>
+                <td><input type="text" name="nombreApellido" id="nombreApellido" required value="<%=doc.getNombreApellido()%>"></td>
             </tr>
             <tr>
             	<td>Fecha de nacimiento</td>

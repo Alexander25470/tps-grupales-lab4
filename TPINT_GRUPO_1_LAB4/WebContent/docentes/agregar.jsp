@@ -23,6 +23,10 @@
 					return true;
 				}
 			}
+			const confirmacionAgregar = () => {
+				let name = document.getElementById("nombreApellido").value;
+				return confirm("¿Está seguro que desea agregar el docente "+name+"?")
+			};
 	</script>
 </head>
 <body>
@@ -41,7 +45,7 @@
 		<button>Inicio</button> 
 	</a>
     <h1>Agregar docente</h1>
-    <form action="/TPINT_GRUPO_1_LAB4/servletDocente" method="post" onsubmit="return validateForm()">
+    <form action="/TPINT_GRUPO_1_LAB4/servletDocente" method="post" onsubmit="return confirmacionAgregar() && validateForm()">
         <table>
             <tr>
                 <td>Dni</td>
@@ -57,7 +61,7 @@
             </tr>
             <tr>
                 <td>Nombre y apellido</td>
-                <td><input type="text" name= "nombreApellido" required></td>
+                <td><input type="text" name= "nombreApellido" id="nombreApellido" required></td>
             </tr>
             <tr>
                 <td>Fecha de nacimiento</td>
@@ -122,7 +126,7 @@
     	<p>Docente agregado con exito</p>
      <%}else if(filas == 0){
     	 %>
-    	 <p>El Docente no ha podido ser agregado</p>
+    	 <p>El docente no ha podido ser agregado</p>
      <%}%>
 </body>
 </html>

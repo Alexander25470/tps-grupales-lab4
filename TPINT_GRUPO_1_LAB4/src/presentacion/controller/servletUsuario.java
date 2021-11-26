@@ -64,7 +64,8 @@ public class servletUsuario extends HttpServlet {
 				RequestDispatcher rd = request.getRequestDispatcher("/inicio.jsp");   
 		        rd.forward(request, response);    
 			} else {
-				RequestDispatcher rd = request.getRequestDispatcher("/login.jsp");   
+				RequestDispatcher rd = request.getRequestDispatcher("/login.jsp");
+				request.setAttribute("noEncontrado", true);
 		        rd.forward(request, response);
 			}
 

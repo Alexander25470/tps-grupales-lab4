@@ -14,7 +14,10 @@
 	<link rel="stylesheet" type="text/css" href="/TPINT_GRUPO_1_LAB4/styles/styles.css">	
 	
 	<script type="text/javascript">
-	const confirmacionAgregar = (na) => confirm("¿Está seguro que desea agregar el alumno"+na+"?");
+	const confirmacionAgregar = () => {
+		let name = document.getElementById("nombreApellido").value;
+		return confirm("¿Está seguro que desea agregar el alumno "+name+"?")
+	};
 	</script>
 </head>
 <body>
@@ -34,7 +37,7 @@
 		<button>Inicio</button> 
 	</a> 
     <h1>Agregar alumno</h1>
-    <form action="/TPINT_GRUPO_1_LAB4/servletAlumnos" method="post" onsubmit="return confirmacionAgregar('')">
+    <form action="/TPINT_GRUPO_1_LAB4/servletAlumnos" method="post" onsubmit="return confirmacionAgregar()">
         <table>
             <tr>
                 <td>Dni</td>
@@ -42,7 +45,7 @@
             </tr>
             <tr>
                 <td>Nombre y apellido</td>
-                <td><input type="text" name="nombreApellido" required></td>
+                <td><input type="text" name="nombreApellido" id="nombreApellido" required></td>
             </tr>
              <tr>
                 <td>Fecha de nacimiento</td>
