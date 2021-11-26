@@ -20,10 +20,15 @@
 	</script>
 	
 </head>
+<% 
+Usuario currentUser = (Usuario)(session.getAttribute("usuario"));
+if(currentUser==null){
+	response.sendRedirect("/TPINT_GRUPO_1_LAB4/login.jsp");
+	System.out.println("No hay usuario");
+} else {%>
 <body>
 	<% 
 		int idCurso = Integer.parseInt(request.getParameter("idCurso"));
-		Usuario currentUser = (Usuario)(session.getAttribute("usuario"));
 		String legajoaBuscar = request.getParameter("buscarLegajo");
 		ArrayList<Alumno> listaAlumnos;
 		
@@ -115,4 +120,5 @@
 	 </script>
      <a href="/TPINT_GRUPO_1_LAB4/cursos/listar.jsp"><button type="button">Volver</button>
 </body>
+<%} %>
 </html>
