@@ -83,18 +83,23 @@
         <a href="/TPINT_GRUPO_1_LAB4/cursos/listar.jsp"><button type="button">Cancelar</button></a><button type="submit" name="btnAgregar" >Aceptar </button >
     </form>
     
-	 <%
-    int filas = 0;
-    if(request.getAttribute("FilasAfectadas") != null){
-    filas = (int)request.getAttribute("FilasAfectadas");
-    }
-    %>
-    
-    <% if(filas==1) 
-	{
-%>
-		Curso agregado con exito
-<%} %>
+				 <%
+			    int filas = -1;
+			    if(request.getAttribute("FilasAfectadas") != null){
+			    filas = (int)request.getAttribute("FilasAfectadas");
+			    }
+			    %>
+			    
+			    <% if(filas>0) 
+				{
+				%>
+					<p>Curso agregado con exito</p>
+					
+				<%}else if(filas == 0){
+					
+			     %>
+			    	 <p>El Curso no ha podido ser agregado</p>
+			     <%}%>
      
 </body>
 </html>

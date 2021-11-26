@@ -112,17 +112,17 @@
         <button type="submit" name = "btnAgregar">Aceptar</button>
     </form>
     
-    <%
-    int filas = 0;
-    if(request.getAttribute("FilasAfectadas") != null){
-    filas = (int)request.getAttribute("FilasAfectadas");
-    }
-    %>
-    
-    <% if(filas==1) 
-	{
-%>
-		Usuario agregado con �xito
-<%} %>
+    <% 
+     	int filas = -1;
+     	if( request.getAttribute("filas") != null ){
+	     	filas = (Integer)request.getAttribute("filas");
+     	}
+    	if(filas>0){
+     %>
+    	<p>Docente agregado con exito</p>
+     <%}else if(filas == 0){
+    	 %>
+    	 <p>El Docente no ha podido ser agregado</p>
+     <%}%>
 </body>
 </html>

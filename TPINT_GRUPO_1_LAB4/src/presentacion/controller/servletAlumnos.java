@@ -69,9 +69,9 @@ public class servletAlumnos extends HttpServlet {
 			al.setEmail(request.getParameter("email"));
 			al.setTelefono(request.getParameter("telefono"));
 
-			aluNeg.modificar(al);
+			int filas = aluNeg.modificar(al);
 			
-			request.setAttribute("modificado", true);
+			request.setAttribute("filas", filas);
 			request.setAttribute("legajo", legajo);
 			RequestDispatcher rd = request.getRequestDispatcher("/alumnos/modificar.jsp");   
 	        rd.forward(request, response);  

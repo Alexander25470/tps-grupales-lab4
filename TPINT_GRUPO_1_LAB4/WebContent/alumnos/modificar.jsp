@@ -104,6 +104,17 @@
         </a>
         <button type="submit"  name="modificar">Aceptar</button>
     </form> 
-
+	<% 
+     	int filas = -1;
+     	if( request.getAttribute("filas") != null ){
+	     	filas = (Integer)request.getAttribute("filas");
+     	}
+    	if(filas>0){
+     %>
+    	<p>Alumno modificado con exito</p>
+     <%}else if(filas == 0){
+    	 %>
+    	 <p>El Alumno no ha podido ser modificado</p>
+     <%}%>
 </body>
 </html>

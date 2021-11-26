@@ -19,7 +19,7 @@ public class CursoDaolmpl implements CursoDao {
 		
 		
 		Conexion cn = new Conexion();
-		int filas = 0;
+		int filas = -1;
 		try {
 			cn.AbrirConexion();
 	

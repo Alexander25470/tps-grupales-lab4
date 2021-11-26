@@ -63,7 +63,7 @@ public class servletCurso extends HttpServlet {
 			cur.setMateria(new Materia(Integer.parseInt(request.getParameter("seleccionarMateria"))));
 			cur.setDocente(new Docente(Integer.parseInt(request.getParameter("seleccionarProfesor"))));
 			
-			filas=CurNeg.agregar(cur);
+			filas  =CurNeg.agregar(cur);
 			//REQUESTDISPATCHER
 			request.setAttribute("FilasAfectadas", filas);
 			RequestDispatcher rd = request.getRequestDispatcher("/cursos/agregar.jsp");   

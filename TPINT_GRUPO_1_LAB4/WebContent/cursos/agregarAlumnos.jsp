@@ -86,6 +86,18 @@
 				        <input name="idCurso" type ="text" hidden="true" value="<%=request.getParameter("idCurso")%>">
 				        <button name="btnAgregar" type="submit">Agregar</button>
 				    </form>
+		
+				<% int filas = -1;
+			     	if( request.getAttribute("filas") != null ){
+				     	filas = (Integer)request.getAttribute("filas");
+			     	}
+			    	if(filas>0){
+			     %>
+			    	<p>El Alumno ha sido agregado al curso con exito</p>
+			     <%}else if(filas == 0){
+			    	 %>
+			    	 <p>El Alumno no ha podido ser agregado al curso</p>
+			     <%}%>
 				    </td>
 				</tr>
 			<%  } %>

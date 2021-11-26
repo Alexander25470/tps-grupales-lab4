@@ -21,7 +21,7 @@ public class DocenteDaolmpl implements DocenteDao {
 	@Override
 	public int agregar(Docente docente, String contrasenia) {
 		Conexion cn = new Conexion();
-		int filas = 0;
+		int filas = -1;
 		try {
 			Connection conn = cn.AbrirConexion();
 			
@@ -110,7 +110,7 @@ public class DocenteDaolmpl implements DocenteDao {
 	@Override
 	public int eliminar(int legajo) {
 		Conexion cn = new Conexion();
-		int filas = 0;
+		int filas = -1;
 		try {
 			
 			cn.AbrirConexion();
@@ -216,7 +216,7 @@ public class DocenteDaolmpl implements DocenteDao {
 	@Override
 	public int modificar(Docente doc) {
 		Conexion cn = new Conexion();
-		int filas = 0;
+		int filas = -1;
 		try {
 			
 			cn.AbrirConexion();

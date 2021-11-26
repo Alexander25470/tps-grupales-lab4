@@ -56,8 +56,8 @@ public class servletDocente extends HttpServlet {
 			doc.setEmail(request.getParameter("email"));
 			doc.setTelefono(request.getParameter("telefono"));
 			
-			docNeg.modificar(doc);
-			request.setAttribute("modificado", true);
+			filas = docNeg.modificar(doc);
+			request.setAttribute("filas", filas);
 			request.setAttribute("legajo", legajo);
 			RequestDispatcher rd = request.getRequestDispatcher("/docentes/modificar.jsp");   
 	        rd.forward(request, response);    
