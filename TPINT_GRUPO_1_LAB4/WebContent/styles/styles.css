@@ -56,14 +56,25 @@ th, td{
  }
  
   .common-button.danger{;
-    color: #dc3545;
- 	border-color: #dc3545;
+    color: #ff9aa4;
+ 	border-color: #ff9aa4;
     background: #fff;
  }
  .common-button.danger:hover{
  	color: #fff;
-    background-color: #dc3545;
-    border-color: #dc3545;
+    background-color: #ff9aa4;
+    border-color: #ff9aa4;
+ }
+ 
+  .common-button.secondary{;
+    color: #6c757d;
+ 	border-color: #6c757d;
+    background: #fff;
+ }
+ .common-button.secondary:hover{
+ 	color: #fff;
+    background-color: #6c757d;
+    border-color: #6c757d;
  }
  
  #inicio  .common-button{

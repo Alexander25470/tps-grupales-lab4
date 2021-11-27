@@ -53,7 +53,7 @@
 	if(currentUser != null && currentUser.isAdmin())
 	{%>	
 	    <a href="agregar.jsp">
-			<button>Agregar nuevo curso</button>
+			<button class="common-button secondary">Agregar nuevo curso</button>
 	    </a>
 	<%} %>
     <div class="shadows">
@@ -89,13 +89,13 @@
 	                <td>
 	                
 		                <a href="/TPINT_GRUPO_1_LAB4/cursos/listarAlumnos.jsp?idCurso=<%=cur.getId()%>">
-		               	 <button class="common-button danger">Ver alumnos</button>
+		               	 <button class="common-button secondary">Ver alumnos</button>
 		                </a>
 		                <% 
 						if(currentUser != null && currentUser.isAdmin())
 						{%>	
 		                <a href="/TPINT_GRUPO_1_LAB4/cursos/agregarAlumnos.jsp?idCurso=<%=cur.getId()%>">
-		                	<button>Agregar alumnos</button>
+		                	<button class="common-button secondary">Agregar alumnos</button>
 		                </a>
 		                <%} %>
 	                </td>

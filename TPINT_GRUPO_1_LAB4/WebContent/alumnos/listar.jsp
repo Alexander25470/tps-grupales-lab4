@@ -56,7 +56,7 @@ if(currentUser==null){
     <a href="agregar.jsp">
 		<button>Agregar nuevo alumno</button>
     </a>
-    
+    <div class="shadows">
     <table id="myTable">
         <thead>
             <tr>
@@ -98,6 +98,7 @@ if(currentUser==null){
 			
         </tbody>
     </table>
+    </div>
     <script type="text/javascript">
     	$(document).ready( () => {
 		    $('#myTable').DataTable({

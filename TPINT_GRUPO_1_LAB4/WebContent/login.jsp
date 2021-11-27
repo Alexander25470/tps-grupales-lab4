@@ -13,7 +13,7 @@
 		<input type="text" name="usuario" required/>
 		<p>Constraseña</p>
 		<input type="password" name="contrasenia" required/>
-		<button type="submit" name="login">Ingresar</button>
+		<button class="common-button" type="submit" name="login">Ingresar</button>
 	</form>
 	<%
 		if(request.getAttribute("noEncontrado") != null){

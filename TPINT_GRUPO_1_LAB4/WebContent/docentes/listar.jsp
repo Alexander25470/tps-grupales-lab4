@@ -41,25 +41,26 @@ if(currentUser==null){
 	 <header>	 
 	 	<h1>Usuario <%=currentUser.getNombre()%></h1>
 		<form action="/TPINT_GRUPO_1_LAB4/servletUsuario" method="POST">
-			<button type="submit" name="cerrarSesion">Cerrar sesión</button>
+			<button class="common-button" type="submit" name="cerrarSesion">Cerrar sesión</button>
 		</form>
 	 </header>
 
 	<a href="/TPINT_GRUPO_1_LAB4/inicio.jsp">
-		<button>Inicio</button> 
+		<button class="common-button">Inicio</button> 
 	</a> 
     <h1>Listar docentes</h1>
 
     <form action="listar.jsp" method="get">
         Buscar por legajo
         <input type="number" name="buscarLegajo" value="<%=legajoaBuscar%>" >
-        <button type="submit">Buscar</button>
+        <button class="common-button secondary" type="submit">Buscar</button>
     </form>
     <a href="agregar.jsp">
-		<button>Agregar nuevo docente</button> 
+		<button class="common-button secondary">Agregar nuevo docente</button> 
     </a>
-    <table id="myTable">
-        <thead>
+    <div class="shadows">
+    	<table id="myTable">
+       	 <thead>
             <tr>
                 <th>Legajo</th>
                 <th>Dni</th>
@@ -87,16 +88,17 @@ if(currentUser==null){
 	                <td><%=doc.getNacionalidad().getNombre()%></td>
 	                <td><%=doc.getEmail() %></td>
 	                <td><%=doc.getTelefono() %></td>
-	                <td> <a href="modificar.jsp?legajo=<%=doc.getLegajo() %>"><button>Modificar</button></a>
+	                <td> <a href="modificar.jsp?legajo=<%=doc.getLegajo() %>"><button class="common-button secondary">Modificar</button></a>
 				    <form action="/TPINT_GRUPO_1_LAB4/servletDocente" method="post" onsubmit="return confirmacionEliminar('<%=doc.getNombreApellido()%>')">
 				        <input name="legajo" type ="text" hidden="true" value="<%=doc.getLegajo()%>">
-				        <button name="btnEliminar" type="submit" value="eliminar">Eliminar</button>
+				        <button class="common-button danger" name="btnEliminar" type="submit" value="eliminar">Eliminar</button>
 				    </form>
 				    </td>
 				</tr>
 			<%  } %>
         </tbody>
     </table>
+   </div>
     <script type="text/javascript">
     	$(document).ready( () => {
 		    $('#myTable').DataTable({
