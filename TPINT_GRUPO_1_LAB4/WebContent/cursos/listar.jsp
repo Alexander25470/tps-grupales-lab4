@@ -56,53 +56,54 @@
 			<button>Agregar nuevo curso</button>
 	    </a>
 	<%} %>
-    
-    <table id="myTable">
-        <thead>
-            <tr>
-                <th>ID</th>
-                <th>Materia</th>
-                <th>Nombre Apellido profesor</th>
-                <th>Semestre</th>
-                <th>Año</th>
-                <th>Accion</th>
-            </tr>
-        </thead>
-        <tbody>
-        <%
-        if(listaCursos!=null)
-			for(Curso cur : listaCursos) 
-			{
-				String semestre;
-				if(cur.getSemestre() == 1){
-					semestre = "Primer semestre";
-				}else{
-					semestre = "Segundo semestre";
-				};
-		%>
-            <tr>
-                <td><%=cur.getId() %></td>
-                <td><%=cur.getMateria().getNombre() %></td>
-                <td><%=cur.getDocente().getNombreApellido() %></td>
-                <td><%=semestre %></td>
-                <td><%=cur.getAnio() %></td>
-                <td>
-                
-	                <a href="/TPINT_GRUPO_1_LAB4/cursos/listarAlumnos.jsp?idCurso=<%=cur.getId()%>">
-	               	 <button>Ver alumnos</button>
-	                </a>
-	                <% 
-					if(currentUser != null && currentUser.isAdmin())
-					{%>	
-	                <a href="/TPINT_GRUPO_1_LAB4/cursos/agregarAlumnos.jsp?idCurso=<%=cur.getId()%>">
-	                	<button>Agregar alumnos</button>
-	                </a>
-	                <%} %>
-                </td>
-            </tr>
-          <% } %>
-	        </tbody>
-	    </table>
+    <div class="shadows">
+	    <table id="myTable">
+	        <thead>
+	            <tr>
+	                <th>ID</th>
+	                <th>Materia</th>
+	                <th>Nombre Apellido profesor</th>
+	                <th>Semestre</th>
+	                <th>Año</th>
+	                <th>Accion</th>
+	            </tr>
+	        </thead>
+	        <tbody>
+	        <%
+	        if(listaCursos!=null)
+				for(Curso cur : listaCursos) 
+				{
+					String semestre;
+					if(cur.getSemestre() == 1){
+						semestre = "Primer semestre";
+					}else{
+						semestre = "Segundo semestre";
+					};
+			%>
+	            <tr>
+	                <td><%=cur.getId() %></td>
+	                <td><%=cur.getMateria().getNombre() %></td>
+	                <td><%=cur.getDocente().getNombreApellido() %></td>
+	                <td><%=semestre %></td>
+	                <td><%=cur.getAnio() %></td>
+	                <td>
+	                
+		                <a href="/TPINT_GRUPO_1_LAB4/cursos/listarAlumnos.jsp?idCurso=<%=cur.getId()%>">
+		               	 <button class="common-button danger">Ver alumnos</button>
+		                </a>
+		                <% 
+						if(currentUser != null && currentUser.isAdmin())
+						{%>	
+		                <a href="/TPINT_GRUPO_1_LAB4/cursos/agregarAlumnos.jsp?idCurso=<%=cur.getId()%>">
+		                	<button>Agregar alumnos</button>
+		                </a>
+		                <%} %>
+	                </td>
+	            </tr>
+	          <% } %>
+		        </tbody>
+		    </table>
+    </div>
         <script type="text/javascript">
 	    	$(document).ready( () => {
 			    $('#myTable').DataTable({

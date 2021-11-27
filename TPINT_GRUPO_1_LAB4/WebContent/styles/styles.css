@@ -5,13 +5,29 @@ header {
    	align-items: center;
    	justify-content: space-between;
 }
+
+table.dataTable.no-footer, table.dataTable thead th{
+	border: none;
+}
+
+.shadows{
+	box-shadow: 0 0 12px rgb(0 0 0 / 15%);	
+	padding: .5rem;
+	margin: 0.5rem;
+	border-radius: 1rem;
+}
+
 table{
      border-collapse: collapse;
+     border-radius: 1rem;
  }
- td, th{
+ 
+th, td{
      padding: .25rem;
-     border: 1px solid black;
- }
+     border-bottom: 2px solid #dee2e6 !important;
+     text-align: center;
+}
+
  
  .row{
  	display: flex;
@@ -24,3 +40,44 @@ table{
  	display: flex;
  	flex-direction: column;
  }
+
+ .common-button{
+ 	border-radius: 1rem;
+ 	padding: .3rem 1rem .3rem 1rem;
+ 	border: 2px solid #0d6efd;
+    background: #fff;
+    color: #0d6efd;
+    transition: .5s;
+ }
+ .common-button:hover{
+ 	color: #fff;
+    background-color: #0d6efd;
+    border-color: #0d6efd;
+ }
+ 
+  .common-button.danger{;
+    color: #dc3545;
+ 	border-color: #dc3545;
+    background: #fff;
+ }
+ .common-button.danger:hover{
+ 	color: #fff;
+    background-color: #dc3545;
+    border-color: #dc3545;
+ }
+ 
+ #inicio  .common-button{
+ 	margin: 1em;
+ }
+ 
+ 
+a{
+	text-decoration: none;
+}
+
+.row-center{
+	display: flex;
+ 	flex-direction: row;
+ 	flex-wrap: wrap;
+ 	justify-content: center;
+}

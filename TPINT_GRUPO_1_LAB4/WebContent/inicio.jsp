@@ -18,28 +18,36 @@ if(currentUser==null){
   	<header>	 
 	 	<h1>Bienvenido <%=currentUser.getNombre()%></h1>
 		<form action="/TPINT_GRUPO_1_LAB4/servletUsuario" method="POST">
-			<button type="submit" name="cerrarSesion">Cerrar sesión</button>
+			<button type="submit" name="cerrarSesion" class="common-button">Cerrar sesión</button>
 		</form>
 	 </header>
-	<h2>Seleccione que desea ver</h2>
-	<% 
-	if(currentUser.isAdmin())
-	{%>
-	<a href="/TPINT_GRUPO_1_LAB4/alumnos/listar.jsp">
-		<button>Alumnos</button>
-	</a>
-	<a href="/TPINT_GRUPO_1_LAB4/cursos/listar.jsp">
-		<button>Cursos</button>
-	</a>
-	<a href="/TPINT_GRUPO_1_LAB4/docentes/listar.jsp">
-		<button>Docentes</button>
-	</a>
-	<%} else
-	{ %>
-	<a href="/TPINT_GRUPO_1_LAB4/cursos/listar.jsp">
-		<button>Cursos</button>
-	</a>
-	<%} %>
+	 <section id="inicio">	 
+		<div class="col">
+			<div class="row-center">
+				<h2>Seleccione que desea ver</h2>
+			</div>
+			<div class="row-center">
+				<% 
+				if(currentUser.isAdmin())
+				{%>
+				<a href="/TPINT_GRUPO_1_LAB4/alumnos/listar.jsp">
+					<button class="common-button">Alumnos</button>
+				</a>
+				<a href="/TPINT_GRUPO_1_LAB4/cursos/listar.jsp">
+					<button class="common-button">Cursos</button>
+				</a>
+				<a href="/TPINT_GRUPO_1_LAB4/docentes/listar.jsp">
+					<button class="common-button">Docentes</button>
+				</a>
+				<%} else
+				{ %>
+				<a href="/TPINT_GRUPO_1_LAB4/cursos/listar.jsp">
+					<button class="common-button">Cursos</button>
+				</a>
+				<%} %>
+			</div>
+		</div>
+	 </section>
 </body>
 <%  } %>
 </html>
