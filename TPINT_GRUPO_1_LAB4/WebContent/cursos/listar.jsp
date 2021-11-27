@@ -73,12 +73,12 @@
         if(listaCursos!=null)
 			for(Curso cur : listaCursos) 
 			{
-			String semestre;
-			if(cur.getSemestre() == 1){
-				semestre = "Primer semestre";
-			}else{
-				semestre = "Segundo semestre";
-			};
+				String semestre;
+				if(cur.getSemestre() == 1){
+					semestre = "Primer semestre";
+				}else{
+					semestre = "Segundo semestre";
+				};
 		%>
             <tr>
                 <td><%=cur.getId() %></td>
@@ -92,7 +92,7 @@
 	               	 <button>Ver alumnos</button>
 	                </a>
 	                <% 
-						if(currentUser != null && currentUser.isAdmin())
+					if(currentUser != null && currentUser.isAdmin())
 					{%>	
 	                <a href="/TPINT_GRUPO_1_LAB4/cursos/agregarAlumnos.jsp?idCurso=<%=cur.getId()%>">
 	                	<button>Agregar alumnos</button>
@@ -100,16 +100,15 @@
 	                <%} %>
                 </td>
             </tr>
-          
+          <% } %>
 	        </tbody>
 	    </table>
         <script type="text/javascript">
-    	$(document).ready( () => {
-		    $('#myTable').DataTable({
+	    	$(document).ready( () => {
+			    $('#myTable').DataTable({
 			    	searching: false,
 			    });
-		} );
-    </script>
+			} );
+	    </script>
 </body>
-<% } %>
 </html>
