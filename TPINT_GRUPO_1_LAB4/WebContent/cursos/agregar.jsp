@@ -18,11 +18,17 @@
 	</script>
 	
 </head>
+<% 
+Usuario currentUser = (Usuario)(session.getAttribute("usuario"));
+if(currentUser==null){
+	response.sendRedirect("/TPINT_GRUPO_1_LAB4/login.jsp");
+	System.out.println("No hay usuario");
+} else {%>
 <body>
 	<% 
 		ArrayList<Materia> listaMaterias = (ArrayList<Materia>) servletCurso.obtenerMaterias();
 		ArrayList<Docente> listaDocentes = (ArrayList<Docente>) servletDocente.obtenerDocentes();
-		Usuario currentUser = (Usuario)(session.getAttribute("usuario"));
+		
 	 %>
  	 <header>	 
 	 	<h1>Usuario <%=currentUser.getNombre()%></h1>
@@ -83,6 +89,7 @@
         <a href="/TPINT_GRUPO_1_LAB4/cursos/listar.jsp"><button type="button">Cancelar</button></a><button type="submit" name="btnAgregar" >Aceptar </button >
     </form>
     
+    
 				 <%
 			    int filas = -1;
 			    if(request.getAttribute("FilasAfectadas") != null){
@@ -102,4 +109,5 @@
 			     <%}%>
      
 </body>
+<%  } %>
 </html>

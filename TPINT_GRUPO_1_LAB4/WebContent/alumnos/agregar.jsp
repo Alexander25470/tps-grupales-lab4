@@ -20,12 +20,18 @@
 	};
 	</script>
 </head>
+<% 
+Usuario currentUser = (Usuario)(session.getAttribute("usuario"));
+if(currentUser==null){
+	response.sendRedirect("/TPINT_GRUPO_1_LAB4/login.jsp");
+	System.out.println("No hay usuario");
+} else {%>
 <body>
 <% 
 	ArrayList<Nacionalidad> listaNacionalidades = (ArrayList<Nacionalidad>) servletNacionalidades.obtenerNacionalidades();
 	ArrayList<Provincia> listaProvincias = (ArrayList<Provincia>) servletAlumnos.obtenerProvincias();
  %>
- 	<% Usuario currentUser = (Usuario)(session.getAttribute("usuario"));%>
+
 	 <header>	 
 	 	<h1>Usuario <%=currentUser.getNombre()%></h1>
 		<form action="/TPINT_GRUPO_1_LAB4/servletUsuario" method="POST">
@@ -99,6 +105,7 @@
         </a>
     </form>
     
+    
      <% 
      	int filas = -1;
      	if( request.getAttribute("filas") != null ){
@@ -112,4 +119,5 @@
     	 <p>El Alumno no ha podido ser agregado</p>
      <%}%>
 </body>
+<%  } %>
 </html>

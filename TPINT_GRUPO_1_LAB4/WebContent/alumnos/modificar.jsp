@@ -19,13 +19,19 @@
 	</script>
 	
 </head>
+<% 
+Usuario currentUser = (Usuario)(session.getAttribute("usuario"));
+if(currentUser==null){
+	response.sendRedirect("/TPINT_GRUPO_1_LAB4/login.jsp");
+	System.out.println("No hay usuario");
+} else {%>
 <body>
      <%
 		ArrayList<Nacionalidad> listaNacionalidades = (ArrayList<Nacionalidad>) servletNacionalidades.obtenerNacionalidades();
 		ArrayList<Provincia> listaProvincias = (ArrayList<Provincia>) servletAlumnos.obtenerProvincias();
 	    String legajo = request.getParameter("legajo");
 		Alumno al = servletAlumnos.obtenerAlumno(Integer.parseInt(legajo));
-		Usuario currentUser = (Usuario)(session.getAttribute("usuario"));
+		
 	 %>
 	 <header>	 
 	 	<h1>Usuario <%=currentUser.getNombre()%></h1>
@@ -104,6 +110,7 @@
         </a>
         <button type="submit"  name="modificar">Aceptar</button>
     </form> 
+    
 	<% 
      	int filas = -1;
      	if( request.getAttribute("filas") != null ){
@@ -117,4 +124,5 @@
     	 <p>El Alumno no ha podido ser modificado</p>
      <%}%>
 </body>
+<%  } %>
 </html>

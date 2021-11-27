@@ -37,10 +37,16 @@
 		const confirmacionModificarNota = ()=> confirm("¿Está seguro de que desea modificar la nota de los alumnos?");
 	</script>
 </head>
+<% 
+Usuario currentUser = (Usuario)(session.getAttribute("usuario"));
+if(currentUser==null){
+	response.sendRedirect("/TPINT_GRUPO_1_LAB4/login.jsp");
+	System.out.println("No hay usuario");
+} else {%>
 <body>
 	<% 
 		int idCurso = Integer.parseInt(request.getParameter("idCurso"));
-		Usuario currentUser = (Usuario)(session.getAttribute("usuario"));
+		
 		ArrayList<Nota> listaNotas = (ArrayList<Nota>) servletNota.obtenerNotasCurso(idCurso);
 		
 		String legajoaBuscar = request.getParameter("buscarLegajo");
@@ -215,4 +221,5 @@
      
 	
 </body>
+<%  } %>
 </html>

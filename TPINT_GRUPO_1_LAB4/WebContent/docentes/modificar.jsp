@@ -19,13 +19,19 @@
 	</script>
 	
 </head>
+<% 
+Usuario currentUser = (Usuario)(session.getAttribute("usuario"));
+if(currentUser==null){
+	response.sendRedirect("/TPINT_GRUPO_1_LAB4/login.jsp");
+	System.out.println("No hay usuario");
+} else {%>
 <body>
 	<%
 		ArrayList<Nacionalidad> listaNacionalidades = (ArrayList<Nacionalidad>) servletNacionalidades.obtenerNacionalidades();
 		ArrayList<Localidad> listaLocalidades = (ArrayList<Localidad>) servletDocente.obtenerLocalidades();
 	    String legajo = request.getParameter("legajo");
 		Docente doc = servletDocente.obtenerDocente(Integer.parseInt(legajo));
-		Usuario currentUser = (Usuario)(session.getAttribute("usuario"));
+		
 	 %>
 	 <header>	 
 	 	<h1>Usuario <%=currentUser.getNombre()%></h1>
@@ -122,4 +128,5 @@
      <%}%>
 
 </body>
+<%} %>
 </html>

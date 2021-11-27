@@ -95,7 +95,7 @@ public class CursoDaolmpl implements CursoDao {
 			cn.AbrirConexion();
 			 ResultSet rs= cn.query("select alu.*, nac.Nombre as nombreNac, prov.Nombre as nombreProv from alumnos alu inner join\r\n" + 
 			 		"nacionalidades nac on alu.ID_Nacionalidad = nac.id inner join provincias prov on alu.ID_Provincia = prov.id\r\n" + 
-			 		"where alu.legajo not in( select legajo from notas where id_curso= "+idCurso+" );");
+			 		"where alu.estado = 1 and alu.legajo not in( select legajo from notas where id_curso= "+idCurso+" );");
 			 while(rs.next())
 			 {
 				 Alumno al = new Alumno();
@@ -141,7 +141,7 @@ public class CursoDaolmpl implements CursoDao {
 			cn.AbrirConexion();
 			 ResultSet rs= cn.query("select alu.*, nac.Nombre as nombreNac, prov.Nombre as nombreProv from alumnos alu inner join\r\n" + 
 			 		"nacionalidades nac on alu.ID_Nacionalidad = nac.id inner join provincias prov on alu.ID_Provincia = prov.id\r\n" + 
-			 		"where legajo = "+ legajo +" and alu.legajo not in( select legajo from notas where id_curso= "+idCurso+" );");
+			 		"where alu.estado = 1 and legajo = "+ legajo +" and alu.legajo not in( select legajo from notas where id_curso= "+idCurso+" );");
 			 while(rs.next())
 			 {
 				 Alumno al = new Alumno();

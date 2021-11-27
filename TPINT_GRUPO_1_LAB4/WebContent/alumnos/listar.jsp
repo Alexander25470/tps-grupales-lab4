@@ -18,7 +18,12 @@
 		const confirmacionEliminar = (na)=> confirm("¿Está seguro de que desea eliminar al alumno "+na+"?");
 	</script>
 </head>
-
+<% 
+Usuario currentUser = (Usuario)(session.getAttribute("usuario"));
+if(currentUser==null){
+	response.sendRedirect("/TPINT_GRUPO_1_LAB4/login.jsp");
+	System.out.println("No hay usuario");
+} else {%>
 <% 
 	ArrayList<Alumno> listaAlumnos;
 	String legajoaBuscar = request.getParameter("buscarLegajo"); 
@@ -30,7 +35,7 @@
 
 %>
 <body>
- 	<% Usuario currentUser = (Usuario)(session.getAttribute("usuario"));%>
+ 	
 	<header>	 
 	 	<h1>Usuario <%=currentUser.getNombre()%></h1>
 		<form action="/TPINT_GRUPO_1_LAB4/servletUsuario" method="POST">
@@ -89,6 +94,8 @@
 				    </td>
 				</tr>
 			<%  } %>
+			
+			
         </tbody>
     </table>
     <script type="text/javascript">
@@ -99,4 +106,5 @@
 		} );
     </script>
 </body>
+<%  } %>
 </html>

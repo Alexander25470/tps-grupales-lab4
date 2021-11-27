@@ -9,7 +9,12 @@
 	<link rel="stylesheet" type="text/css" href="/TPINT_GRUPO_1_LAB4/styles/styles.css">
 </head>
 <body>
-  <% Usuario currentUser = (Usuario)(session.getAttribute("usuario"));%>
+<% 
+Usuario currentUser = (Usuario)(session.getAttribute("usuario"));
+if(currentUser==null){
+	response.sendRedirect("/TPINT_GRUPO_1_LAB4/login.jsp");
+	System.out.println("No hay usuario");
+} else {%>
   	<header>	 
 	 	<h1>Bienvenido <%=currentUser.getNombre()%></h1>
 		<form action="/TPINT_GRUPO_1_LAB4/servletUsuario" method="POST">
@@ -36,4 +41,5 @@
 	</a>
 	<%} %>
 </body>
+<%  } %>
 </html>

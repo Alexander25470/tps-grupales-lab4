@@ -19,9 +19,14 @@
 		const confirmacionEliminar = (na)=> confirm("¿Está seguro de que desea eliminar al docente "+na+"?");
 	</script>
 </head>
+<% 
+Usuario currentUser = (Usuario)(session.getAttribute("usuario"));
+if(currentUser==null){
+	response.sendRedirect("/TPINT_GRUPO_1_LAB4/login.jsp");
+	System.out.println("No hay usuario");
+} else {%>
 
 <% 
-	Usuario currentUser = (Usuario)(session.getAttribute("usuario"));
 	ArrayList<Docente> listaDocentes;
 	String legajoaBuscar = request.getParameter("buscarLegajo");
 	if(legajoaBuscar != null && legajoaBuscar !=""){
@@ -100,4 +105,5 @@
 		} );
     </script>
 </body>
+<%} %>
 </html>
