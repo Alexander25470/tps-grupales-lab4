@@ -133,7 +133,7 @@ if(currentUser==null){
 					                </select>
 					                <input name="idCurso" type ="text" hidden="true" form="formularioEstado-<%=nota.getAlumno().getLegajo()%>" value="<%=idCurso%>">
 					                <input name="legajo" type ="text"hidden="true" form="formularioEstado-<%=nota.getAlumno().getLegajo()%>" value="<%=nota.getAlumno().getLegajo()%>">
-					                <button type="submit" name="btnGuardarEstado" form="formularioEstado-<%=nota.getAlumno().getLegajo()%>">Guardar estado</button>
+					                <button class="common-button secondary" type="submit" name="btnGuardarEstado" form="formularioEstado-<%=nota.getAlumno().getLegajo()%>">Guardar estado</button>
 			                </td>
 						<%} %>
 					</tr>
@@ -165,7 +165,7 @@ if(currentUser==null){
 		    	<input name="idCurso" type ="text" hidden="true" value="<%=idCurso%>">
 		    	<p>Ingrese la nota</p>
 		    	<input type="number" name="nota" min="0" max="10" required/> <br/> <br/>
-		        <button type="submit" name="btnModificar">Modificar</button>
+		        <button class="common-button" type="submit" name="btnModificar">Modificar</button>
 		        	<% 
 				     	int filasNotas = -1;
 				     	if( request.getAttribute("filasNotas") != null ){
@@ -186,7 +186,7 @@ if(currentUser==null){
 	                <option value="2">Libre</option>  
                 </select>
                 <input name="idCurso" type ="text" hidden="true" value="<%=idCurso%>"  form="formularioEstadoMasivo">
-                <button type="submit" name="btnGuardarEstadoMasivo"  form="formularioEstadoMasivo" >Guardar estado</button>
+                <button class="common-button" type="submit" name="btnGuardarEstadoMasivo"  form="formularioEstadoMasivo" >Guardar estado</button>
                 <% 
 				     	int filasEstadoMasivo = -1;
 				     	if( request.getAttribute("filasEstadoMasivo") != null ){

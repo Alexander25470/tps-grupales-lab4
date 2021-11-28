@@ -15,7 +15,7 @@ if(currentUser==null){
 	response.sendRedirect("/TPINT_GRUPO_1_LAB4/login.jsp");
 	System.out.println("No hay usuario");
 } else {%>
-  	<header>	 
+  	<header class="card shadows">	 
 	 	<h1>Bienvenido <%=currentUser.getNombre()%></h1>
 		<form action="/TPINT_GRUPO_1_LAB4/servletUsuario" method="POST">
 			<button type="submit" name="cerrarSesion" class="common-button">Cerrar sesión</button>
