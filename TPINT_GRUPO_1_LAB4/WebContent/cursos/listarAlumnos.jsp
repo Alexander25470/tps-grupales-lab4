@@ -61,11 +61,11 @@ if(currentUser==null){
 	<header>	 
 	 	<h1>Bienvenido <%=currentUser.getNombre()%></h1>
 		<form action="/TPINT_GRUPO_1_LAB4/servletUsuario" method="POST">
-			<button type="submit" name="cerrarSesion">Cerrar sesión</button>
+			<button class="common-button" type="submit" name="cerrarSesion">Cerrar sesión</button>
 		</form>
 	 </header>
 	<a href="/TPINT_GRUPO_1_LAB4/inicio.jsp">
-		<button>Inicio</button> 
+		<button class="common-button">Inicio</button> 
 	</a> 
 	<h1>Alumnos en el curso PROG 4 2020 SEMESTRE 2</h1>
 
@@ -73,7 +73,7 @@ if(currentUser==null){
         Buscar por legajo
         <input type="number" name="buscarLegajo" min="0" value="<%=legajoaBuscar%>" >
         <input name="idCurso" type ="text" hidden="true" value="<%=idCurso%>">
-        <button type="submit">Buscar</button>
+        <button class="common-button secondary" type="submit">Buscar</button>
     </form>
     <div>    
 	    <%  
@@ -201,7 +201,7 @@ if(currentUser==null){
 		</div>
 		<%} %>
     </form>
-    <a href="/TPINT_GRUPO_1_LAB4/cursos/listar.jsp"><button type="button">Volver</button></a>
+    <a href="/TPINT_GRUPO_1_LAB4/cursos/listar.jsp"><button class="common-button danger" type="button">Volver</button></a>
 	
     <% int filasEstado = -1;
      	if( request.getAttribute("filasEstado") != null ){

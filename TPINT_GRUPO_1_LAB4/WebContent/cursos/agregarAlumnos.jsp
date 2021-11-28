@@ -41,11 +41,11 @@ if(currentUser==null){
 	 <header>	 
 	 	<h1>Usuario <%=currentUser.getNombre()%></h1>
 		<form action="/TPINT_GRUPO_1_LAB4/servletUsuario" method="POST">
-			<button type="submit" name="cerrarSesion">Cerrar sesión</button>
+			<button class="common-button" type="submit" name="cerrarSesion">Cerrar sesión</button>
 		</form>
 	 </header>
 	<a href="/TPINT_GRUPO_1_LAB4/inicio.jsp">
-		<button>Inicio</button> 
+		<button class="common-button">Inicio</button> 
 	</a> 
 	<h1>Agregar almunos al curso PROG 4 2020 SEMESTRE 2</h1>
 
@@ -53,7 +53,7 @@ if(currentUser==null){
         Buscar por legajo
         <input type="number" name="buscarLegajo" min="0" value="<%=legajoaBuscar%>" >
         <input name="idCurso" type ="text" hidden="true" value="<%=idCurso%>">
-        <button type="submit" name="">Buscar</button>
+        <button class="common-button secondary" type="submit" name="">Buscar</button>
     </form>
 
     <table  id="myTable">
@@ -89,7 +89,7 @@ if(currentUser==null){
 	                <form action="/TPINT_GRUPO_1_LAB4/servletNota" method="post" onsubmit="return confirmacionAgregar('<%=al.getNombreApellido()%>')">
 				        <input name="legajo" type ="text" hidden="true" value="<%=al.getLegajo()%>">
 				        <input name="idCurso" type ="text" hidden="true" value="<%=request.getParameter("idCurso")%>">
-				        <button name="btnAgregar" type="submit">Agregar</button>
+				        <button class="common-button" name="btnAgregar" type="submit">Agregar</button>
 				    </form>
 				    </td>
 				</tr>
@@ -118,7 +118,7 @@ if(currentUser==null){
 			    });
 			} );
 	 </script>
-     <a href="/TPINT_GRUPO_1_LAB4/cursos/listar.jsp"><button type="button">Volver</button>
+     <a href="/TPINT_GRUPO_1_LAB4/cursos/listar.jsp"><button class="common-button danger" type="button">Volver</button>
 </body>
 <%} %>
 </html>

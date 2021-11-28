@@ -6,6 +6,15 @@ header {
    	justify-content: space-between;
 }
 
+input{
+	border-radius: 1rem;
+	padding: 3px 6px;
+}
+
+select{
+	width: 100%;
+}
+
 table.dataTable.no-footer, table.dataTable thead th{
 	border: none;
 }
