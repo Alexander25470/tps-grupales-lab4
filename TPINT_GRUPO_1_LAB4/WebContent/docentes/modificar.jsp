@@ -36,11 +36,11 @@ if(currentUser==null){
 	 <header>	 
 	 	<h1>Usuario <%=currentUser.getNombre()%></h1>
 		<form action="/TPINT_GRUPO_1_LAB4/servletUsuario" method="POST" >
-			<button type="submit" name="cerrarSesion">Cerrar sesión</button>
+			<button class="common-button" type="submit" name="cerrarSesion">Cerrar sesión</button>
 		</form>
 	 </header>
 	<a href="/TPINT_GRUPO_1_LAB4/inicio.jsp">
-		<button>Inicio</button> 
+		<button class="common-button">Inicio</button> 
 	</a>
     <h1>Modificar docente</h1>
     
@@ -109,9 +109,9 @@ if(currentUser==null){
             </tr>
         </table>
         <a href="/TPINT_GRUPO_1_LAB4/docentes/listar.jsp">
-        	<button type="button">Cancelar</button>
+        	<button class="common-button danger" type="button">Cancelar</button>
         </a>
-        <button type="submit" name="modificar">Aceptar</button>
+        <button class="common-button" type="submit" name="modificar">Aceptar</button>
     </form> 
     
     <% 
