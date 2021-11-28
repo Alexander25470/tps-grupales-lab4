@@ -58,7 +58,7 @@ if(currentUser==null){
 		}
 		
 	 %>
-	<header>	 
+	<header class="card shadows">	 
 	 	<h1>Bienvenido <%=currentUser.getNombre()%></h1>
 		<form action="/TPINT_GRUPO_1_LAB4/servletUsuario" method="POST">
 			<button class="common-button" type="submit" name="cerrarSesion">Cerrar sesión</button>

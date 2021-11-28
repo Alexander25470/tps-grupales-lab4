@@ -74,14 +74,14 @@ th, td{
  }
  
   .common-button.danger{;
-    color: #ff9aa4;
- 	border-color: #ff9aa4;
+    color: #fd5162;
+ 	border-color: #fd5162;
     background: #fff;
  }
  .common-button.danger:hover{
  	color: #fff;
-    background-color: #ff9aa4;
-    border-color: #ff9aa4;
+    background-color: #fd5162;
+    border-color: #fd5162;
  }
  
   .common-button.secondary{;

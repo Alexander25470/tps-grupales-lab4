@@ -30,7 +30,7 @@ if(currentUser==null){
 		ArrayList<Docente> listaDocentes = (ArrayList<Docente>) servletDocente.obtenerDocentes();
 		
 	 %>
- 	 <header>	 
+ 	 <header class="card shadows">	 
 	 	<h1>Usuario <%=currentUser.getNombre()%></h1>
 		<form action="/TPINT_GRUPO_1_LAB4/servletUsuario" method="POST">
 			<button class="common-button" type="submit" name="cerrarSesion">Cerrar sesión</button>
