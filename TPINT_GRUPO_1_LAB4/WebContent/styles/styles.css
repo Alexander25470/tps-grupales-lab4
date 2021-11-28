@@ -6,6 +6,10 @@ header {
    	justify-content: space-between;
 }
 
+body{
+	background: #eaf0f7;
+}
+
 input{
 	border-radius: 1rem;
 	padding: 3px 6px;
@@ -17,6 +21,7 @@ select{
 
 table.dataTable.no-footer, table.dataTable thead th{
 	border: none;
+	border-bottom: none;
 }
 
 .shadows{
@@ -26,6 +31,10 @@ table.dataTable.no-footer, table.dataTable thead th{
 	border-radius: 1rem;
 }
 
+.card{
+	background-color: #fff;
+}
+
 table{
      border-collapse: collapse;
      border-radius: 1rem;
@@ -33,7 +42,7 @@ table{
  
 th, td{
      padding: .25rem;
-     border-bottom: 2px solid #dee2e6 !important;
+     border-bottom: 2px solid #dee2e6;
      text-align: center;
 }
 

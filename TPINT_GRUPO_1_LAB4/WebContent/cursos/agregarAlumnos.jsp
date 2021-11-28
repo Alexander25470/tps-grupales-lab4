@@ -55,47 +55,49 @@ if(currentUser==null){
         <input name="idCurso" type ="text" hidden="true" value="<%=idCurso%>">
         <button class="common-button secondary" type="submit" name="">Buscar</button>
     </form>
-
-    <table  id="myTable">
-        <thead>
-            <tr>
-                <th>Legajo</th>
-                <th>Dni</th>
-                <th>Nombre y apellido</th>
-                <th>Direccion</th>
-                <th>Nacionalidad</th>
-                <th>Provincia</th>
-                <th>Email</th>
-                <th>Telefono</th>
-                <th>Acción</th>
-            </tr>
-        </thead>
-        <tbody>
-           	<%  
-				if(listaAlumnos!=null)
-				for(Alumno al : listaAlumnos) 
-			{
-			%>
-				<tr>
-					<td><%=al.getLegajo() %></td>
-	                <td><%=al.getDni() %></td>
-	                <td><%=al.getNombreApellido() %></td>
-	                <td><%=al.getDireccion() %></td>
-	                <td><%=al.getNacionalidad().getNombre()%></td>
-	                <td><%=al.getProvincia().getNombre() %></td>
-	                <td><%=al.getEmail() %></td>
-	                <td><%=al.getTelefono() %></td>
-	                <td>
-	                <form action="/TPINT_GRUPO_1_LAB4/servletNota" method="post" onsubmit="return confirmacionAgregar('<%=al.getNombreApellido()%>')">
-				        <input name="legajo" type ="text" hidden="true" value="<%=al.getLegajo()%>">
-				        <input name="idCurso" type ="text" hidden="true" value="<%=request.getParameter("idCurso")%>">
-				        <button class="common-button" name="btnAgregar" type="submit">Agregar</button>
-				    </form>
-				    </td>
-				</tr>
-			<%  } %>
-        </tbody>
-    </table>
+    
+	<div class="card shadows">
+	    <table  id="myTable">
+	        <thead>
+	            <tr>
+	                <th>Legajo</th>
+	                <th>Dni</th>
+	                <th>Nombre y apellido</th>
+	                <th>Direccion</th>
+	                <th>Nacionalidad</th>
+	                <th>Provincia</th>
+	                <th>Email</th>
+	                <th>Telefono</th>
+	                <th>Acción</th>
+	            </tr>
+	        </thead>
+	        <tbody>
+	           	<%  
+					if(listaAlumnos!=null)
+					for(Alumno al : listaAlumnos) 
+				{
+				%>
+					<tr>
+						<td><%=al.getLegajo() %></td>
+		                <td><%=al.getDni() %></td>
+		                <td><%=al.getNombreApellido() %></td>
+		                <td><%=al.getDireccion() %></td>
+		                <td><%=al.getNacionalidad().getNombre()%></td>
+		                <td><%=al.getProvincia().getNombre() %></td>
+		                <td><%=al.getEmail() %></td>
+		                <td><%=al.getTelefono() %></td>
+		                <td>
+		                <form action="/TPINT_GRUPO_1_LAB4/servletNota" method="post" onsubmit="return confirmacionAgregar('<%=al.getNombreApellido()%>')">
+					        <input name="legajo" type ="text" hidden="true" value="<%=al.getLegajo()%>">
+					        <input name="idCurso" type ="text" hidden="true" value="<%=request.getParameter("idCurso")%>">
+					        <button class="common-button" name="btnAgregar" type="submit">Agregar</button>
+					    </form>
+					    </td>
+					</tr>
+				<%  } %>
+	        </tbody>
+	    </table>
+	</div>
     <% int filas = -1;
      	if( request.getAttribute("filas") != null ){
 	     	filas = (Integer)request.getAttribute("filas");

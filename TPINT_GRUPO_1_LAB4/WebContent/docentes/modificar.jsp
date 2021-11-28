@@ -33,7 +33,7 @@ if(currentUser==null){
 		Docente doc = servletDocente.obtenerDocente(Integer.parseInt(legajo));
 		
 	 %>
-	 <header>	 
+	 <header class="card shadows">
 	 	<h1>Usuario <%=currentUser.getNombre()%></h1>
 		<form action="/TPINT_GRUPO_1_LAB4/servletUsuario" method="POST" >
 			<button class="common-button" type="submit" name="cerrarSesion">Cerrar sesión</button>
@@ -43,7 +43,6 @@ if(currentUser==null){
 		<button class="common-button">Inicio</button> 
 	</a>
     <h1>Modificar docente</h1>
-    
     <form action="/TPINT_GRUPO_1_LAB4/servletDocente" method="post" onsubmit="return confirmacionModificar('<%=doc.getNombreApellido()%>')">
         <input type="text" name="legajo" value="<%=legajo%>" hidden/>
         <table>
