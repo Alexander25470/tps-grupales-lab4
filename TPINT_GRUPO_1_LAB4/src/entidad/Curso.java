@@ -41,6 +41,18 @@ public class Curso {
 	}
 	public void setAnio(int anio) {
 		this.anio = anio;
+	}
+	@Override
+	public String toString() {
+		String strSemestre ="";
+		if(semestre == 1) {
+			strSemestre = "primer semestre";
+		} else if (semestre == 2) {
+			strSemestre = "segundo semestre";
+		} 
+		return materia.getNombre() + " - " + strSemestre + " - año " + anio;
 	}	
+	
+	
 	
 }

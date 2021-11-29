@@ -81,6 +81,9 @@ public class servletCurso extends HttpServlet {
 		}
 		return CurNeg.obtenerTodos(anio, legajo);
 	}
+	public static Curso obtenerCurso(int idCurso) {
+		return CurNeg.obtenerCurso(idCurso);
+	}
 	
 	public static ArrayList<Materia> obtenerMaterias() {
 		return matNeg.obtenerTodos();

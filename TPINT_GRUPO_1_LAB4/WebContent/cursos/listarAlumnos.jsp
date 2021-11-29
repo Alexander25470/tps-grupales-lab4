@@ -2,9 +2,11 @@
     pageEncoding="ISO-8859-1"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="entidad.Nota"%>
+<%@page import="entidad.Curso"%>
 <%@page import="entidad.Alumno"%>
 <%@page import="entidad.Nacionalidad"%>
 <%@page import="presentacion.controller.servletNota"%>
+<%@page import="presentacion.controller.servletCurso"%>
 <%@page import="entidad.Usuario"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -46,6 +48,7 @@ if(currentUser==null){
 <body>
 	<% 
 		int idCurso = Integer.parseInt(request.getParameter("idCurso"));
+		Curso cur = servletCurso.obtenerCurso(idCurso);
 		
 		ArrayList<Nota> listaNotas = (ArrayList<Nota>) servletNota.obtenerNotasCurso(idCurso);
 		
@@ -68,7 +71,7 @@ if(currentUser==null){
 		</form>
 	 </header>
 	
-	<h1>Alumnos en el curso PROG 4 2020 SEMESTRE 2</h1>
+	<h1>Alumnos en el curso: <%=cur.toString() %></h1>
 
     <form action="/TPINT_GRUPO_1_LAB4/cursos/listarAlumnos.jsp" method="get">
         Buscar por legajo

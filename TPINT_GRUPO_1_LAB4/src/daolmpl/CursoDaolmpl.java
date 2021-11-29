@@ -87,6 +87,49 @@ public class CursoDaolmpl implements CursoDao {
 	}
 
 	@Override
+	public Curso obtenerCurso(int idCurso) {
+		Conexion cn = new Conexion();
+		Curso cur = new Curso();
+		try
+		 {
+			 cn.AbrirConexion();
+			 String query ="SELECT cur.*, mat.Nombre as nombreMat, doc.nombreApellido as nombreApellidoProfesor FROM cursos cur inner "
+				 		+ "join materias as mat on mat.id = cur.ID_Materia inner join docentes as doc on doc.legajo = cur.legajo WHERE cur.id= "+idCurso+" LIMIT 1";
+			 ResultSet rs= cn.query(query);
+			 while(rs.next())
+			 {
+				 Materia mat = new Materia();
+				 Docente doc = new Docente();
+				 
+				 cur.setId(rs.getInt("id"));
+				 cur.setSemestre(rs.getInt("semestre"));
+				 
+				 doc.setLegajo(Integer.parseInt(rs.getString("legajo")));
+				 doc.setNombreApellido(rs.getString("nombreApellidoProfesor"));
+				 cur.setDocente(doc);
+				 
+				 mat.setId(Integer.parseInt(rs.getString("ID_Materia")));
+				 mat.setNombre(rs.getString("nombreMat"));
+				 cur.setMateria(mat);
+				 
+				 cur.setAnio(Integer.parseInt(rs.getString("anio")));
+				 
+			 }
+			 
+		 }
+		 catch(Exception e)
+		 {
+			 e.printStackTrace();
+		 }
+		 finally
+		 {
+			 cn.close();
+		 }
+		return cur;
+	}
+
+	
+	@Override
 	public ArrayList<Alumno> obtenerAlumnosQueNoEstanEnCurso(int idCurso) {
 		Conexion cn = new Conexion();
 		ArrayList<Alumno> alumnos = new ArrayList<Alumno>();
