@@ -55,7 +55,7 @@ if(currentUser==null){
         <input type="number" name="buscarLegajo" value="<%=legajoaBuscar%>" >
         <button class="common-button secondary" type="submit">Buscar</button>
     </form>
-    <a href="agregar.jsp">
+    <a href="/TPINT_GRUPO_1_LAB4/docentes/agregar.jsp">
 		<button class="common-button secondary">Agregar nuevo docente</button> 
     </a>
     <div class="card shadows">
