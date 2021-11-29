@@ -78,8 +78,9 @@ public class servletAlumnos extends HttpServlet {
 			
 		}else if(request.getParameter("btnEliminar")!=null) 
 		{
-			aluNeg.eliminar(Integer.parseInt(request.getParameter("legajo")));
+			int filas = aluNeg.eliminar(Integer.parseInt(request.getParameter("legajo")));
 			request.setAttribute("eliminado", true);
+			request.setAttribute("filasEliminado", filas);
 			RequestDispatcher rd = request.getRequestDispatcher("/alumnos/listar.jsp");   
 	        rd.forward(request, response);    
 			

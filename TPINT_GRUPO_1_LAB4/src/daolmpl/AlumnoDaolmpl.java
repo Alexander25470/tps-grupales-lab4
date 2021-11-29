@@ -130,7 +130,7 @@ public class AlumnoDaolmpl implements AlumnoDao {
 	@Override
 	public int eliminar(int legajo) {
 		Conexion cn = new Conexion();
-		int filas = -1;
+		int filas = 0;
 		try {
 			
 			cn.AbrirConexion();

@@ -57,48 +57,61 @@ if(currentUser==null){
 		<button class="common-button secondary">Agregar nuevo alumno</button>
     </a>
     <div class="card shadows">
-    <table id="myTable">
-        <thead>
-            <tr>
-                <th>Legajo</th>
-                <th>Dni</th>
-                <th>Nombre y apellido</th>
-                <th>Direccion</th>
-                <th>Nacionalidad</th>
-                <th>Provincia</th>
-                <th>Email</th>
-                <th>Telefono</th>
-                <th>Acciones</th>
-            </tr>
-        </thead>
-        <tbody>
-			<%  
-				if(listaAlumnos!=null)
-				for(Alumno al : listaAlumnos) 
-			{
-			%>
-				<tr>
-					<td><%=al.getLegajo() %></td>
-	                <td><%=al.getDni() %></td>
-	                <td><%=al.getNombreApellido() %></td>
-	                <td><%=al.getDireccion() %></td>
-	                <td><%=al.getNacionalidad().getNombre()%></td>
-	                <td><%=al.getProvincia().getNombre() %></td>
-	                <td><%=al.getEmail() %></td>
-	                <td><%=al.getTelefono() %></td>
-	                <td><a href="/TPINT_GRUPO_1_LAB4/alumnos/modificar.jsp?legajo=<%=al.getLegajo()%>"><button class="common-button secondary">Modificar</button></a>
-	                <form action="/TPINT_GRUPO_1_LAB4/servletAlumnos" method="post" onsubmit="return confirmacionEliminar('<%=al.getNombreApellido()%>')">
-				        <input name="legajo" type ="text" hidden="true" value="<%=al.getLegajo()%>">
-				        <button class="common-button danger" name="btnEliminar" type="submit" value="eliminar">Eliminar</button>
-				    </form>
-				    </td>
-				</tr>
-			<%  } %>
-			
-			
-        </tbody>
-    </table>
+	    <table id="myTable">
+	        <thead>
+	            <tr>
+	                <th>Legajo</th>
+	                <th>Dni</th>
+	                <th>Nombre y apellido</th>
+	                <th>Direccion</th>
+	                <th>Nacionalidad</th>
+	                <th>Provincia</th>
+	                <th>Email</th>
+	                <th>Telefono</th>
+	                <th>Acciones</th>
+	            </tr>
+	        </thead>
+	        <tbody>
+				<%  
+					if(listaAlumnos!=null)
+					for(Alumno al : listaAlumnos) 
+				{
+				%>
+					<tr>
+						<td><%=al.getLegajo() %></td>
+		                <td><%=al.getDni() %></td>
+		                <td><%=al.getNombreApellido() %></td>
+		                <td><%=al.getDireccion() %></td>
+		                <td><%=al.getNacionalidad().getNombre()%></td>
+		                <td><%=al.getProvincia().getNombre() %></td>
+		                <td><%=al.getEmail() %></td>
+		                <td><%=al.getTelefono() %></td>
+		                <td><a href="/TPINT_GRUPO_1_LAB4/alumnos/modificar.jsp?legajo=<%=al.getLegajo()%>"><button class="common-button secondary">Modificar</button></a>
+		                <form action="/TPINT_GRUPO_1_LAB4/servletAlumnos" method="post" onsubmit="return confirmacionEliminar('<%=al.getNombreApellido()%>')">
+					        <input name="legajo" type ="text" hidden="true" value="<%=al.getLegajo()%>">
+					        <button class="common-button danger" name="btnEliminar" type="submit" value="eliminar">Eliminar</button>
+					    </form>
+					    </td>
+					</tr>
+				<%  } %>
+	        </tbody>
+	    </table>
     </div>
+     <% int filasEliminado = -1;
+     	if( request.getAttribute("filasEliminado") != null ){
+	     	filasEliminado = (Integer)request.getAttribute("filasEliminado");
+     	}
+    	if(filasEliminado>0){
+     %>
+    	<script type="text/javascript">
+			alert("El alumno ha sido eliminado con exito");
+		</script>
+     <%}else if(filasEliminado == 0){
+    	 %>
+    	 <script type="text/javascript">
+			alert("El alumno no ha podido ser eliminado");
+		</script>
+     <%}%>
     <script type="text/javascript">
     	$(document).ready( () => {
 		    $('#myTable').DataTable({

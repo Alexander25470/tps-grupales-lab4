@@ -64,8 +64,10 @@ public class servletDocente extends HttpServlet {
 			
 		}else if(request.getParameter("btnEliminar")!=null) 
 		{
-			docNeg.eliminar(Integer.parseInt(request.getParameter("legajo")));
+			filas = docNeg.eliminar(Integer.parseInt(request.getParameter("legajo")));
 			request.setAttribute("eliminado", true);
+			
+			request.setAttribute("filasEliminado", filas);
 			RequestDispatcher rd = request.getRequestDispatcher("/docentes/listar.jsp");   
 	        rd.forward(request, response);    
 			

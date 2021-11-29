@@ -99,6 +99,21 @@ if(currentUser==null){
         </tbody>
     </table>
    </div>
+     <% int filasEliminado = -1;
+     	if( request.getAttribute("filasEliminado") != null ){
+	     	filasEliminado = (Integer)request.getAttribute("filasEliminado");
+     	}
+    	if(filasEliminado>0){
+     %>
+    	<script type="text/javascript">
+			alert("El docente ha sido eliminado con exito");
+		</script>
+     <%}else if(filasEliminado == 0){
+    	 %>
+    	 <script type="text/javascript">
+			alert("El docente no ha podido ser eliminado");
+		</script>
+     <%}%>
     <script type="text/javascript">
     	$(document).ready( () => {
 		    $('#myTable').DataTable({
