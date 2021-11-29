@@ -1,3 +1,4 @@
+
 header {
    	display: flex;
    	flex-direction: row;
@@ -10,7 +11,7 @@ body{
 	background: #eaf0f7;
 }
 
-input{
+input, select{
 	border-radius: 1rem;
 	padding: 3px 6px;
 }
@@ -84,6 +85,10 @@ th, td{
     border-color: #fd5162;
  }
  
+ p.danger{
+ 	color: #fd5162;
+ }
+ 
   .common-button.secondary{;
     color: #6c757d;
  	border-color: #6c757d;
@@ -95,11 +100,10 @@ th, td{
     border-color: #6c757d;
  }
  
- #inicio  .common-button{
- 	margin: 1em;
+ #inicio .common-button, form.login .common-button, .form-table .common-button{
+ 	margin: 1rem;
  }
- 
- 
+
 a{
 	text-decoration: none;
 }
@@ -109,4 +113,26 @@ a{
  	flex-direction: row;
  	flex-wrap: wrap;
  	justify-content: center;
+}
+
+form.login, .form-table{
+	display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 3rem;
+}
+
+
+
+form.login p{
+	font-size: 1.5rem;
+	margin: 1rem;
+}
+
+.col.modificacion-masiva>div{
+	flex-grow: 1;
+}
+
+.col.modificacion-masiva h3{
+	text-align: center;
 }

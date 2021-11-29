@@ -15,18 +15,19 @@ if(currentUser==null){
 	response.sendRedirect("/TPINT_GRUPO_1_LAB4/login.jsp");
 	System.out.println("No hay usuario");
 } else {%>
-  	<header class="card shadows">	 
+  	<header class="card shadows">
+  		<p></p>
 	 	<h1>Bienvenido <%=currentUser.getNombre()%></h1>
 		<form action="/TPINT_GRUPO_1_LAB4/servletUsuario" method="POST">
-			<button type="submit" name="cerrarSesion" class="common-button">Cerrar sesión</button>
+			<button type="submit" name="cerrarSesion" class="common-button danger">Cerrar sesión</button>
 		</form>
 	 </header>
-	 <section id="inicio">	 
-		<div class="col">
+	 <section id="inicio" class="row">	 
+		<div class="col card shadows">
 			<div class="row-center">
 				<h2>Seleccione que desea ver</h2>
 			</div>
-			<div class="row-center">
+			<div class="row-center ">
 				<% 
 				if(currentUser.isAdmin())
 				{%>

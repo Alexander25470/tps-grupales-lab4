@@ -58,15 +58,16 @@ if(currentUser==null){
 		}
 		
 	 %>
-	<header class="card shadows">	 
+	<header class="card shadows">
+		<a href="/TPINT_GRUPO_1_LAB4/inicio.jsp">
+			<button class="common-button">Inicio</button> 
+		</a> 
 	 	<h1>Bienvenido <%=currentUser.getNombre()%></h1>
 		<form action="/TPINT_GRUPO_1_LAB4/servletUsuario" method="POST">
-			<button class="common-button" type="submit" name="cerrarSesion">Cerrar sesión</button>
+			<button class="common-button danger" type="submit" name="cerrarSesion">Cerrar sesión</button>
 		</form>
 	 </header>
-	<a href="/TPINT_GRUPO_1_LAB4/inicio.jsp">
-		<button class="common-button">Inicio</button> 
-	</a> 
+	
 	<h1>Alumnos en el curso PROG 4 2020 SEMESTRE 2</h1>
 
     <form action="/TPINT_GRUPO_1_LAB4/cursos/listarAlumnos.jsp" method="get">
@@ -153,7 +154,7 @@ if(currentUser==null){
 		{%>
 		<h2>Modificacion masiva</h2>
 		<div class="row">
-			<div class="col">
+			<div class="col card shadows modificacion-masiva">
 				<h3>Notas</h3>
 		   		<p>Seleccione la nota a modificar/cargar</p>
 		    	<select name="examen">
@@ -176,15 +177,18 @@ if(currentUser==null){
 				    	<p>Nota modificada con exito</p>
 				     <%}else if(filasNotas == 0){
 				    	 %>
-				    	 <p>La nota no ha podido ser modificada</p>
+				    	 <p class="danger">La nota no ha podido ser modificada</p>
 				     <%}%>
 			</div>
-			<div class="col">
-				<h3>Estado</h3>
-				<select name="estado"  form="formularioEstadoMasivo" > 
-	                <option value="1">Regular</option>
-	                <option value="2">Libre</option>  
-                </select>
+			<div class="col card shadows modificacion-masiva">
+				<div>
+					<h3>Estado</h3>
+					<p>Seleccione el estado que desea aplicar</p>
+					<select name="estado"  form="formularioEstadoMasivo" > 
+		                <option value="1">Regular</option>
+		                <option value="2">Libre</option>  
+	                </select>
+				</div>
                 <input name="idCurso" type ="text" hidden="true" value="<%=idCurso%>"  form="formularioEstadoMasivo">
                 <button class="common-button" type="submit" name="btnGuardarEstadoMasivo"  form="formularioEstadoMasivo" >Guardar estado</button>
                 <% 
@@ -197,7 +201,7 @@ if(currentUser==null){
 				    	<p>Estado modificado con exito</p>
 				     <%}else if(filasEstadoMasivo == 0){
 				    	 %>
-				    	 <p>El estado no ha podido ser modificado</p>
+				    	 <p class="danger">El estado no ha podido ser modificado</p>
 				     <%}%>
 			</div>
 		</div>

@@ -32,21 +32,22 @@
 		
 	 %>
  	 <%if(currentUser != null) {%>
-	 	 <header class="card shadows">	 
+	 	 <header class="card shadows">
+		 	 <a href="/TPINT_GRUPO_1_LAB4/inicio.jsp">
+				<button class="common-button">Inicio</button> 
+			</a> 
 		 	<h1>Usuario <%=currentUser.getNombre()%></h1>
 			<form action="/TPINT_GRUPO_1_LAB4/servletUsuario" method="POST">
-				<button class="common-button" type="submit" name="cerrarSesion">Cerrar sesión</button>
+				<button class="common-button danger" type="submit" name="cerrarSesion">Cerrar sesión</button>
 			</form>
 		 </header>
 	<%} %>
-	<a href="/TPINT_GRUPO_1_LAB4/inicio.jsp">
-		<button class="common-button">Inicio</button> 
-	</a> 
+	
 	<h1>Cursos</h1>
     <form action="/TPINT_GRUPO_1_LAB4/cursos/listar.jsp" method="get">
-        buscar por año
+        Buscar por año
         <input type="number" name="anio" min="0" value="<%=request.getParameter("anio")%>">
-        <button class="common-button secondary" type="submit">Buscar</button>
+       <button class="common-button secondary" type="submit">Buscar</button>
     </form>
     <br/>
     <% 

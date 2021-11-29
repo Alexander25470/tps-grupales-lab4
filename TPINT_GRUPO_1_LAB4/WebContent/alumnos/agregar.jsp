@@ -33,91 +33,96 @@ if(currentUser==null){
  %>
 
 	 <header class="card shadows">	 
+ 		<a href="/TPINT_GRUPO_1_LAB4/inicio.jsp">
+			<button class="common-button">Inicio</button> 
+		</a> 
 	 	<h1>Usuario <%=currentUser.getNombre()%></h1>
 		<form action="/TPINT_GRUPO_1_LAB4/servletUsuario" method="POST">
-			<button class="common-button" type="submit" name="cerrarSesion">Cerrar sesión</button>
+			<button class="common-button danger" type="submit" name="cerrarSesion">Cerrar sesión</button>
 		</form>
 	 </header>
-	 
-	<a href="/TPINT_GRUPO_1_LAB4/inicio.jsp">
-		<button class="common-button">Inicio</button> 
-	</a> 
-    <h1>Agregar alumno</h1>
-    <form action="/TPINT_GRUPO_1_LAB4/servletAlumnos" method="post" onsubmit="return confirmacionAgregar()">
-        <table>
-            <tr>
-                <td>Dni</td>
-                <td><input type="number" min="0" name="dni" required></td>
-            </tr>
-            <tr>
-                <td>Nombre y apellido</td>
-                <td><input type="text" name="nombreApellido" id="nombreApellido" required></td>
-            </tr>
-             <tr>
-                <td>Fecha de nacimiento</td>
-                <td><input type="date" name="fechaNac" required></td>
-            </tr>
-            <tr>
-                <td>Direccion</td>
-                <td><input type="text" name="direccion" required></td>
-            </tr>
-             <tr>
-                <td>Nacionalidad</td>
-                <td>
-	                <select name="seleccionarNacionalidad" required>
-						<%
-						if(listaNacionalidades!=null)
-							for (Nacionalidad nac : listaNacionalidades) {
-						%>
-						<option value="<%=nac.getId()%>"><%=nac.getNombre()%></option>
-						<%
-							}
-						%>
-					</select>
-				</td>
-            </tr>
-            <tr>
-                <td>Provincia</td>
-                <td>
-	                <select name="seleccionarProvincia" required>
-						<%
-						if(listaProvincias!=null)
-							for (Provincia prov : listaProvincias) {
-						%>
-						<option value="<%=prov.getId()%>"><%=prov.getNombre()%></option>
-						<%
-							}
-						%>
-					</select>
-				</td>
-            </tr>
-            <tr>
-                <td>Email</td>
-                <td><input type="email" name="email" required></td>
-            </tr>
-            <tr>
-                <td>Telefono</td>
-                <td><input type="number" name="telefono" required></td>
-            </tr>
-        </table>
-        <a href="/TPINT_GRUPO_1_LAB4/alumnos/listar.jsp"><button class="common-button danger" type="button">Volver</button> 
-        <button class="common-button" type="submit" name="btnAgregar">Aceptar</button>
-        </a>
-    </form>
-    
-    
-     <% 
-     	int filas = -1;
-     	if( request.getAttribute("filas") != null ){
-	     	filas = (Integer)request.getAttribute("filas");
-     	}
-    	if(filas>0){
-     %>
-    	<p>Alumno agregado con exito</p>
-     <%}else if(filas == 0){
-    	 %>
-    	 <p>El Alumno no ha podido ser agregado</p>
-     <%}%>
+	 <div class="row">
+		<div class="form-table card shadows">
+		    <h1>Agregar alumno</h1>
+		    <form action="/TPINT_GRUPO_1_LAB4/servletAlumnos" method="post" onsubmit="return confirmacionAgregar()">
+		        <table>
+		            <tr>
+		                <td>Dni</td>
+		                <td><input type="number" min="0" name="dni" required></td>
+		            </tr>
+		            <tr>
+		                <td>Nombre y apellido</td>
+		                <td><input type="text" name="nombreApellido" id="nombreApellido" required></td>
+		            </tr>
+		             <tr>
+		                <td>Fecha de nacimiento</td>
+		                <td><input type="date" name="fechaNac" required></td>
+		            </tr>
+		            <tr>
+		                <td>Direccion</td>
+		                <td><input type="text" name="direccion" required></td>
+		            </tr>
+		             <tr>
+		                <td>Nacionalidad</td>
+		                <td>
+			                <select name="seleccionarNacionalidad" required>
+								<%
+								if(listaNacionalidades!=null)
+									for (Nacionalidad nac : listaNacionalidades) {
+								%>
+								<option value="<%=nac.getId()%>"><%=nac.getNombre()%></option>
+								<%
+									}
+								%>
+							</select>
+						</td>
+		            </tr>
+		            <tr>
+		                <td>Provincia</td>
+		                <td>
+			                <select name="seleccionarProvincia" required>
+								<%
+								if(listaProvincias!=null)
+									for (Provincia prov : listaProvincias) {
+								%>
+								<option value="<%=prov.getId()%>"><%=prov.getNombre()%></option>
+								<%
+									}
+								%>
+							</select>
+						</td>
+		            </tr>
+		            <tr>
+		                <td>Email</td>
+		                <td><input type="email" name="email" required></td>
+		            </tr>
+		            <tr>
+		                <td>Telefono</td>
+		                <td><input type="number" name="telefono" required></td>
+		            </tr>
+		        </table>
+		        <div class="row">		        
+			        <a href="/TPINT_GRUPO_1_LAB4/alumnos/listar.jsp"><button class="common-button danger" type="button">Volver</button> 
+			        <button class="common-button" type="submit" name="btnAgregar">Aceptar</button>
+		        </div>
+		        </a>
+		    </form>
+		    
+		    
+		     <% 
+		     	int filas = -1;
+		     	if( request.getAttribute("filas") != null ){
+			     	filas = (Integer)request.getAttribute("filas");
+		     	}
+		    	if(filas>0){
+		     %>
+		    	<p>Alumno agregado con exito</p>
+		     <%}else if(filas == 0){
+		    	 %>
+		    	 <p class="danger">El Alumno no ha podido ser agregado</p>
+		     <%}%>
+		</div>
+	</div>
 </body>
 <%  } %>
 </html>

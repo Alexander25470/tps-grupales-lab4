@@ -38,15 +38,16 @@ if(currentUser==null){
 			listaAlumnos = (ArrayList<Alumno>) servletCurso.obtenerAlumnosQueNoEstanEnCurso(idCurso);
 		}
 	 %>
-	 <header class="card shadows">	 
+	 <header class="card shadows">
+		<a href="/TPINT_GRUPO_1_LAB4/inicio.jsp">
+			<button class="common-button">Inicio</button> 
+		</a> 
 	 	<h1>Usuario <%=currentUser.getNombre()%></h1>
 		<form action="/TPINT_GRUPO_1_LAB4/servletUsuario" method="POST">
-			<button class="common-button" type="submit" name="cerrarSesion">Cerrar sesión</button>
+			<button class="common-button danger" type="submit" name="cerrarSesion">Cerrar sesión</button>
 		</form>
 	 </header>
-	<a href="/TPINT_GRUPO_1_LAB4/inicio.jsp">
-		<button class="common-button">Inicio</button> 
-	</a> 
+	
 	<h1>Agregar almunos al curso PROG 4 2020 SEMESTRE 2</h1>
 
     <form action="/TPINT_GRUPO_1_LAB4/cursos/agregarAlumnos.jsp" method="get">

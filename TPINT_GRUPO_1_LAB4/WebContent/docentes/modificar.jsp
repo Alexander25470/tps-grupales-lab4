@@ -34,98 +34,103 @@ if(currentUser==null){
 		
 	 %>
 	 <header class="card shadows">
+		<a href="/TPINT_GRUPO_1_LAB4/inicio.jsp">
+			<button class="common-button">Inicio</button> 
+		</a>
 	 	<h1>Usuario <%=currentUser.getNombre()%></h1>
 		<form action="/TPINT_GRUPO_1_LAB4/servletUsuario" method="POST" >
-			<button class="common-button" type="submit" name="cerrarSesion">Cerrar sesión</button>
+			<button class="common-button danger" type="submit" name="cerrarSesion">Cerrar sesión</button>
 		</form>
 	 </header>
-	<a href="/TPINT_GRUPO_1_LAB4/inicio.jsp">
-		<button class="common-button">Inicio</button> 
-	</a>
-    <h1>Modificar docente</h1>
-    <form action="/TPINT_GRUPO_1_LAB4/servletDocente" method="post" onsubmit="return confirmacionModificar('<%=doc.getNombreApellido()%>')">
-        <input type="text" name="legajo" value="<%=legajo%>" hidden/>
-        <table>
-            <tr>
-                <td>Legajo</td>
-                <td><%= request.getParameter("legajo") %></td>
-            </tr>
-            <tr>
-                <td>Dni</td>
-                <td><input  type="number" min="0" name="dni" required value="<%=doc.getDni()%>"></td>
-            </tr>
-            <tr>
-                <td>Nombre y apellido</td>
-                <td><input type="text" name="nombreApellido" id="nombreApellido" required value="<%=doc.getNombreApellido()%>"></td>
-            </tr>
-            <tr>
-            	<td>Fecha de nacimiento</td>
-	             <td>
-	            	 <input type="date" name="fechaNac" required value="<%=doc.getFechaNac()%>">
-	             </td>
-            </tr>
-            <tr>
-                <td>Direccion</td>
-                <td><input type="text" name="direccion" required value="<%=doc.getDireccion()%>"></td>
-            </tr>
-            <tr>
-                <td>Localidad</td>
-                <td>
-					<select name="idLocalidad" required>
-						<%
-						if(listaLocalidades!=null)
-							for (Localidad loc : listaLocalidades) {
-						%>
-						<option value="<%=loc.getId()%>" <%=loc.getId()==doc.getLocalidad().getId()?"selected":"" %>><%=loc.getNombre()%></option>
-						<%
-							}
-						%>
-					</select>
-				</td>
-            </tr>
-            <tr>
-                <td>Nacionalidad</td>
-                <td>
-	                <select name="idNacionalidad" required>
-						<%
-						if(listaNacionalidades!=null)
-							for (Nacionalidad nac : listaNacionalidades) {
-						%>
-						<option value="<%=nac.getId()%>" <%=nac.getId()==doc.getNacionalidad().getId()?"selected":"" %>><%=nac.getNombre()%></option>
-						<%
-							}
-						%>
-					</select>
-				</td>
-            </tr>
-            <tr>
-                <td>Email</td>
-                <td><input type="email" name="email" required value="<%=doc.getEmail()%>"></td>
-            </tr>
-            <tr>
-                <td>Telefono</td>
-                <td><input type="number" name="telefono" required value="<%=doc.getTelefono()%>"></td>
-            </tr>
-        </table>
-        <a href="/TPINT_GRUPO_1_LAB4/docentes/listar.jsp">
-        	<button class="common-button danger" type="button">Cancelar</button>
-        </a>
-        <button class="common-button" type="submit" name="modificar">Aceptar</button>
-    </form> 
-    
-    <% 
-     	int filas = -1;
-     	if( request.getAttribute("filas") != null ){
-	     	filas = (Integer)request.getAttribute("filas");
-     	}
-    	if(filas>0){
-     %>
-    	<p>Docente modificado con exito</p>
-     <%}else if(filas == 0){
-    	 %>
-    	 <p>El Docente no ha podido ser modificado</p>
-     <%}%>
-
+	<div class="row">
+		<div class="form-table card shadows">
+		    <h1>Modificar docente</h1>
+		    <form action="/TPINT_GRUPO_1_LAB4/servletDocente" method="post" onsubmit="return confirmacionModificar('<%=doc.getNombreApellido()%>')">
+		        <input type="text" name="legajo" value="<%=legajo%>" hidden/>
+		        <table>
+		            <tr>
+		                <td>Legajo</td>
+		                <td><%= request.getParameter("legajo") %></td>
+		            </tr>
+		            <tr>
+		                <td>Dni</td>
+		                <td><input  type="number" min="0" name="dni" required value="<%=doc.getDni()%>"></td>
+		            </tr>
+		            <tr>
+		                <td>Nombre y apellido</td>
+		                <td><input type="text" name="nombreApellido" id="nombreApellido" required value="<%=doc.getNombreApellido()%>"></td>
+		            </tr>
+		            <tr>
+		            	<td>Fecha de nacimiento</td>
+			             <td>
+			            	 <input type="date" name="fechaNac" required value="<%=doc.getFechaNac()%>">
+			             </td>
+		            </tr>
+		            <tr>
+		                <td>Direccion</td>
+		                <td><input type="text" name="direccion" required value="<%=doc.getDireccion()%>"></td>
+		            </tr>
+		            <tr>
+		                <td>Localidad</td>
+		                <td>
+							<select name="idLocalidad" required>
+								<%
+								if(listaLocalidades!=null)
+									for (Localidad loc : listaLocalidades) {
+								%>
+								<option value="<%=loc.getId()%>" <%=loc.getId()==doc.getLocalidad().getId()?"selected":"" %>><%=loc.getNombre()%></option>
+								<%
+									}
+								%>
+							</select>
+						</td>
+		            </tr>
+		            <tr>
+		                <td>Nacionalidad</td>
+		                <td>
+			                <select name="idNacionalidad" required>
+								<%
+								if(listaNacionalidades!=null)
+									for (Nacionalidad nac : listaNacionalidades) {
+								%>
+								<option value="<%=nac.getId()%>" <%=nac.getId()==doc.getNacionalidad().getId()?"selected":"" %>><%=nac.getNombre()%></option>
+								<%
+									}
+								%>
+							</select>
+						</td>
+		            </tr>
+		            <tr>
+		                <td>Email</td>
+		                <td><input type="email" name="email" required value="<%=doc.getEmail()%>"></td>
+		            </tr>
+		            <tr>
+		                <td>Telefono</td>
+		                <td><input type="number" name="telefono" required value="<%=doc.getTelefono()%>"></td>
+		            </tr>
+		        </table>
+		        <div class="row">
+			        <a href="/TPINT_GRUPO_1_LAB4/docentes/listar.jsp">
+			        	<button class="common-button danger" type="button">Cancelar</button>
+			        </a>
+			        <button class="common-button" type="submit" name="modificar">Aceptar</button>
+		        </div>
+		    </form> 
+		    
+		    <% 
+		     	int filas = -1;
+		     	if( request.getAttribute("filas") != null ){
+			     	filas = (Integer)request.getAttribute("filas");
+		     	}
+		    	if(filas>0){
+		     %>
+		    	<p>Docente modificado con exito</p>
+		     <%}else if(filas == 0){
+		    	 %>
+		    	 <p class="danger">El Docente no ha podido ser modificado</p>
+		     <%}%>
+		</div>
+	</div>
 </body>
 <%} %>
 </html>

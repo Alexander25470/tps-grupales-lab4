@@ -8,17 +8,20 @@
 	<link rel="stylesheet" type="text/css" href="/TPINT_GRUPO_1_LAB4/styles/styles.css">
 </head>
 <body>
-	<form action="/TPINT_GRUPO_1_LAB4/servletUsuario" method="POST">
-		<p>Usuario</p>
-		<input type="text" name="usuario" required/>
-		<p>Constraseña</p>
-		<input type="password" name="contrasenia" required/>
-		<button class="common-button" type="submit" name="login">Ingresar</button>
-	</form>
-	<%
-		if(request.getAttribute("noEncontrado") != null){
-	%>
-		<p>Credenciales invalidas.</p>
-	<%}%>
+	<div class="row">
+		<form action="/TPINT_GRUPO_1_LAB4/servletUsuario" method="POST"  class="card shadows login">
+			<p>Usuario</p>
+			<input type="text" name="usuario" required/>
+			<p>Constraseña</p>
+			<input type="password" name="contrasenia" required/>
+			<button class="common-button" type="submit" name="login">Ingresar</button>
+				<%
+					if(request.getAttribute("noEncontrado") != null){
+				%>
+					<p class="danger">Credenciales invalidas.</p>
+				<%}%>
+		</form>
+	</div>
+
 </body>
 </html>
