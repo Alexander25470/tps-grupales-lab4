@@ -144,7 +144,12 @@ VALUES (1,'regular'),(2,'libre');
 insert into cursos
 (ID_Materia,legajo,semestre,anio)
 VALUES('1','1','1',2021),
-('2','2','1',2021);
+('2','2','1',2021),
+('3','3','1',2020),
+('6','4','2',2020),
+('4','5','1',2021),
+('5','3','2',2020);
+
 
 insert into NOTAS 
 (legajo,ID_Curso,parcial1,parcial2,recuperatorio1,recuperatorio2,estado)
@@ -154,7 +159,11 @@ VALUES(1,1,10,8,null,null,1),
 insert into USUARIOS
 (legajo_docente,nombre,contrasenia,administrador)
 VALUES(1,'MariaUser','mariaadmin',0),
-(null,'Admin1','administradorincognito',1);
+(null,'Admin1','1234',1),
+(2,'ErnestoUser','ernestoadmin',0),
+(3,'JoseUser','joseadmin',0),
+(4,'GabrielaUser','gabrielaadmin',0),
+(5,'JuanUser','juanadmin',0);
 
 
 
