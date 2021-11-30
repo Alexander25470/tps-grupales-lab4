@@ -117,7 +117,10 @@ VALUES(1,'Matematica'),('2','Programacion'),('3','Ingles'),
 insert into docentes
 (dni,nombreApellido,fechaNac,ID_Nacionalidad,ID_Localidad,direccion,email,telefono,estado)
 VALUES('33859632','Maria Perez','1992/10/02','1','3','Av.Libertador 1050','maria@gmail.com','1169325452',1),
-('30506231','Ernesto Fernandez','1990/08/10','5','5','8 de Octubre 3058','ErnestoFe@hotmail.com','1178321052',1);
+('30506231','Ernesto Fernandez','1990/08/10','5','5','8 de Octubre 3058','ErnestoFe@hotmail.com','1178321052',1),
+('30334678','Jose Morales','1990/06/20','1','3','Acacia 5921','JoseMora@hotmail.com','1166560209',1),
+('31586592','Gabriela Rodriguez','1991/12/09','2','6','1 de Julio 7654','GabiRodgriguez@hotmail.com','1184391072',1),
+('31233887','Juan Herrera','1991/10/04','3','4','25 de Mayo 1324','juan@hotmail.com','1121437788',1);
 
 insert into alumnos
 (dni,nombreApellido,fechaNac,ID_Nacionalidad,ID_Provincia,direccion,email,telefono,estado)
