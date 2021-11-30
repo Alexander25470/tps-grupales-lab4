@@ -52,6 +52,7 @@ if(currentUser==null){
 	 </header>
 	
 	<h1>Alumnos en el curso: <%=cur.toString() %></h1>
+	<p>Docente: <%=cur.getDocente().getNombreApellido()%></p>
 
     <form action="/TPINT_GRUPO_1_LAB4/cursos/agregarAlumnos.jsp" method="get">
         Buscar por legajo
