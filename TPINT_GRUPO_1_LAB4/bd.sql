@@ -154,7 +154,11 @@ VALUES('1','1','1',2021),
 insert into NOTAS 
 (legajo,ID_Curso,parcial1,parcial2,recuperatorio1,recuperatorio2,estado)
 VALUES(1,1,10,8,null,null,1),
-(2,2,5,5,7,8,1);
+(2,2,5,5,7,8,1),
+(4,3,9,7,0,0,1),
+(3,4,4,null,null,null,1),
+(7,5,3,4,8,6,1),
+(6,6,6,4,null,null,1);
 
 insert into USUARIOS
 (legajo_docente,nombre,contrasenia,administrador)
